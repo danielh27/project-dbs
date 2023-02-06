@@ -1,0 +1,7 @@
+<li class="nav-item dropdown">
+  <%= render User::AvatarComponent.new(classes: "dropdown-toggle", data: { bs_toggle: "dropdown" }) %>
+  <div class="dropdown-menu dropdown-menu-end">
+    <%= link_to "My account", edit_user_registration_path, class: "dropdown-item" %>
+    <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
+  </div>
+</li>
