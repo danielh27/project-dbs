@@ -10,6 +10,7 @@
     <%= f.input :cellphone, disabled: true %>
 
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :photo, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
