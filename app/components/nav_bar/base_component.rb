@@ -10,7 +10,7 @@ module NavBar
 
     def component
       if user.present?
-        NavBar::UserComponent.new
+        NavBar::UserComponent.new(user)
       else
         NavBar::GuestComponent.new
       end
