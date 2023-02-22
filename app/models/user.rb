@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  before_create :set_nickname_last_updated
+  validates :nickname, presence: true, length: {minimum:10, message: "must be at least 10 characters long"}
+
+  before_update :set_nickname_last_updated
   before_update :update_nickname_last_updated, if: :nickname_changed?
 
   def set_nickname_last_updated
