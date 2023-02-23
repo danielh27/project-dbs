@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many :addresses
 
   validates :nickname, presence: true, length: {minimum:10, message: "must be at least 10 characters long"}
 
