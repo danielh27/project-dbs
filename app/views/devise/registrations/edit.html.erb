@@ -9,6 +9,10 @@
     <%= f.input :dni, disabled: true %>
     <%= f.input :cellphone, disabled: true %>
 
+    <%= f.simple_fields_for :address do |a| %>
+      <%= a.input :main_address %>
+    <% end %>
+
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :avatar, as: :file, autofocus: true %>
 

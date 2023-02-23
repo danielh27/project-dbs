@@ -4,13 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :avatar
-  has_many :addresses
-
-  validates :nickname, presence: true, length: {minimum:10, message: "must be at least 10 characters long"}
-
   before_update :set_nickname_last_updated
   before_update :update_nickname_last_updated, if: :nickname_changed?
+
+  has_one_attached :avatar
+  has_one :address
+
+  accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
+
+  validates :nickname, presence: true
 
   def set_nickname_last_updated
     self.nickname_last_updated = Date.current if nickname.present?
