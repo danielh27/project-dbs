@@ -43,15 +43,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_024511) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "main_address"
+    t.string "main_address", null: false
     t.string "secondary_address"
     t.bigint "user_id", null: false
-    t.string "city"
+    t.string "city", null: false
     t.string "state"
-    t.string "country"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "zipcode"
+    t.string "country", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "zipcode", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
