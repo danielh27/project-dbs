@@ -1,1 +1,5 @@
-<%= image_tag "https://source.unsplash.com/random/?avatar", class: "avatar #{classes}", alt: "avatar", data: %>
+<% if user.avatar.key %>
+  <%= cl_image_tag user.avatar.key, class: "avatar #{classes}", alt: "avatar", data: %>
+<% else %>
+  <%= image_tag "https://source.unsplash.com/random/?avatar", class: "avatar #{classes}", alt: "avatar", data: %>
+<% end %>
