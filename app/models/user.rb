@@ -26,4 +26,10 @@ class User < ApplicationRecord
 
     raise ActiveRecord::RecordInvalid, self
   end
+
+  def with_address
+    return build_address if address.nil?
+
+    address
+  end
 end
