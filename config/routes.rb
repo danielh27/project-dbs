@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :services
+  get '/hola', to: 'pages#hola'
 end
