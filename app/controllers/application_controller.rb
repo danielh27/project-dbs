@@ -5,15 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def configure_permitted_parameters
-    # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :first_name, :last_name, :dni, :cellphone])
-
-    # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :nickname, :cellphone, :avatar,
-                                                              address_attributes: [:id, :main_address]])
-  end
-
   def storable_location?
     request.get? &&
       is_navigational_format? &&
@@ -25,6 +16,20 @@ class ApplicationController < ActionController::Base
   def store_user_location!
     # :user is the scope we are authenticating
     store_location_for(:user, request.fullpath)
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :first_name, :last_name, :dni, :cellphone])
+
+    # app/views/devise/sessions/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
+
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :nickname, :cellphone, :avatar,
+                                                              address_attributes: [:id, :main_address]])
   end
 
   def after_sign_in_path_for(resource_or_scope)

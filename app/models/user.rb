@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :services
   has_one_attached :avatar
-  has_one :address
+  has_one :address, dependent: :destroy
 
   accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
 
