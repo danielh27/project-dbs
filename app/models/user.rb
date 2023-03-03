@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   attr_accessor :login
 
   before_update :set_nickname_last_updated
@@ -40,7 +41,10 @@ class User < ApplicationRecord
     conditions = warden_condition.dup
     login = conditions.delete(:login)
     where(conditions).where(
-      ["lower(username) = :value", { value: login.strip.downcase }]
+      [
+        "lower(nickname) = :nickname OR lower(email) = :email", { nickname: login.strip.downcase, email: login.strip.downcase }
+
+      ],
     ).first
   end
 end

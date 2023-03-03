@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :first_name, :last_name, :dni, :cellphone])
 
     # app/views/devise/sessions/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password])
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :nickname, :cellphone, :avatar,
