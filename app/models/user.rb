@@ -15,9 +15,8 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
 
-  validates :nickname, presence: true
+  validates :nickname, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true, uniqueness: true, format: { with: /\S+@.+\.\S+/, message: "Formato incorrecto" }
-
 
   def set_nickname_last_updated
     self.nickname_last_updated = Date.current if nickname.present?
@@ -39,12 +38,12 @@ class User < ApplicationRecord
 
   def self.find_for_database_authentication(warden_condition)
     conditions = warden_condition.dup
-    login = conditions.delete(:login)
-    where(conditions).where(
-      [
-        "lower(nickname) = :nickname OR lower(email) = :email", { nickname: login.strip.downcase, email: login.strip.downcase }
 
-      ],
-    ).first
+    if (login = conditions.delete(:login))
+      where(conditions.to_h).where(["lower(nickname) = :value OR lower(email) = :value",
+                                    { value: login.strip.downcase }]).first
+    elsif conditions.key?(:username) || conditions.key?(:email)
+      where(conditions.to_h).first
+    end
   end
 end
