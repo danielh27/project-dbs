@@ -16,7 +16,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
 
   validates :nickname, presence: true, uniqueness: { case_sensitive: false }
-  validates :email, presence: true, uniqueness: true, format: { with: /\S+@.+\.\S+/, message: "Formato incorrecto" }
+  validates :email, presence: true, uniqueness: true, format: { with: /\S+@.+\.\S+/, message: "Formato de email incorrecto" }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :cellphone, presence: true, uniqueness: true
 
   def set_nickname_last_updated
     self.nickname_last_updated = Date.current if nickname.present?
