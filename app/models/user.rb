@@ -7,6 +7,7 @@ class User < ApplicationRecord
   before_update :set_nickname_last_updated
   before_update :update_nickname_last_updated, if: :nickname_changed?
 
+  has_many :services
   has_one_attached :avatar
   has_one :address
 
