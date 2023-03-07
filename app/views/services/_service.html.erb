@@ -1,0 +1,5 @@
+<li>
+  <%= link_to service.name, service_path(service) %>
+  <%= link_to "Edit", edit_service_path(service), class: "text-secondary" %>
+  <%= link_to "Delete", service_path(service), data: { turbo_method: :delete }, class: "text-danger" %>
+</li>
