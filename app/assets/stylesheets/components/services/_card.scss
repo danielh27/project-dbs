@@ -1,0 +1,41 @@
+.service-card {
+  width: 250px;
+  height: 270px;
+  font-size: 12px;
+  border-radius: 0;
+
+  .card-image {
+    height: 120px;
+    background: #D9D9D9;
+  }
+
+  img {
+    height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 10px;
+    max-height: 100px;
+  }
+
+  .card-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: pre-wrap;
+  }
+
+  .card-footer {
+    padding: 10px;
+    background-color: transparent;
+    border-top: none;
+  }
+
+  .card-price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

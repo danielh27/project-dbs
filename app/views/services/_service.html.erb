@@ -1,5 +1,18 @@
-<li>
-  <%= link_to service.name, service_path(service) %>
-  <%= link_to "Edit", edit_service_path(service), class: "text-secondary" %>
-  <%= link_to "Delete", service_path(service), data: { turbo_method: :delete }, class: "text-danger" %>
-</li>
+<div class="col">
+  <div class="card service-card">
+    <div class="card-image">
+      <%= image_tag "https://source.unsplash.com/random/?avatar", class: "card-img-top" %>
+    </div>
+    <div class="card-body">
+      <p class="card-text d-flex justify-content-between">
+        <span><%= service.user.nickname %></span>
+        <span>#Category</span>
+      </p>
+      <p class="card-text card-description"><%= service.description %></p>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <span>#Review</span>
+      <span class="card-price"><%= service.price %></span>
+    </div>
+  </div>
+</div>

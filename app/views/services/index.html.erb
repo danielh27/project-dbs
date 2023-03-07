@@ -1,6 +1,8 @@
-<h1>Services Index</h1>
-<%= link_to "New Service", new_service_path %>
+<main class="container">
+    <h1><%= t("services.title") %></h1>
+    <%= link_to t("services.new"), new_service_path, class:"btn btn-primary" %>
 
-<ul>
-  <%= render @services %>
-</ul>
+    <div class="row mt-4">
+      <%= render @services %>
+    </div>
+</main>
