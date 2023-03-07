@@ -1,0 +1,29 @@
+es:
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      text: Requerido
+      mark: '*'
+    error_notification:
+      default_message: "Se encontraron los siguientes errores:"
+    labels:
+      defaults:
+        password: Contraseña
+        password_confirmation: Confirmar contraseña
+        current_password: Contraseña actual
+        email: Correo
+        first_name: Nombre
+        last_name: Apellido
+    # hints:
+      # user:
+        # password: Probando
+      # defaults:
+    #     username: 'User name to sign in.'
+        # password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
