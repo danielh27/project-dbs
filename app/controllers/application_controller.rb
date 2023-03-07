@@ -35,4 +35,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     stored_location_for(resource_or_scope)
   end
+
+  def after_inactive_sign_up_path_for(_resource)
+    hola_path
+  end
 end
+
+# revisa que ese metodo lninea 38 en el chat gpt quiza requiera crear su propio controller asi
+# como fue el caso del confirmations controller
