@@ -15,11 +15,13 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
 
-  validates :nickname, presence: true, uniqueness: { case_sensitive: false }
+  format_name = /\A[^0-9`!@#$%\^&*+_=]+\z/
+
+  validates :nickname, presence: true, uniqueness: { case_sensitive: true }, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   validates :email, presence: true, uniqueness: true, format: { with: /\S+@.+\.\S+/, message: "Formato de email incorrecto" }
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :cellphone, presence: true, uniqueness: true
+  validates :first_name, presence: true, format: { with: format_name, message: "Formato de nombre incorrecto"  }
+  validates :last_name, presence: true, format: { with: format_name, message: "Formato de apellido incorrecto"  }
+  validates :cellphone, presence: true, uniqueness: true, numericality: true, format: { with: /\d[0-9]\)*\z/, message: "Formato de celular incorrecto" }
 
   def set_nickname_last_updated
     self.nickname_last_updated = Date.current if nickname.present?
