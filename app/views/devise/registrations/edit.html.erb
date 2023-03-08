@@ -9,7 +9,7 @@
     <%= f.input :dni, disabled: resource.dni.present? %>
     <%= f.input :cellphone, disabled: resource.cellphone.present? %>
 
-    <%= f.simple_fields_for :address do |a| %>
+    <%= f.simple_fields_for resource.with_address do |a| %>
       <%= a.input :main_address %>
     <% end %>
 

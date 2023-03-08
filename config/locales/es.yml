@@ -1,4 +1,34 @@
 es:
+  errors:
+    format: "%{message}"
   services:
     title: Servicios
     new: Nuevo Servicio
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: "Nickname puede estar en blanco"
+              taken: "Ya está en uso"
+              too_short: "Es demasiado corta (mínimo %{count} caracteres)"
+              invalid: "El formato de nickname es incorrecto"
+            email:
+              blank: "Email no puede estar en blanco"
+              taken: "Ya está en uso"
+              invalid: "El formato de email es incorrecto"
+            first_name:
+              blank: "El nombre no puede estar en blanco"
+              invalid: "El formato de nombre es incorrecto"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            last_name:
+              blank: "El apellido no puede estar en blanco"
+              invalid: "Formato de apellido incorrecto"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            cellphone:
+              blank: "El celular no puede estar en blanco"
+              taken: "Ya está en uso"
+              invalid: "Formato de celular incorrecto"
+              not_a_number: "Debe contener solo números"
+              wrong_length: "Debe tener exactamente %{count} dígitos"
