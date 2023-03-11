@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :services
   has_one_attached :avatar
   has_one :address, dependent: :destroy
+  has_many :sent_messages, foreign_key: "sender_id", class_name: "Message", dependent: :destroy
+  has_many :received_messages, foreign_key: "receiver_id", class_name: "Message", dependent: :destroy
 
   accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
 
@@ -22,6 +24,9 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: { with: format_name }, length: { minimum: 2 }
   validates :last_name, presence: true, format: { with: format_name }, length: { minimum: 2 }
   validates :cellphone, presence: true, uniqueness: true, numericality: true, format: { with: /\d[0-9]\)*\z/ }, length: { is: 9 }
+
+  validates_associated :sent_messages
+  validates_associated :received_messages
 
   def set_nickname_last_updated
     self.nickname_last_updated = Date.current if nickname.present?
