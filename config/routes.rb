@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :services
+  resources :chatrooms, only: :show
 end
