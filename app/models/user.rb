@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :services
   has_one_attached :avatar
   has_one :address, dependent: :destroy
-  has_many :sent_messages, foreign_key: "sender_id", class_name: "Message", dependent: :destroy
-  has_many :received_messages, foreign_key: "receiver_id", class_name: "Message", dependent: :destroy
+  has_many :client_messages, foreign_key: "client_id", class_name: "Message", dependent: :destroy
+  has_many :provider_messages, foreign_key: "provider_id", class_name: "Message", dependent: :destroy
 
   accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank
 

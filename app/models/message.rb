@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :chatroom
-  belongs_to :sender, class_name: "User"
-  belongs_to :receiver, class_name: "User"
+  belongs_to :chat
+  belongs_to :client, class_name: "User"
+  belongs_to :provider, class_name: "User"
 end
