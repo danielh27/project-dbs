@@ -1,13 +1,17 @@
 class MessagesController < ApplicationController
+  before_action :set_service, only: :create
+
   def create
-    @chatroom = Chatroom.find(params[:chatroom_id])
+    @chat = Chat.find(params[:chat_id])
     @message = Message.new(message_params)
-    @message.chatroom = @chatroom
-    @message.sender = current_user
+    @message.chat = @chat
+    @message.client = current_user
+    @message.provider = @service.user
+
     if @message.save
-      redirect_to chatroom_path(@chatroom)
+      redirect_to service_chat_path(@chat)
     else
-      render "chatrooms/show", status: :unprocessable_entity
+      render "chats/show", status: :unprocessable_entity
     end
   end
 
@@ -15,5 +19,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def set_service
+    @service = Service.find(params[:service_id])
   end
 end
