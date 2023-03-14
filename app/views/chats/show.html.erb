@@ -5,7 +5,7 @@
     <% @chat.messages.each do |message| %>
       <div id="message-<%= message.id %>">
         <small>
-          <strong><%= message.sender.nickname %></strong>
+          <strong><%= message.client.nickname %></strong>
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= message.content %></p>
