@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_032353) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_042909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_032353) do
     t.index ["service_id"], name: "index_chats_on_service_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "ruc"
+    t.string "legal_representant"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "chat_id", null: false
@@ -121,6 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_032353) do
   add_foreign_key "chats", "services"
   add_foreign_key "chats", "users", column: "client_id"
   add_foreign_key "chats", "users", column: "provider_id"
+  add_foreign_key "companies", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "services", "users"
