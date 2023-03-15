@@ -33,13 +33,14 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @chat = Chat.new
   end
 
   def destroy
     @service.destroy
     redirect_to services_path, notice: "Service was deleted"
   end
-  
+
   private
 
   def set_service

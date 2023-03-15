@@ -1,2 +1,2 @@
 <h1>Service show</h1>
-<%= link_to 'Chat', path(@service, ) %>
+<%= link_to 'Chat', service_chats_path(@service), data: { turbo_method: :post } %>
