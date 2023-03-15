@@ -68,13 +68,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_020940) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "chat_id", null: false
-    t.bigint "client_id", null: false
-    t.bigint "provider_id", null: false
+    t.bigint "sender_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
-    t.index ["client_id"], name: "index_messages_on_client_id"
-    t.index ["provider_id"], name: "index_messages_on_provider_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -118,7 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_020940) do
   add_foreign_key "addresses", "users"
   add_foreign_key "chats", "services"
   add_foreign_key "messages", "chats"
-  add_foreign_key "messages", "users", column: "client_id"
-  add_foreign_key "messages", "users", column: "provider_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "services", "users"
 end
