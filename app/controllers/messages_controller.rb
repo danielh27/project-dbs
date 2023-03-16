@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :set_service, only: :create
+
   def create
     @chat = Chat.find(params[:chat_id])
     @message = Message.new(message_params)
@@ -6,7 +8,7 @@ class MessagesController < ApplicationController
     @message.sender = current_user
 
     if @message.save
-      redirect_to service_chat_path(@chat)
+      redirect_to service_chat_path(@service, @chat)
     else
       render "chats/show", status: :unprocessable_entity
     end
@@ -16,5 +18,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def set_service
+    @service = Service.find(params[:service_id])
   end
 end
