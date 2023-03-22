@@ -8,7 +8,11 @@ class MessagesController < ApplicationController
     @message.sender = current_user
 
     if @message.save
-      redirect_to service_chat_path(@service, @chat)
+      ChatroomChannel.broadcast_to(
+        @chat,
+        render_to_string(partial: "message", locals: { message: @message }),
+      )
+      head :ok
     else
       render "chats/show", status: :unprocessable_entity
     end
