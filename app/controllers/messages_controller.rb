@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     @message.sender = current_user
 
     if @message.save
-      ChatroomChannel.broadcast_to(
+      ChatChannel.broadcast_to(
         @chat,
         render_to_string(partial: "message", locals: { message: @message }),
       )
