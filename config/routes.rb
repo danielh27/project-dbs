@@ -4,5 +4,9 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
-  resources :services
+  resources :services do
+    resources :chats, only: %i[show create] do
+      resources :messages, only: :create
+    end
+  end
 end
