@@ -1,7 +1,12 @@
 .main-navbar {
   justify-content: space-between;
   position: sticky;
+  background-color: var(--theme-primary-color);
   top: 0;
+
+  .navbar-brand {
+    color: #fff;
+  }
 
   .navbar-collapse {
     flex-grow: 0;

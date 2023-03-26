@@ -38,3 +38,8 @@
   --bs-btn-active-bg: var(--theme-primary-color);
   --bs-btn-active-border-color: var(--theme-primary-color);
 }
+
+.nav-link {
+  --bs-nav-link-color: #fff;
+  --bs-nav-link-hover-color: #dadada;
+}

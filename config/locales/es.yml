@@ -4,6 +4,9 @@ es:
   services:
     title: Servicios
     new: Nuevo Servicio
+  login: Iniciar sesion
+  provider_login: Soy proveedor
+  sign_up: Registrarse
   activerecord:
     errors:
       models:
