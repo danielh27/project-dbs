@@ -15,14 +15,14 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      get 'dashboard/index', to: "users/dashboard#index", as: :users_authenticated_root
+      get 'dashboard', to: "users/dashboard#index", as: :users_authenticated_root
     end
   end
 
   devise_scope :provider do
     authenticated :provider do
       namespace :providers do
-        get 'dashboard/index', as: :authenticated_root
+        get 'dashboard', to: "dashboard#index", as: :authenticated_root
       end
     end
   end
