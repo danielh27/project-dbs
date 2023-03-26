@@ -13,11 +13,26 @@ Rails.application.routes.draw do
     registrations: 'providers/registrations'
   }
 
-  root "pages#home"
+  devise_scope :user do
+    authenticated :user do
+      get 'dashboard/index', to: "users/dashboard#index", as: :users_authenticated_root
+    end
+  end
+
+  devise_scope :provider do
+    authenticated :provider do
+      namespace :providers do
+        get 'dashboard/index', as: :authenticated_root
+      end
+    end
+  end
+
 
   resources :services do
     resources :chats, only: %i[show create] do
       resources :messages, only: :create
     end
   end
+
+  root "pages#home"
 end

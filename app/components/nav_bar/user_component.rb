@@ -11,9 +11,9 @@ module NavBar
 
     def edit_account_path
       if user_type == :user
-        edit_user_registration_path
+        users_authenticated_root_path
       else
-        edit_provider_registration_path
+        providers_authenticated_root_path
       end
     end
 

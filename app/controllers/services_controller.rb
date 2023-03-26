@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!
+  before_action :authenticate_provider!, except: %i[ index show ]
   before_action :set_service, only: %i[ show edit destroy update]
 
   def index

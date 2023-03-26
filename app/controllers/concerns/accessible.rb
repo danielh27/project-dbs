@@ -7,14 +7,12 @@ module Accessible
   protected
 
   def check_user
-    if current_provider
+    if provider_signed_in?
       flash.clear
-      # todo: redirect to provider dashboard
-      redirect_to(root_path) and return
-    elsif current_user
+      redirect_to(providers_authenticated_root_path) and return
+    elsif user_signed_in?
       flash.clear
-      # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
-      redirect_to(root_path) and return
+      redirect_to(users_authenticated_root_path) and return
     end
   end
 end
