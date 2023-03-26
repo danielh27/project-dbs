@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Providers::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  include Accessible
+  skip_before_action :check_user, only: :destroy
+  # before_action :configure_sign_in_params, only: [:new, :create]
 
   # GET /resource/sign_in
   # def new
@@ -21,6 +23,6 @@ class Providers::SessionsController < Devise::SessionsController
   # protected
 
   # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password])
   # end
 end
