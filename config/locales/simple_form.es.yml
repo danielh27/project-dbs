@@ -12,6 +12,8 @@ es:
         email: Correo
         first_name: Nombre
         last_name: Apellido
+        ruc: RUC
+        business_name: Razon social
         remember_me: Recuerdame
         password: Contraseña
         password_confirmation: Confirmar contraseña

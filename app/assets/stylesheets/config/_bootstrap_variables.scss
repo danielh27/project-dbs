@@ -32,9 +32,9 @@
 
 .btn-primary {
   --bs-btn-bg: var(--theme-primary-color);
-  --bs-btn-hover-bg: var(--theme-primary-color);
+  --bs-btn-hover-bg: var(--theme-primary-hover-color);
   --bs-btn-border-color: var(--theme-primary-color);
-  --bs-btn-hover-border-color: var(--theme-primary-color);
+  --bs-btn-hover-border-color: var(--theme-primary-hover-color);
   --bs-btn-active-bg: var(--theme-primary-color);
   --bs-btn-active-border-color: var(--theme-primary-color);
 }

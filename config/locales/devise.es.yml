@@ -5,6 +5,7 @@ es:
     titles:
       login: Iniciar sesion
       sign_up: Crear cuenta
+      provider_sign_up: Completa los datos de tu empresa
       forgot_password: ¿Olvidaste tu contraseña?
       resend_confimation_instructions: Reenviar correo de confirmacion
     confirmations:
