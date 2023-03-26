@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center align-items-center h-100">
   <div class="shadow-sm devise-form">
-    <h2><%= t(:login, scope: [:devise, :titles]) %></h2>
+    <h2><%= t(:provider_login, scope: [:devise, :titles]) %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false }, class:"mt-4" }) do |f| %>
       <div class="form-inputs">

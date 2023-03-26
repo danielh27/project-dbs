@@ -4,6 +4,7 @@ es:
   devise:
     titles:
       login: Iniciar sesion
+      provider_login: Iniciar sesion como empresa
       sign_up: Crear cuenta
       provider_sign_up: Completa los datos de tu empresa
       forgot_password: ¿Olvidaste tu contraseña?
