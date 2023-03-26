@@ -20,11 +20,13 @@ es:
         password_confirmation: Confirmar contraseña
         current_password: Contraseña actual
       service:
-        name: Nombre
-        description: Descripcion
-        price: Precio
-        active: Publico
-        submit: Crear servicio
+        new:
+          name: Escribe el nombre de tu servicio
+          description: Escribe la descripcion
+          images: Agrega imegenes a tu servicio
+          price: Coloca el precio
+          active: Publico
+          submit: Crear servicio
     placeholders:
       defaults:
         email: johndoe@example.com
