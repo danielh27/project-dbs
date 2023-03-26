@@ -4,6 +4,9 @@ es:
   services:
     title: Servicios
     new: Nuevo Servicio
+  dashboard:
+    services: Servicios
+    quotes: Cotizaciones
   login: Iniciar sesion
   sign_out: Cerrar sesion
   provider_login: Soy proveedor

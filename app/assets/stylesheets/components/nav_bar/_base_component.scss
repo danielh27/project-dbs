@@ -2,6 +2,7 @@
   justify-content: space-between;
   position: sticky;
   background-color: var(--theme-primary-color);
+  z-index: 50;
   top: 0;
 
   .navbar-brand {
