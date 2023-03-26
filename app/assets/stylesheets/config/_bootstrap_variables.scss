@@ -24,3 +24,17 @@
 // $border-radius-sm: 2px;
 
 // Override other variables below!
+.btn {
+  --bs-btn-border-radius: var(--theme-primary-border-radius);
+  --bs-btn-padding-y: 0.5rem;
+  --bs-btn-font-weight: 700;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--theme-primary-color);
+  --bs-btn-hover-bg: var(--theme-primary-color);
+  --bs-btn-border-color: var(--theme-primary-color);
+  --bs-btn-hover-border-color: var(--theme-primary-color);
+  --bs-btn-active-bg: var(--theme-primary-color);
+  --bs-btn-active-border-color: var(--theme-primary-color);
+}

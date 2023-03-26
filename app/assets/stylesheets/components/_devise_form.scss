@@ -1,0 +1,24 @@
+.devise-form {
+  width: 95%;
+  max-width: 700px;
+  padding: 2.5rem;
+  background-color: #fff;
+
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  input.form-control {
+    color: #0E0000;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 2px;
+    background-color: #F4F4F4;
+  }
+}

@@ -2,6 +2,11 @@
 
 es:
   devise:
+    titles:
+      login: Iniciar sesion
+      sign_up: Crear cuenta
+      forgot_password: ¿Olvidaste tu contraseña?
+      resend_confimation_instructions: Reenviar correo de confirmacion
     confirmations:
       confirmed: "Tu correo electrónico fue confirmado exitosamente."
       send_instructions: "Recibirás un email, en pocos minutos, con instrucciones para confirmar tu correo electrónico."
