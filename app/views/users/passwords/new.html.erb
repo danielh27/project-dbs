@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center align-items-center h-100">
   <div class="shadow-sm devise-form">
-    <h2><%= t(:forgot_password, scope: [:devise, :titles]) %></h2>
+    <h2><%= title t(:forgot_password, scope: [:devise, :titles]) %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "mt-4" }) do |f| %>
       <%= f.error_notification %>
