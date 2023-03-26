@@ -1,1 +1,9 @@
-<h1>Provider Dashboard</h1>
+<h2><%= t("services.title") %></h2>
+
+<%= link_to t("services.new"), new_service_path, class: "btn btn-primary mt-3 mb-5" %>
+
+<div class="services-container">
+  <div class="row">
+    <%= render @services %>
+  </div>
+</div>
