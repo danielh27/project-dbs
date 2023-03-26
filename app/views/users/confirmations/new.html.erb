@@ -1,20 +1,26 @@
-<h2>Resend confirmation instructions</h2>
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="shadow-sm devise-form">
+    <h2><%= t(:resend_confimation_instructions, scope: [:devise, :titles]) %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
+    <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "mt-4" }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.full_error :confirmation_token %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-                input_html: { autocomplete: "email" } %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                    input_html: { autocomplete: "email" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 links-container">
+      <%= render "users/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

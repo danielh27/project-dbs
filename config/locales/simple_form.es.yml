@@ -12,6 +12,7 @@ es:
         email: Correo
         first_name: Nombre
         last_name: Apellido
+        cellphone: Telefono
         ruc: RUC
         business_name: Razon social
         remember_me: Recuerdame
@@ -21,6 +22,10 @@ es:
     placeholders:
       defaults:
         email: johndoe@example.com
+        nickname: Johndoe27
+        first_name: John
+        last_name: Doe
+        cellphone: "+51 123 456 789"
     hints:
       defaults:
         password: 'Minimo 6 carecteres'
