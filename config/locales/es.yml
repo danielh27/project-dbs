@@ -3,16 +3,25 @@ es:
     format: "%{message}"
   services:
     title: Servicios
-    new: Nuevo Servicio
+    new: Crea un nuevo servicio
   dashboard:
     services: Servicios
     quotes: Cotizaciones
+  helpers:
+    submit:
+      create: Crear %{model}
+      update: Actualizar %{model}
+      submit: Guardar %{model}
+      save: Guardar %{model}
   login: Iniciar sesion
   sign_out: Cerrar sesion
   provider_login: Soy proveedor
   sign_up: Registrarse
   my_account: Mi cuenta
   activerecord:
+    models:
+      user: usuario
+      service: servicio
     errors:
       models:
         user:
@@ -40,3 +49,26 @@ es:
               invalid: "Formato de celular incorrecto"
               not_a_number: "Debe contener solo números"
               wrong_length: "Debe tener exactamente %{count} dígitos"
+        service:
+          attributes:
+            name:
+              blank: "El nombre no puede estar en blanco"
+              invalid: "El formato de nombre es incorrecto"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            description:
+              blank: "La descripción no puede estar en blanco"
+              invalid: "El formato de descripción es incorrecto"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            price:
+              blank: "El precio no puede estar en blanco"
+              invalid: "El formato de precio es incorrecto"
+              not_a_number: "Debe contener solo números"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            active:
+              blank: "El estado no puede estar en blanco"
+              invalid: "El formato de estado es incorrecto"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            slug:
+              blank: "El slug no puede estar en blanco"
+              invalid: "El formato de slug es incorrecto"
+              too_short: "Es demasiado corto (mínimo %{count} caracteres)"
