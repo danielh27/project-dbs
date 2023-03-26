@@ -1,9 +1,9 @@
 <div class="container">
   <h2>Log in</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f| %>
     <div class="form-inputs">
-      <%= f.input :login,
+      <%= f.input :email,
                   required: false,
                   autofocus: true, label: 'Nickname o Email' %>
       <%= f.input :password,
@@ -16,5 +16,5 @@
       <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
     </div>
   <% end %>
-  <%= render "devise/shared/links" %>
+  <%= render "users/shared/links" %>
 </div>

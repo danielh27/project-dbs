@@ -1,9 +1,9 @@
 <li class="nav-item">
-  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+  <%= link_to "Login", new_user_session_path, class: "nav-link", data: { turbo: false } %>
 </li>
 <li class="nav-item">
-  <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+  <%= link_to "Sign up", new_user_registration_path, class: "nav-link", data: { turbo: false } %>
 </li>
 <li class="nav-item">
-  <%= link_to "Soy Proveedor", new_provider_session_path, class: "nav-link" %>
+  <%= link_to "Soy Proveedor", new_provider_session_path, class: "nav-link", data: { turbo: false } %>
 </li>
