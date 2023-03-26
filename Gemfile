@@ -55,6 +55,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem 'bootstrap', '~> 5.2.3'
 gem "view_component"
 gem "cloudinary"
+gem "meta-tags"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
