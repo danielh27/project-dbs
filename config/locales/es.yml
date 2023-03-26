@@ -5,8 +5,10 @@ es:
     title: Servicios
     new: Nuevo Servicio
   login: Iniciar sesion
+  sign_out: Cerrar sesion
   provider_login: Soy proveedor
   sign_up: Registrarse
+  my_account: Mi cuenta
   activerecord:
     errors:
       models:

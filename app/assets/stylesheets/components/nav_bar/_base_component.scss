@@ -5,10 +5,16 @@
   top: 0;
 
   .navbar-brand {
-    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
   }
 
   .navbar-collapse {
     flex-grow: 0;
+  }
+
+  .dropdown-toggle::after {
+    content: none;
   }
 }

@@ -39,7 +39,15 @@
   --bs-btn-active-border-color: var(--theme-primary-color);
 }
 
+.navbar-brand {
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-brand-hover-color: #fff;
+  --bs-navbar-brand-font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .nav-link {
   --bs-nav-link-color: #fff;
   --bs-nav-link-hover-color: #dadada;
+  --bs-navbar-active-color: #dadada;
 }

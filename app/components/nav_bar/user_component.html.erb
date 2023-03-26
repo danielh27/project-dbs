@@ -1,7 +1,10 @@
 <li class="nav-item dropdown">
-  <%= render User::AvatarComponent.new(@user, classes: "dropdown-toggle", data: { bs_toggle: "dropdown" }) %>
+  <div class="dropdown-toggle d-flex justify-content-center align-items-center" data-bs-toggle="dropdown">
+    <%= render User::AvatarComponent.new(@user) %>
+    <span class="nav-link"><%= t(:my_account) %></span>
+  </div>
   <div class="dropdown-menu dropdown-menu-end">
-      <%= link_to "My account", edit_account_path, class: "dropdown-item" %>
-      <%= link_to "Log out", destroy_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
+      <%= link_to "Dashboard", edit_account_path, class: "dropdown-item" %>
+      <%= link_to t(:sign_out), destroy_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
   </div>
 </li>
