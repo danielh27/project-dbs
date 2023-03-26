@@ -4,6 +4,7 @@ es:
   services:
     title: Servicios
     new: Crea un nuevo servicio
+    edit: Editar servicio
   dashboard:
     services: Servicios
     quotes: Cotizaciones
