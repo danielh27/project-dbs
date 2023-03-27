@@ -2,6 +2,13 @@
 
 es:
   devise:
+    titles:
+      login: Iniciar sesion
+      provider_login: Iniciar sesion como proveedor
+      sign_up: Crear cuenta
+      provider_sign_up: Completa los datos de tu empresa
+      forgot_password: ¿Olvidaste tu contraseña?
+      resend_confimation_instructions: Reenviar correo de confirmacion
     confirmations:
       confirmed: "Tu correo electrónico fue confirmado exitosamente."
       send_instructions: "Recibirás un email, en pocos minutos, con instrucciones para confirmar tu correo electrónico."

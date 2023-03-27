@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_042909) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_171909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,16 +89,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_042909) do
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
+  create_table "providers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "business_name", null: false
+    t.string "ruc", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_providers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.integer "price", default: 0
     t.boolean "active", default: false
     t.string "slug"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_services_on_user_id"
+    t.bigint "provider_id", null: false
+    t.index ["provider_id"], name: "index_services_on_provider_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -121,7 +138,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_042909) do
     t.datetime "confirmation_sent_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["nickname"], name: "index_users_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -134,5 +150,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_042909) do
   add_foreign_key "companies", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users", column: "sender_id"
-  add_foreign_key "services", "users"
+  add_foreign_key "services", "providers"
 end

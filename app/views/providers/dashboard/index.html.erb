@@ -1,0 +1,33 @@
+<% title "Dashboard" %>
+
+<div class="row">
+  <div class="services-container col-12 col-lg-8">
+    <h2><%= t("dashboard.services") %></h2>
+    <%= link_to t("services.new"), new_service_path, class: "btn btn-primary mb-4 d-lg-none" %>
+
+    <div class="row">
+      <%= render @services %>
+
+
+      <div class="col col-sm-6 col-md-4 d-none d-lg-block">
+        <%= link_to new_service_path, class:"add-service-link" do %>
+          <div class="card add-service-card mb-4">
+            <div class="card-body">
+                <div class="add-service-icon">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div class="add-service-text">
+                  <%= t("services.new") %>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-4">
+    <h2 class="text-center"><%= t("dashboard.quotes") %></h2>
+  </div>
+</div>

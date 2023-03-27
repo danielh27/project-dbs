@@ -9,7 +9,9 @@
   padding: 0;
 }
 
-html {
+html, body {
+  font-family: var(--theme-primary-font-family);
+  background-color: #D9D9D94D;
   overflow-y: scroll;
   height: 100%;
 }
@@ -43,6 +45,7 @@ h1 {
 }
 
 h2 {
+  font-weight: 700;
   // font-size: var(--font-size-xxl);
 }
 
@@ -55,13 +58,12 @@ h4 {
 }
 
 a {
-  // color: var(--color-primary);
-  // text-decoration: none;
-  // transition: color 200ms;
+  color: var(--theme-link-color);
+  transition: color 300ms;
 
   &:hover,
   &:focus,
   &:active {
-    // color: var(--color-primary-rotate);
+    color: var(--theme-link-hover-color);
   }
 }

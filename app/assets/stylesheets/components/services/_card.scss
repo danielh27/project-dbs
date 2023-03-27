@@ -3,6 +3,8 @@
   height: 270px;
   font-size: 12px;
   border-radius: 0;
+  cursor: pointer;
+  transition: 300ms;
 
   .card-image {
     height: 120px;
@@ -37,5 +39,65 @@
   .card-price {
     font-size: 16px;
     font-weight: 600;
+  }
+
+  &:hover {
+    transform: scale(1.048);
+  }
+}
+
+.dashboard-service-card {
+  height: fit-content;
+  width: 100%;
+  min-width: 180px;
+
+  .card-image {
+    height: 270px;
+  }
+
+  .card-description {
+    font-size: 1rem;
+  }
+}
+
+.add-service-link {
+  text-decoration: none;
+}
+
+.add-service-card {
+  height: 300px;
+  width: 100%;
+  min-width: 180px;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  transition: 300ms;
+  cursor: pointer;
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .add-service-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    background-color: #80CDD2;
+    border-radius: 50%;
+  }
+
+  i.fas {
+    color: black;
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    transform: scale(1.048);
   }
 }

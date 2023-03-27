@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectDbs</title>
+    <%= display_meta_tags site: "DBS" %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +12,10 @@
   </head>
 
   <body>
-    <%= render NavBar::BaseComponent.new(current_user) %>
+    <%= render NavBar::BaseComponent.new(current_user, current_provider) %>
     <%= render partial: "shared/flashes" %>
-    <%= yield %>
+    <div class="container mt-5 h-100">
+      <%= yield %>
+    </div>
   </body>
 </html>

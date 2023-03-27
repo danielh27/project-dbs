@@ -1,7 +1,21 @@
 .main-navbar {
   justify-content: space-between;
+  position: sticky;
+  background-color: var(--theme-primary-color);
+  z-index: 50;
+  top: 0;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
 
   .navbar-collapse {
     flex-grow: 0;
+  }
+
+  .dropdown-toggle::after {
+    content: none;
   }
 }

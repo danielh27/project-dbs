@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  attr_accessor :login
 
   before_update :set_nickname_last_updated
   before_update :update_nickname_last_updated, if: :nickname_changed?
@@ -13,7 +12,6 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   has_one :company, dependent: :destroy
 
-  has_many :services
   has_many :messages, foreign_key: "sender_id", dependent: :destroy
   has_many :client_chats, class_name: "Chat", foreign_key: "client_id", dependent: :destroy
   has_many :provider_chats, class_name: "Chat", foreign_key: "provider_id", dependent: :destroy
@@ -44,16 +42,5 @@ class User < ApplicationRecord
     return build_address if address.nil?
 
     address
-  end
-
-  def self.find_for_database_authentication(warden_condition)
-    conditions = warden_condition.dup
-
-    if (login = conditions.delete(:login))
-      where(conditions.to_h).where(["lower(nickname) = :value OR lower(email) = :value",
-                                    { value: login.strip.downcase }]).first
-    elsif conditions.key?(:username) || conditions.key?(:email)
-      where(conditions.to_h).first
-    end
   end
 end

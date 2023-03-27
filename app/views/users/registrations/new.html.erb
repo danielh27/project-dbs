@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="shadow-sm devise-form">
+    <h2><%= title t(:sign_up, scope: [:devise, :titles]) %></h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: { class:"mt-4" }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :nickname,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "nickname" }%>
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "first_name" }%>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "last_name" }%>
+        <%= f.input :cellphone,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "cellphone" }%>
+        <%= f.input :password,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, t(:sign_up, scope: [:devise, :titles]), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 links-container">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>
