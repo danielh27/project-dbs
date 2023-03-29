@@ -16,11 +16,7 @@
         </div>
 
         <div data-search-message-target="messages">
-          <% @chats.each do |chat| %>
-            <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
-            <%= chat.provider.first_name %>
-            <%= chat.messages.last.content %>
-          <% end %>
+          <%= render 'chats/chats_list', chats: @chats %>
         </div>
       </div>
     </div>

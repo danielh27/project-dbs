@@ -6,7 +6,6 @@ class ChatsController < ApplicationController
     @message = Message.new
     @chats = current_user.client_chats
 
-    # falta el filtro de if params
     if params[:query].present?
       sql_query = " \
       first_name iLIKE :query \
@@ -17,7 +16,8 @@ class ChatsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {  }
+      format.html
+      format.text { render partial: "chats/chats_list", locals: { chats: @chats }, formats: [:html]}
     end
   end
 
