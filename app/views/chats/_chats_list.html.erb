@@ -1,0 +1,10 @@
+<div data-search-message-target="chats">
+  <% chats.each do |chat| %>
+    <div class="chat-detail">
+      <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
+      <%= chat.provider.first_name %>
+      <%= chat.provider.last_name %>
+      <%= chat&.messages&.last&.content %>
+    </div>
+  <% end %>
+</div>

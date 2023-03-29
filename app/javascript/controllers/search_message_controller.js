@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="search-message"
 export default class extends Controller {
-  static targets = ['form', 'chats', 'input']
+  static targets = ['form', 'chats', 'input', 'counter']
 
   connect() {
   }
@@ -13,7 +13,9 @@ export default class extends Controller {
       .then(response => response.text())
       .then(data => {
         this.chatsTarget.outerHTML = data;
+        this.counterTarget.innerText = document.querySelectorAll('.chat-detail').length
         console.log(data)
+        console.log(this.counterTarget.text)
       })
   }
   // por lo que usamos components habra que sacar rpta en json y noo text sino quiza
