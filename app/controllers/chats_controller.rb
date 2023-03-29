@@ -1,23 +1,23 @@
 class ChatsController < ApplicationController
   before_action :set_service, only: %i[show create]
+  before_action :set_chat, only: %i[show]
 
   def show
-    @chat = Chat.find(params[:id])
     @message = Message.new
     @chats = current_user.client_chats
 
     if params[:query].present?
       sql_query = " \
-      first_name iLIKE :query \
-      OR last_name iLIKE :query \
-      OR CONCAT(first_name, ' ', last_name) iLIKE :query"
+        first_name iLIKE :query \
+        OR last_name iLIKE :query \
+        OR CONCAT(first_name, ' ', last_name) iLIKE :query"
 
-      @chats = @chats.where(sql_query, query: "%#{params[:query]}%")
+      @chats = @chats.joins(:client).where(sql_query, query: "%#{params[:query]}%")
     end
 
     respond_to do |format|
       format.html
-      format.text { render partial: "chats/chats_list", locals: { chats: @chats }, formats: [:html]}
+      format.text { render partial: "chats/chats_list", locals: { chats: @chats }, formats: [:html] }
     end
   end
 
@@ -35,6 +35,10 @@ class ChatsController < ApplicationController
   end
 
   private
+
+  def set_chat
+    @chat = Chat.find(params[:id])
+  end
 
   def chat_params
     params.require(:chat).permit(:name)
