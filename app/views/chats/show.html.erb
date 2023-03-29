@@ -1,23 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h2>Mensajes <span><%= @chats.size %></span></h2>
       <div data-controller="search-message">
+        <h2>Mensajes <span data-search-message-target="counter"><%= @chats.size %></span></h2>
         <div>
           <%= form_with url: service_chat_path(@service, @chat),
                         method: :get,
-                        html: { data: { search_message_target: 'form' } } do |form| %>
+                        data: { search_message_target: 'form' } do |form| %>
             <i class="fa-solid fa-magnifying-glass"></i>
             <%= form.text_field :query,
                                 value: params[:query],
                                 placeholder: 'Busca un mensaje',
-                                data: { search_message_target: "input", action: "turbo:keyup->search-message#filter" } %>
+                                data: { search_message_target: "input", action: "keyup->search-message#filter" } %>
           <% end %>
         </div>
 
-        <div data-search-message-target="messages">
-          <%= render 'chats/chats_list', chats: @chats %>
-        </div>
+        <%= render 'chats/chats_list', chats: @chats %>
       </div>
     </div>
 

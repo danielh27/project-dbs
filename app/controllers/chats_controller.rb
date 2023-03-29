@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
         OR last_name iLIKE :query \
         OR CONCAT(first_name, ' ', last_name) iLIKE :query"
 
-      @chats = @chats.joins(:client).where(sql_query, query: "%#{params[:query]}%")
+      @chats = @chats.joins(:provider).where(sql_query, query: "%#{params[:query]}%")
     end
 
     respond_to do |format|
