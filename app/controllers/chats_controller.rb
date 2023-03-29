@@ -7,8 +7,13 @@ class ChatsController < ApplicationController
     @chats = current_user.client_chats
 
     # falta el filtro de if params
-    if params[:query]
-      @chats = @chats.where("name iLIKE ?", "#{params[:query]}")
+    if params[:query].present?
+      sql_query = " \
+      first_name iLIKE :query \
+      OR last_name iLIKE :query \
+      OR CONCAT(first_name, ' ', last_name) iLIKE :query"
+
+      @chats = @chats.where(sql_query, query: "%#{params[:query]}%")
     end
 
     respond_to do |format|
