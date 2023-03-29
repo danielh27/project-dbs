@@ -5,6 +5,15 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     @message = Message.new
     @chats = current_user.client_chats
+
+    # falta el filtro de if params
+    if params[:query]
+      @chats = @chats.where("name iLIKE ?", "#{params[:query]}")
+    end
+
+    respond_to do |format|
+      format.html {  }
+    end
   end
 
   def create
