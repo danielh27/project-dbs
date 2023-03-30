@@ -14,10 +14,6 @@ export default class extends Controller {
       .then(data => {
         this.chatsTarget.outerHTML = data;
         this.counterTarget.innerText = document.querySelectorAll('.chat-detail').length
-        console.log(data)
-        console.log(this.counterTarget.text)
       })
   }
-  // por lo que usamos components habra que sacar rpta en json y noo text sino quiza
-  // poner en vez de partial en contrlller rb poner template ver en google com oseria
 }
