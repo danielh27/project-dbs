@@ -6,8 +6,7 @@
       </div>
 
       <div>
-        <%= chat.provider.first_name %>
-        <%= chat.provider.last_name %>
+        <%= fullname(chat.provider) %>
         <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
       </div>
     </div>
