@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
+<main class="container">
+  <main class="row">
+    <section class="col-3">
       <div data-controller="search-message">
         <h2>Mensajes <span data-search-message-target="counter"><%= @chats.size %></span></h2>
         <div>
@@ -17,9 +17,9 @@
 
         <%= render 'chats/chats_list', chats: @chats %>
       </div>
-    </div>
+    </section>
 
-    <div class="col-6">
+    <section class="col-6">
       <div class="chatroom"
             data-controller="chat-subscription"
             data-chat-subscription-chat-id-value="<%= @chat.id %>">
@@ -59,11 +59,11 @@
           <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
       </div>
-    </div>
+    </section>
 
-    <div class="col-3">
+    <section class="col-3">
       <h2>Mis Cotizaciones</h2>
       <p>Cotizaciones formales</p>
-    </div>
+    </section>
   </div>
-</div>
+</main>
