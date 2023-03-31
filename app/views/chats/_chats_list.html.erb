@@ -1,10 +1,15 @@
 <div data-search-message-target="chats">
   <% chats.each do |chat| %>
     <div class="chat-detail">
-      <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
-      <%= chat.provider.first_name %>
-      <%= chat.provider.last_name %>
-      <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
+      <div>
+        <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
+      </div>
+
+      <div>
+        <%= chat.provider.first_name %>
+        <%= chat.provider.last_name %>
+        <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
+      </div>
     </div>
   <% end %>
 </div>
