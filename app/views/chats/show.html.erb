@@ -2,7 +2,7 @@
   <main class="row">
     <section class="col-3">
       <div data-controller="search-message">
-        <h2>Mensajes <span data-search-message-target="counter"><%= @chats.size %></span></h2>
+        <h2 class="mb-4">Mensajes <span data-search-message-target="counter"><%= @chats.size %></span></h2>
         <div>
           <%= form_with url: service_chat_path(@service, @chat),
                         method: :get,
