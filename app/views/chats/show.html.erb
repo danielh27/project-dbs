@@ -24,12 +24,14 @@
             data-controller="chat-subscription"
             data-chat-subscription-chat-id-value="<%= @chat.id %>">
 
-        <div>
-          <div>
-            <%= cl_image_tag @chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
-            <div>
-              <%= @chat.provider.first_name %>
-              <span>Online</span>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <div class="d-flex">
+              <%= cl_image_tag @chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
+              <div>
+                <%= @chat.provider.first_name %>
+                <div>Online</div>
+              </div>
             </div>
             <span>Responde en 1 hora</span>
           </div>
