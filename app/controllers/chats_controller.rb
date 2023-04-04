@@ -23,9 +23,9 @@ class ChatsController < ApplicationController
 
   def create
     @chat = Chat.new
-    @chat.name = "#{@service.name} - #{@service.user&.company&.name} - #{@service.user.first_name} #{@service.user.last_name}"
+    @chat.name = "Hola"
     @chat.service = @service
-    @chat.provider = @service.user
+    @chat.provider = @service.provider
     @chat.client = current_user
     if @chat.save
       redirect_to service_chat_path(@service, @chat), notice: "Chat iniciado"

@@ -1,5 +1,5 @@
 module UserHelper
   def fullname(user)
-    "#{user.first_name} #{user.last_name}"
+    "#{user.business_name}"
   end
 end
