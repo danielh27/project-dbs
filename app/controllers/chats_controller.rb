@@ -8,9 +8,7 @@ class ChatsController < ApplicationController
 
     if params[:query].present?
       sql_query = " \
-        first_name iLIKE :query \
-        OR last_name iLIKE :query \
-        OR CONCAT(first_name, ' ', last_name) iLIKE :query"
+        business_name iLIKE :query "
 
       @chats = @chats.joins(:provider).where(sql_query, query: "%#{params[:query]}%")
     end
