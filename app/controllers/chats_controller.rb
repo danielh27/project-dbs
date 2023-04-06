@@ -8,7 +8,7 @@ class ChatsController < ApplicationController
 
     if params[:query].present?
       sql_query = " \
-        business_name iLIKE :query "
+        business_name iLIKE :query"
 
       @chats = @chats.joins(:provider).where(sql_query, query: "%#{params[:query]}%")
     end
