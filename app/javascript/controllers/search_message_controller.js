@@ -2,8 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="search-message"
 export default class extends Controller {
+  static values = { chatId: Number }
   static targets = ['form', 'chats', 'input', 'counter']
-
   connect() {
   }
 
@@ -15,5 +15,11 @@ export default class extends Controller {
         this.chatsTarget.outerHTML = data;
         this.counterTarget.innerText = document.querySelectorAll('.chat-detail').length
       })
+  }
+
+  paint(event) {
+    if(this.chatIdValue === parseInt(event.currentTarget.id)) {
+      event.currentTarget.style.backgroundColor = '#615EF0'
+    }
   }
 }
