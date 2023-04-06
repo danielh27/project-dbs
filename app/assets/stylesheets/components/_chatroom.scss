@@ -28,3 +28,13 @@
     }
   }
 }
+
+.container-messages-column {
+  input {
+    width: 83%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
