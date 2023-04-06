@@ -19,7 +19,7 @@ export default class extends Controller {
 
   paint(event) {
     if(this.chatIdValue === parseInt(event.currentTarget.id)) {
-      event.currentTarget.style.backgroundColor = '#615EF0'
+      event.currentTarget.style.backgroundColor = 'rgba(97, 94, 240, 0.06)'
     }
   }
 }
