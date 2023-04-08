@@ -1,22 +1,24 @@
-<div class="mt-5" data-search-message-target="chats">
-  <% chats.each do |chat| %>
-    <div class="chat-detail d-flex my-3 px-2 py-2 align-items-center"
-         id="<%= chat.id %>"
-         data-action="click->search-message#paint">
+  <div class="mt-5" data-search-message-target="chats">
+    <% chats.each do |chat| %>
+<a class="d-block text-decoration-none chat-list" href="">
+      <div class="chat-detail d-flex my-3 px-2 py-2 align-items-center chat-list-item"
+          id="<%= chat.id %>"
+          data-action="click->search-message#paint">
 
-      <div class="me-3">
-        <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
-      </div>
-
-      <div>
-        <div>
-          <%= fullname(chat.provider) %>
+        <div class="me-3">
+          <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
         </div>
 
         <div>
-          <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
+          <div>
+            <%= fullname(chat.provider) %>
+          </div>
+
+          <div>
+            <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+</a>
+    <% end %>
+  </div>
