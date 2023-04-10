@@ -38,11 +38,11 @@
     }
   }
 
-  .chat-list {
-    .chat-list-item {
-      &:hover {
-        background-color: rgba(97, 94, 240, 0.06);
-      }
+  .chat-list-item {
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(97, 94, 240, 0.06);
     }
   }
 }
