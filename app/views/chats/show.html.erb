@@ -1,26 +1,7 @@
 <main class="container">
   <main class="row">
     <section class="col-3">
-      <div class="container-messages-column"
-           data-controller="search-message"
-           data-search-message-chat-id-value="<%= @chat.id %>">
-
-        <h2 class="mb-4">Mensajes <span class="fs-4 bg-secondary fw-light rounded px-2 py-1" data-search-message-target="counter"><%= @chats.size %></span></h2>
-        <div class="px-1 py-2 border border-secondary border-1 rounded">
-          <%= form_with url: service_chat_path(@service, @chat),
-                        method: :get,
-                        data: { search_message_target: 'form' } do |form| %>
-            <i class="fa-solid fa-magnifying-glass text-secondary fw-bold px-2"></i>
-            <%= form.text_field :query,
-                                value: params[:query],
-                                placeholder: 'Busca un mensaje',
-                                data: { search_message_target: "input", action: "keyup->search-message#filter" },
-                                class: "border border-0 bg-transparent" %>
-          <% end %>
-        </div>
-
-        <%= render 'chats/chats_list', chats: @chats %>
-      </div>
+      <%= render 'chats/chats_list', chats: @chats %>
     </section>
 
     <section class="col-6">
@@ -28,7 +9,7 @@
             data-controller="chat-subscription"
             data-chat-subscription-chat-id-value="<%= @chat.id %>">
 
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between py-3 px-4">
           <div class="d-flex">
             <div class="d-flex">
               <%= cl_image_tag @chat.provider.avatar.key, class: "avatar", alt: "avatar" %>

@@ -15,7 +15,7 @@ class ChatsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.text { render partial: "chats/chats_list", locals: { chats: @chats }, formats: [:html] }
+      format.text { render partial: "chats/chat_list_item", locals: { chats: @chats }, formats: [:html] }
     end
   end
 
