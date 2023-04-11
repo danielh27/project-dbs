@@ -16,12 +16,4 @@ export default class extends Controller {
         this.counterTarget.innerText = document.querySelectorAll('.chat-detail').length
       })
   }
-
-  paint(event) {
-    console.log('sale')
-    console.log(event.currentTarget.id)
-    if(this.chatIdValue === parseInt(event.currentTarget.id)) {
-      event.currentTarget.style.backgroundColor = 'rgba(97, 94, 240, 0.06)'
-    }
-  }
 }

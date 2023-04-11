@@ -45,4 +45,8 @@
       background-color: rgba(97, 94, 240, 0.06);
     }
   }
+
+  .bg-theme {
+    background: var(--theme-background-color);
+  }
 }
