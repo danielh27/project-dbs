@@ -16,12 +16,12 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 1rem;
+    background-color: #F6F6FE;
   }
 
   #new_message {
-    border-top: 1px solid #0E0000;
     padding: 1rem;
 
     .form-group {

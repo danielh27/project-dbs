@@ -29,22 +29,30 @@
           </div>
         </div>
 
-        <div class="messages" data-chat-subscription-target="messages">
+        <div class="messages text-break" data-chat-subscription-target="messages">
           <% @chat.messages.each do |message| %>
             <%= render 'messages/message', message: message %>
           <% end %>
         </div>
 
-        <%= simple_form_for [@service, @chat, @message],
-            html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
-            class: "d-flex"} do |f| %>
-          <%= f.input :content,
-                      label: false,
-                      placeholder: "Message ##{@chat.name}",
-                      wrapper_html: { class: "flex-grow-1" }
-          %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-        <% end %>
+        <div>
+          <%= simple_form_for [@service, @chat, @message],
+              html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
+              class: "d-flex align-items-center"} do |f| %>
+
+            <%= f.input :content,
+                        label: false,
+                        placeholder: "Message ##{@chat.name}",
+                        wrapper_html: { class: "flex-grow-1 d-inline-block" },
+                        class: "mb-0" %>
+            <%= f.submit "Send", class: "btn btn-primary" %>
+
+            <%= link_to root_path, class: "d-flex align-items-center" do %>
+              <i class="fa-solid fa-plus"></i>
+              <span>Cotización</span>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </section>
 
