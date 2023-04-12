@@ -9,22 +9,22 @@
             data-controller="chat-subscription"
             data-chat-subscription-chat-id-value="<%= @chat.id %>">
 
-        <div class="d-flex justify-content-between py-3 px-4">
-          <div class="d-flex">
-            <div class="d-flex">
+        <div class="d-flex justify-content-between align-items-center py-3 px-4">
+          <div class="d-flex justify-space-between">
+            <div class="d-flex align-items-center">
               <%= cl_image_tag @chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
-              <div>
+              <div class="ms-2">
                 <%= @chat.provider.business_name %>
-                <div>Online</div>
+                <div><i class="fa-solid fa-circle circle-availability me-2"></i><span>Online</span></div>
               </div>
             </div>
-            <span>Responde en 1 hora</span>
+            <span class="ms-4">Responde en 1 hora</span>
           </div>
 
           <div>
-            <%= link_to root_path do |l| %>
+            <%= link_to root_path, class: "btn-quote text-decoration-none" do |l| %>
               <span>Cotizaciones</span>
-              <span>flecha</span>
+              <i class="fa-solid fa-chevron-right ms-1"></i>
             <% end %>
           </div>
         </div>
