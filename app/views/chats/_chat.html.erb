@@ -1,0 +1,49 @@
+<div class="chatroom"
+     data-controller="chat-subscription"
+     data-chat-subscription-chat-id-value="<%= @chat.id %>">
+
+  <div class="d-flex justify-content-between align-items-center py-3 px-4">
+    <div class="d-flex justify-space-between">
+      <div class="d-flex align-items-center">
+        <%= cl_image_tag @chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
+        <div class="ms-2">
+          <%= @chat.provider.business_name %>
+          <div><i class="fa-solid fa-circle circle-availability me-2"></i><span>Online</span></div>
+        </div>
+      </div>
+      <span class="ms-4">Responde en 1 hora</span>
+    </div>
+
+    <div>
+      <%= link_to root_path, class: "btn-quote text-decoration-none" do |l| %>
+        <span>Cotizaciones</span>
+        <i class="fa-solid fa-chevron-right ms-1"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="messages text-break" data-chat-subscription-target="messages">
+    <% @chat.messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= simple_form_for [@service, @chat, @message],
+        html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
+        class: "d-flex align-items-center"} do |f| %>
+
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Message ##{@chat.name}",
+                  wrapper_html: { class: "flex-grow-1 d-inline-block" },
+                  class: "mb-0" %>
+      <%= f.submit "Send", class: "btn btn-primary" %>
+
+      <%= link_to root_path, class: "d-flex align-items-center" do %>
+        <i class="fa-solid fa-plus"></i>
+        <span>Cotización</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
