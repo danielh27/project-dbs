@@ -46,6 +46,24 @@
   #new-chat-message {
     #message_content {
       border: none !important;
+      resize: none;
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    #button-send-message {
+      border: none !important;
+
+      &:active {
+        border: none !important;
+        box-shadow: none  !important;
+      }
+
+      &:hover {
+        background-color: var(--theme-background-color);
+      }
     }
   }
 }

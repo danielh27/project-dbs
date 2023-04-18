@@ -31,19 +31,19 @@
   <div>
     <%= simple_form_for [service, chat, message],
         html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
-        class: "d-flex align-items-center",
+        class: "d-flex align-items-center justify-content-around",
         id: "new-chat-message"} do |f| %>
 
-      <p>
+      <div class="border border-2 rounded border-secondary d-flex w-75">
         <%= f.input :content,
                     label: false,
                     placeholder: "Message ##{chat.name}",
                     wrapper_html: { class: "flex-grow-1 d-inline-block" },
                     class: "mb-0" %>
-        <%= f.button :button, class: "btn btn-primary" do %>
-          <i class="fa-solid fa-plus"></i>
+        <%= f.button :button, id: "button-send-message"  do %>
+          <%= image_tag 'send_button.png', width: '24px' %>
         <% end %>
-      </p>
+      </div>
 
       <%= link_to root_path, class: "d-flex align-items-center" do %>
         <i class="fa-solid fa-plus"></i>
