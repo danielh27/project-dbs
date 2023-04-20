@@ -47,10 +47,18 @@
     #message_content {
       border: none !important;
       resize: none;
+      height: 21px;
+      line-height: 24px;
 
       &:focus {
         box-shadow: none !important;
       }
+    }
+
+    textarea::placeholder {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
     }
 
     #button-send-message {
@@ -65,6 +73,30 @@
         background-color: var(--theme-background-color);
       }
     }
+
+    .new-quotation-button {
+      color: var(--theme-primary-color);
+      border: 1px solid var(--theme-primary-color);
+      border-radius: 8px;
+      padding: 12px 20px;
+    }
+
+    > div {
+      height: 50px;
+      width: 71%;
+    }
+  }
+
+  .form-new-message {
+    background-color: #F6F6FE;
+    padding-bottom: 40px;
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+
+  .nuevo-form{
+    display: flex;
+    align-items: center;
   }
 }
 

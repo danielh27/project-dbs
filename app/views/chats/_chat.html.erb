@@ -28,17 +28,17 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="form-new-message">
     <%= simple_form_for [service, chat, message],
         html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
-        class: "d-flex align-items-center justify-content-around",
+        class: "d-flex align-items-center justify-content-between",
         id: "new-chat-message"} do |f| %>
 
-      <div class="border border-2 rounded border-secondary d-flex w-75">
+      <div class="border border-2 rounded border-secondary d-flex align-items-center">
         <%= f.input :content,
                     label: false,
-                    placeholder: "Message ##{chat.name}",
-                    wrapper_html: { class: "flex-grow-1 d-inline-block" },
+                    placeholder: "Escribe un mensaje",
+                    wrapper_html: { class: "d-flex align-items-center flex-grow-1 d-inline-block" },
                     class: "mb-0" %>
         <%= f.button :button, id: "button-send-message"  do %>
           <%= image_tag 'send_button.png', width: '24px' %>
@@ -46,8 +46,8 @@
       </div>
 
       <%= link_to root_path, class: "d-flex align-items-center text-decoration-none new-quotation-button" do %>
-        <i class="fa-solid fa-plus me-2"></i>
-        <span>Cotización</span>
+        <i class="fa-solid fa-plus me-2 fw-bold fs-5"></i>
+        <span class="fw-bold">Cotización</span>
       <% end %>
     <% end %>
   </div>
