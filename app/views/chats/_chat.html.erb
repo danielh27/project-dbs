@@ -34,13 +34,13 @@
         class: "d-flex align-items-center justify-content-between",
         id: "new-chat-message"} do |f| %>
 
-      <div class="border border-2 rounded border-secondary d-flex align-items-center">
+      <div class="d-flex align-items-center bg-white">
         <%= f.input :content,
                     label: false,
                     placeholder: "Escribe un mensaje",
-                    wrapper_html: { class: "d-flex align-items-center flex-grow-1 d-inline-block" },
+                    wrapper_html: { class: "d-flex align-items-center h-100 flex-grow-1" },
                     class: "mb-0" %>
-        <%= f.button :button, id: "button-send-message"  do %>
+        <%= f.button :button, id: "button-send-message", class: "h-100"  do %>
           <%= image_tag 'send_button.png', width: '24px' %>
         <% end %>
       </div>
