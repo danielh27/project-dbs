@@ -24,7 +24,11 @@
 
   <div class="messages text-break" data-chat-subscription-target="messages">
     <% chat.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+      <div>
+        <div>
+          <%= render 'messages/message', message: message %>
+        </div>
+      </div>
     <% end %>
   </div>
 
