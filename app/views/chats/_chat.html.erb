@@ -24,8 +24,8 @@
 
   <div class="messages text-break" data-chat-subscription-target="messages">
     <% chat.messages.each do |message| %>
-      <div>
-        <div>
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
           <%= render 'messages/message', message: message %>
         </div>
       </div>
