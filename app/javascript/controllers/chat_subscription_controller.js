@@ -36,4 +36,12 @@ export default class extends Controller {
       </div>
     `
   }
+
+  #justifyClass(currentUserIsSender) {
+  return currentUserIsSender ? "justify-content-end" : "justify-content-start"
+  }
+
+  #userStyleClass(currentUserIsSender) {
+    return currentUserIsSender ? "sender-style" : "receiver-style"
+  }
 }
