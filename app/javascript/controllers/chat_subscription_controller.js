@@ -24,5 +24,16 @@ export default class extends Controller {
   #insertMessageAndScrollDown(data) {
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    const currentUserIsSender = this.currentUserIdValue === data.sender_id
+  }
+
+  #buildMessageElement(currentUserIsSender, message) {
+    return `
+      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+        <div class="${this.#userStyleClass(currentUserIsSender)}">
+          ${message}
+        </div>
+      </div>
+    `
   }
 }
