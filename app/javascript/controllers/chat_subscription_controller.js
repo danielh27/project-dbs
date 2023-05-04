@@ -35,6 +35,12 @@ export default class extends Controller {
   #buildMessageElement(currentUserIsSender, message) {
     return `
       <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+        <img src="" alt="Avatar user">
+        <% if user.avatar.key %>
+          <%= cl_image_tag user.avatar.key, class: "avatar #{classes}", alt: "avatar", data: %>
+        <% else %>
+          <%= image_tag "https://source.unsplash.com/random/?avatar", class: "avatar #{classes}", alt: "avatar", data: %>
+        <% end %>
         <div class="${this.#userStyleClass(currentUserIsSender)}">
           ${message}
         </div>
