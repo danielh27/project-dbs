@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
         @chat,
         message: render_to_string(partial: "message", locals: { message: @message }),
         sender_id: @message.sender.id,
+        avatar: render_to_string(partial: "", locals: { avatar: @message.sender.avatar }),
       )
       head :ok
     else

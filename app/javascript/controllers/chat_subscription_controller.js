@@ -8,7 +8,7 @@ export default class extends Controller {
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
-      { channel: "ChatChannel", id: this.chatIdValue },
+      { channel: "ChatChannel", chat_id: this.chatIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
   }
@@ -35,14 +35,14 @@ export default class extends Controller {
   #buildMessageElement(currentUserIsSender, message) {
     return `
       <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
-        <img src="" alt="Avatar user">
-        <% if user.avatar.key %>
-          <%= cl_image_tag user.avatar.key, class: "avatar #{classes}", alt: "avatar", data: %>
-        <% else %>
-          <%= image_tag "https://source.unsplash.com/random/?avatar", class: "avatar #{classes}", alt: "avatar", data: %>
-        <% end %>
+        <div>
+          ${avatar}
+        </div>
         <div class="${this.#userStyleClass(currentUserIsSender)}">
           ${message}
+        </div>
+        <div>
+          ${avatar}
         </div>
       </div>
     `
