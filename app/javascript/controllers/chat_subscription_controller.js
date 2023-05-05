@@ -26,33 +26,37 @@ export default class extends Controller {
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
 
     // Creating the whole message from the `data.message` String
-    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
+    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message, data.avatar)
 
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
-  #buildMessageElement(currentUserIsSender, message) {
+  #buildMessageElement(currentUserIsSender, message, avatar) {
     return `
-      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
-        <div>
+      <div class="message-row d-flex ${this.#setClassByUser(currentUserIsSender, "justify-content-end", "justify-content-start")}">
+        <div class="${this.#setClassByUser(currentUserIsSender, "avatar", "d-none")}">
           ${avatar}
         </div>
-        <div class="${this.#userStyleClass(currentUserIsSender)}">
+        <div class="${this.#setClassByUser(currentUserIsSender, "sender-style", "receiver-style")}">
           ${message}
         </div>
-        <div>
+        <div class="${this.#setClassByUser(currentUserIsSender, "d-none", "avatar")}">
           ${avatar}
         </div>
       </div>
     `
   }
 
-  #justifyClass(currentUserIsSender) {
-  return currentUserIsSender ? "justify-content-end" : "justify-content-start"
-  }
+  // #justifyClass(currentUserIsSender) {
+  // return currentUserIsSender ? "justify-content-end" : "justify-content-start"
+  // }
 
-  #userStyleClass(currentUserIsSender) {
-    return currentUserIsSender ? "sender-style" : "receiver-style"
+  // #userStyleClass(currentUserIsSender) {
+  //   return currentUserIsSender ? "sender-style" : "receiver-style"
+  // }
+
+  #setClassByUser(currentUserIsSender, first_class, second_class) {
+    return currentUserIsSender ? first_class : second_class
   }
 }
