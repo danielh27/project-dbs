@@ -26,8 +26,16 @@
   <div class="messages text-break" data-chat-subscription-target="messages">
     <% chat.messages.each do |message| %>
       <div class="message-row d-flex <%= set_class_name_by_message_sender(message.sender, current_user, 'justify-content-end', 'justify-content-start') %>">
+        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "d-none", "avatar") %> me-3">
+          <%= render User::AvatarComponent.new(current_user) %>
+        </div>
+
         <div class="<%= set_class_name_by_message_sender(message.sender, current_user, 'sender-style', 'receiver-style') %>">
           <%= render 'messages/message', message: message %>
+        </div>
+
+        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "avatar", "d-none") %> ms-3">
+          <%= render User::AvatarComponent.new(current_user) %>
         </div>
       </div>
     <% end %>

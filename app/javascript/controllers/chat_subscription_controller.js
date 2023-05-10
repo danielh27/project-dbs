@@ -35,13 +35,13 @@ export default class extends Controller {
   #buildMessageElement(currentUserIsSender, message, avatar) {
     return `
       <div class="message-row d-flex ${this.#setClassByUser(currentUserIsSender, "justify-content-end", "justify-content-start")}">
-        <div class="${this.#setClassByUser(currentUserIsSender, "d-none", "avatar")}">
+        <div class="${this.#setClassByUser(currentUserIsSender, "d-none", "avatar")} me-3">
           ${avatar}
         </div>
         <div class="${this.#setClassByUser(currentUserIsSender, "sender-style", "receiver-style")}">
           ${message}
         </div>
-        <div class="${this.#setClassByUser(currentUserIsSender, "avatar", "d-none")}">
+        <div class="${this.#setClassByUser(currentUserIsSender, "avatar", "d-none")} ms-3">
           ${avatar}
         </div>
       </div>
