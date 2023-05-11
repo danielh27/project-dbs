@@ -10,7 +10,9 @@ class MessagesController < ApplicationController
     if @message.save
       ChatChannel.broadcast_to(
         @chat,
-        render_to_string(partial: "message", locals: { message: @message }),
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: @message.sender.id,
+        avatar: render_to_string(User::AvatarComponent.new(current_user), locals: { user: current_user }),
       )
       head :ok
     else

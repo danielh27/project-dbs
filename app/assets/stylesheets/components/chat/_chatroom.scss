@@ -1,0 +1,123 @@
+.chatroom {
+  background: white;
+  margin-top: 9px;
+  height: calc(100vh - 170px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+
+  h1 {
+    border-bottom: 1px solid #0E0000;
+    margin-bottom: 0;
+    padding: 1rem;
+  }
+
+  .messages {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 1rem;
+    background-color: #F6F6FE;
+  }
+
+  #new_message {
+    padding: 1rem;
+
+    .form-group {
+      margin-bottom: 0;
+    }
+  }
+
+  .circle-availability {
+    color: #69D391;
+    font-size: 7px;
+    vertical-align: middle;
+  }
+
+  .btn-quote {
+    background-color: #F0EFFD;
+    color: var(--theme-primary-color);
+    padding: 10px 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+  }
+
+  #new-chat-message {
+    #message_content {
+      border: none !important;
+      resize: none;
+      height: 21px;
+      line-height: 24px;
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    textarea::placeholder {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    #button-send-message {
+      border: none !important;
+
+      &:active {
+        border: none !important;
+        box-shadow: none  !important;
+      }
+
+      &:hover {
+        background-color: var(--theme-background-color);
+      }
+    }
+
+    .new-quotation-button {
+      color: var(--theme-primary-color);
+      border: 1px solid var(--theme-primary-color);
+      border-radius: 8px;
+      padding: 12px 20px;
+    }
+
+    > div {
+      height: 50px;
+      width: 71%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+  }
+
+  .form-new-message {
+    background-color: #F6F6FE;
+    padding: 20px 25px 33px;
+  }
+
+  .nuevo-form{
+    display: flex;
+    align-items: center;
+  }
+}
+
+.container-messages-column {
+  input {
+    width: 83%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .chat-list-item {
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(97, 94, 240, 0.06);
+    }
+  }
+
+  .bg-theme {
+    background: var(--theme-background-color);
+  }
+}

@@ -1,16 +1,29 @@
 class ChatsController < ApplicationController
   before_action :set_service, only: %i[show create]
+  before_action :set_chat, only: %i[show]
 
   def show
-    @chat = Chat.find(params[:id])
     @message = Message.new
+    @chats = current_user.client_chats
+
+    if params[:query].present?
+      sql_query = " \
+        business_name iLIKE :query"
+
+      @chats = @chats.joins(:provider).where(sql_query, query: "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "chats/chat_list_item", locals: { chats: @chats }, formats: [:html] }
+    end
   end
 
   def create
     @chat = Chat.new
-    @chat.name = "#{@service.name} - #{@service.user&.company&.name} - #{@service.user.first_name} #{@service.user.last_name}"
+    @chat.name = "Hola"
     @chat.service = @service
-    @chat.provider = @service.user
+    @chat.provider = @service.provider
     @chat.client = current_user
     if @chat.save
       redirect_to service_chat_path(@service, @chat), notice: "Chat iniciado"
@@ -20,6 +33,10 @@ class ChatsController < ApplicationController
   end
 
   private
+
+  def set_chat
+    @chat = Chat.find(params[:id])
+  end
 
   def chat_params
     params.require(:chat).permit(:name)

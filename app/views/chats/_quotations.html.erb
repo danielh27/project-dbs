@@ -1,0 +1,25 @@
+<h2>Mis Cotizaciones</h2>
+<p>Cotizaciones formales</p>
+
+<div>
+  <% current_user.quotations.each do |quotation| %>
+    <div class="d-flex align-items-center mb-1 bg-white">
+      <div>
+        <%= image_tag 'svg/document-bullet.svg', width: '24px' %>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center flex-fill">
+        <div>
+          <small><%= quotation.status %></small>
+          <p class="mb-0"><%= "Cotización de #{quotation.service.name}" %></p>
+        </div>
+
+        <div class="me-2">
+          <%= link_to root_path do %>
+            <%= image_tag 'svg/redirection.svg', width: '30px' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

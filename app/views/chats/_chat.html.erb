@@ -1,0 +1,67 @@
+<div class="chatroom"
+     data-controller="chat-subscription"
+     data-chat-subscription-chat-id-value="<%= chat.id %>"
+     data-chat-subscription-current-user-id-value="<%= current_user.id %>">
+
+  <div class="d-flex justify-content-between align-items-center py-3 px-4">
+    <div class="d-flex justify-space-between">
+      <div class="d-flex align-items-center">
+        <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
+        <div class="ms-2">
+          <%= chat.provider.business_name %>
+          <div><i class="fa-solid fa-circle circle-availability me-2"></i><span>Online</span></div>
+        </div>
+      </div>
+      <span class="ms-4">Responde en 1 hora</span>
+    </div>
+
+    <div>
+      <%= link_to root_path, class: "btn-quote text-decoration-none" do |l| %>
+        <span>Cotizaciones</span>
+        <i class="fa-solid fa-chevron-right ms-1"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="messages text-break" data-chat-subscription-target="messages">
+    <% chat.messages.each do |message| %>
+      <div class="message-row d-flex <%= set_class_name_by_message_sender(message.sender, current_user, 'justify-content-end', 'justify-content-start') %>">
+        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "d-none", "avatar") %> me-3">
+          <%= render User::AvatarComponent.new(current_user) %>
+        </div>
+
+        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, 'sender-style', 'receiver-style') %>">
+          <%= render 'messages/message', message: message %>
+        </div>
+
+        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "avatar", "d-none") %> ms-3">
+          <%= render User::AvatarComponent.new(current_user) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-new-message">
+    <%= simple_form_for [service, chat, message],
+        html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
+        class: "d-flex align-items-center justify-content-between",
+        id: "new-chat-message"} do |f| %>
+
+      <div class="d-flex align-items-center bg-white">
+        <%= f.input :content,
+                    label: false,
+                    placeholder: "Escribe un mensaje",
+                    wrapper_html: { class: "d-flex align-items-center h-100 flex-grow-1" },
+                    class: "mb-0" %>
+        <%= f.button :button, id: "button-send-message", class: "h-100"  do %>
+          <%= image_tag 'png/send_button.png', width: '24px' %>
+        <% end %>
+      </div>
+
+      <%= link_to root_path, class: "d-flex align-items-center text-decoration-none new-quotation-button" do %>
+        <i class="fa-solid fa-plus me-2 fw-bold fs-5"></i>
+        <span class="fw-bold">Cotización</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
