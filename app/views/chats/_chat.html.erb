@@ -16,7 +16,8 @@
     </div>
 
     <div>
-      <%= link_to root_path, class: "btn-quote text-decoration-none" do |l| %>
+      <%= link_to root_path, class: "btn-quote text-decoration-none",
+          html: { data: { action: "turbo:click->chat-subscription#toggleQuotations" }} do |l| %>
         <span>Cotizaciones</span>
         <i class="fa-solid fa-chevron-right ms-1"></i>
       <% end %>
