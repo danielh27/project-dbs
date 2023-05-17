@@ -10,26 +10,36 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatChannel", chat_id: this.chatIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
-    )
+    );
   }
 
   resetForm(event) {
-    event.target.reset()
+    event.target.reset();
+  }
+
+  toggleQuotations(event) {
+    event.preventDefault();
+    const quotations = document.querySelector('#section-quotations');
+    const chats = document.querySelector('#section-chats');
+
+    quotations.classList.toggle('d-none');
+    chats.classList.toggle('col-6');
+    chats.classList.toggle('col-9');
   }
 
   disconnect() {
-    this.channel.unsubscribe()
+    this.channel.unsubscribe();
   }
 
   #insertMessageAndScrollDown(data) {
     // Logic to know if the sender is the current_user
-    const currentUserIsSender = this.currentUserIdValue === data.sender_id
+    const currentUserIsSender = this.currentUserIdValue === data.sender_id;
 
     // Creating the whole message from the `data.message` String
-    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message, data.avatar)
+    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message, data.avatar);
 
-    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement);
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
   }
 
   #buildMessageElement(currentUserIsSender, message, avatar) {
@@ -45,10 +55,10 @@ export default class extends Controller {
           ${avatar}
         </div>
       </div>
-    `
+    `;
   }
 
   #setClassByUser(currentUserIsSender, first_class, second_class) {
-    return currentUserIsSender ? first_class : second_class
+    return currentUserIsSender ? first_class : second_class;
   }
 }
