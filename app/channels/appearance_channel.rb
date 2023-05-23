@@ -12,12 +12,12 @@ class AppearanceChannel < ApplicationCable::Channel
 
   private
 
-  def update_user_status(online)
-    current_user.update(online:)
+  def update_user_status(active)
+    current_user.update(active:)
     ActionCable.server.broadcast(
       "user_appearances_channel_#{current_user.id}",
       user_id: current_user.id,
-      online:,
+      active:,
     )
   end
 end

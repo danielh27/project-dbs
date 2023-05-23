@@ -11,6 +11,11 @@ export default class extends Controller {
       { channel: "ChatChannel", chat_id: this.chatIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     );
+
+    this.channel = createConsumer().subscriptions.create(
+      { channel: "AppearanceChannel" },
+      { received: data => this.#insertMessageAndScrollDown(data) }
+    );
   }
 
   resetForm(event) {
