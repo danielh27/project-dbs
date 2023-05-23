@@ -13,8 +13,16 @@ export default class extends Controller {
     );
 
     this.channel = createConsumer().subscriptions.create(
-      { channel: "AppearanceChannel" },
-      { received: data => this.#insertMessageAndScrollDown(data) }
+      { channel: "AppearanceChannel", user_id: this.currentUserIdValue },
+      { connected: () => console.log('hola'),
+        disconnected: () => console.log('chau'),
+        received: (data) => {
+          console.log(data)
+
+
+          this.#setUserStatus(data)
+        }
+      }
     );
   }
 
@@ -30,6 +38,10 @@ export default class extends Controller {
     quotations.classList.toggle('d-none');
     chats.classList.toggle('col-6');
     chats.classList.toggle('col-9');
+  }
+
+  #setUserStatus(data) {
+    console.log(data)
   }
 
   disconnect() {
