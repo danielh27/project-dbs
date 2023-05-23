@@ -14,8 +14,6 @@
   <body>
     <%= render NavBar::BaseComponent.new(current_user, current_provider) %>
     <%= render partial: "shared/flashes" %>
-    <div class="container mt-5 h-100">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
