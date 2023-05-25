@@ -25,3 +25,12 @@ class AppearanceChannel < ApplicationCable::Channel
     )
   end
 end
+
+
+# en vez de hacerlo con user deberia ser con provider
+# hacer la migracion en provider
+# yo se que igual habra que hacerlo en la vista de chat del provider pero
+# cuando llegue el momento alli vere como refactorizarlo
+# por lo pronto solo hacer para provider
+# revisar como usar el current_user en vez de estar byuscando el record
+# mudango lo tiene asi

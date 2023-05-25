@@ -8,11 +8,11 @@
       <div class="d-flex align-items-center">
         <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
         <div class="ms-2">
+          <%= chat.provider.business_name %>
           <div>
             <i class="fa-solid fa-circle circle-availability me-2"></i>
-            <span data-chat-subscription-target="messages">Online</span>
+            <span data-chat-subscription-target="statusUser">Desconectado</span>
           </div>
-          <%= chat.provider.business_name %>
         </div>
       </div>
       <span class="ms-4">Responde en 1 hora</span>
