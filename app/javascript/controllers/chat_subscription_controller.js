@@ -17,7 +17,7 @@ export default class extends Controller {
       { connected: () => console.log('hola'),
         disconnected: () => console.log('chau'),
         received: (data) => {
-          console.log(data)
+
 
 
           this.#setUserStatus(data)
@@ -40,12 +40,12 @@ export default class extends Controller {
     chats.classList.toggle('col-9');
   }
 
-  #setUserStatus(data) {
-    console.log(data)
-  }
-
   disconnect() {
     this.channel.unsubscribe();
+  }
+
+  #setUserStatus(data) {
+    console.log(data)
   }
 
   #insertMessageAndScrollDown(data) {
