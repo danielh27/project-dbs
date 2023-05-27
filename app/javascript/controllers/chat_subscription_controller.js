@@ -3,7 +3,7 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="chat-subscription"
 export default class extends Controller {
-  static values = { chatId: Number, currentUserId: Number }
+  static values = { chatId: Number, currentUserId: Number, providerId: Number }
   static targets = ["messages", "statusUser"]
 
   connect() {
@@ -13,7 +13,7 @@ export default class extends Controller {
     );
 
     this.channel = createConsumer().subscriptions.create(
-      { channel: "AppearanceChannel", user_id: this.currentUserIdValue },
+      { channel: "AppearanceChannel", provider_id: this.currentUserIdValue },
       { received: (data) => {
 
 
