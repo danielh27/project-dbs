@@ -23,7 +23,7 @@ class AppearanceChannel < ApplicationCable::Channel
   end
 
   def set_provider
-    @provider_id = params["provider_id"]
+    params["provider_id"]
   end
 end
 
