@@ -1,7 +1,7 @@
 class AppearanceChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    current_user = params["user_id"]
+    current_user = params["provider_id"]
     stream_from "user_appearances_channel_#{current_user}"
     # debugger
     update_user_status(true, current_user)
