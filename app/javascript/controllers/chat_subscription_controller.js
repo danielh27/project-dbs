@@ -13,14 +13,8 @@ export default class extends Controller {
     );
 
     this.channel = createConsumer().subscriptions.create(
-      { channel: "AppearanceChannel", provider_id: this.providerIdValue },
-      { received: (data) => {
-
-
-
-          this.#setUserStatus(data)
-        }
-      }
+      { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
+      { received: (data) => this.#setUserStatus(data) }
     );
   }
 
@@ -44,7 +38,8 @@ export default class extends Controller {
 
   #setUserStatus(data) {
     console.log(data)
-    data.active? this.providerStatusTarget.innerHTML = 'Conectado' : this.providerStatusTarget.innerHTML = 'Desconectado';
+    console.log(data.active)
+    this.providerStatusTarget.innerHTML = data.active ? 'Conectado' : 'Desconectado';
   }
 
   #insertMessageAndScrollDown(data) {
