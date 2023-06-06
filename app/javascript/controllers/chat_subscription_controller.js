@@ -12,10 +12,10 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     );
 
-    this.channel = createConsumer().subscriptions.create(
-      { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
-      { received: (data) => this.#setUserStatus(data) }
-    );
+    // this.channel = createConsumer().subscriptions.create(
+    //   { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
+    //   { received: (data) => this.#setUserStatus(data) }
+    // );
   }
 
   resetForm(event) {
@@ -37,9 +37,9 @@ export default class extends Controller {
   }
 
   #setUserStatus(data) {
-    console.log(data)
-    console.log(data.active)
-    this.providerStatusTarget.innerHTML = data.active ? 'Conectado' : 'Desconectado';
+    // console.log(data)
+    // console.log(data.active)
+    // this.providerStatusTarget.innerHTML = data.active ? 'Conectado' : 'Desconectado';
   }
 
   #insertMessageAndScrollDown(data) {
