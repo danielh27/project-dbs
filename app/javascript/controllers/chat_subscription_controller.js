@@ -12,7 +12,7 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     );
 
-    // this.channel = createConsumer().subscriptions.create(
+    // this.channelUser = createConsumer().subscriptions.create(
     //   { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
     //   { received: (data) => this.#setUserStatus(data) }
     // );

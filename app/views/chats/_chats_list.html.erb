@@ -2,9 +2,10 @@
      data-controller="search-message"
      data-search-message-chat-id-value="<%= @chat.id %>">
 
-  <h2 class="mb-4">Mensajes
-    <span class="fs-4 bg-secondary fw-light rounded px-2 py-1" data-search-message-target="counter"><%= @chats.size %></span>
-  </h2>
+  <div class="d-flex align-items-center gap-2 mb-3">
+    <h3>Mensajes</h3>
+    <span class="amount-messages fs-6 fw-light rounded px-2" data-search-message-target="counter"><%= @chats.size %></span>
+  </div>
 
   <div class="px-1 py-2 border border-secondary border-1 rounded">
     <%= form_with url: service_chat_path(@service, @chat),
