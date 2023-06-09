@@ -1,6 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
 .home-banner {
-  max-height: 450px;
+  height: 45vh auto;
   width: 100%;
-  object-fit: cover;
-  object-position: center;
+  background-repeat: no-repeat;
+  background-color: #D9D9D9;
+  padding: 120px 170px;
+  background-size: cover;
 }
+
+.home-banner p {
+width: 30vw;
+height: auto;
+font-family: 'Montserrat', sans-serif;
+font-size: 30px;
+line-height: 37px;
+}
+.home-banner .btn{
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 36.57px;
+}
+
+@media (max-width: 768px){
+  .home-banner p{
+    width: 50vw;
+  }
+
+  .home-banner{
+    text-align: left;
+    padding: 120px;
+  }
+}
+
+@media (max-width: 425px){
+  .home-banner p{
+    width: 80vw;
+    font-size: 25px;
+  }
+
+  .home-banner p{
+    font-size: 25px;
+
+  }
+
+  .home-banner{
+    padding: 120px 45px;
+  }
+
+  .home-banner .btn{
+    font-size: 25px;
+  }
+}
+
