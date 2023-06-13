@@ -113,12 +113,12 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(97, 94, 240, 0.06);
+      background-color: var(--theme-secondary-background-color);
     }
   }
 
   .bg-theme {
-    background: var(--theme-background-color);
+    background: var(--theme-primary-background-color);
   }
 
   .amount-messages {
