@@ -9,11 +9,11 @@
       </div>
 
       <div>
-        <div>
+        <div class="text-dark fw-bold">
           <%= fullname(chat.provider) %>
         </div>
 
-        <div>
+        <div class="text-secondary fw-light">
           <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
         </div>
       </div>
