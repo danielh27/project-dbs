@@ -5,20 +5,23 @@
      data-chat-subscription-provider-id-value="<%= chat.provider.id %>">
 
   <div class="d-flex justify-content-between align-items-center py-3 px-4 mx-2 mt-2">
-    <div class="d-flex justify-space-between gap-2">
+    <div class="d-flex justify-space-between align-items-center gap-2">
       <%= cl_image_tag chat.provider.avatar.key, class: "avatar-chat", alt: "avatar" %>
-      <div class="ms-2">
-        <%= chat.provider.business_name %>
+      <div class="ms-2 lh-sm">
+        <span class="fw-bold h5"><%= chat.provider.business_name %></span>
         <div>
-          <i class="fa-solid fa-circle circle-availability me-2"></i>
-          <span data-chat-subscription-target="providerStatus">Desconectado</span>
+          <i class="fa-solid fa-circle circle-availability"></i>
+          <small data-chat-subscription-target="providerStatus" class="text-secondary">
+            Desconectado
+          </small>
         </div>
       </div>
     </div>
 
     <div>
-      <%= link_to '#', class: "btn-quote text-decoration-none",
+      <%= link_to '#', class: "btn-quote text-decoration-none d-flex align-items-center gap-2",
           data: { action: "turbo:click->chat-subscription#toggleQuotations" } do |l| %>
+        <%= image_tag 'svg/chat/clipboard_text.svg', width: "22px", class: "d-inline" %>
         <span>Cotizaciones</span>
         <i class="fa-solid fa-chevron-right ms-1"></i>
       <% end %>

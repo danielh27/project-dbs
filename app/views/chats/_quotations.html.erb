@@ -5,7 +5,7 @@
   <% current_user.quotations.each do |quotation| %>
     <div class="d-flex align-items-center mb-1 bg-white">
       <div>
-        <%= image_tag 'svg/document-bullet.svg', width: '24px' %>
+        <%= image_tag 'svg/chat/document-bullet.svg', width: '24px' %>
       </div>
 
       <div class="d-flex justify-content-between align-items-center flex-fill">
@@ -16,7 +16,7 @@
 
         <div class="me-2">
           <%= link_to root_path do %>
-            <%= image_tag 'svg/redirection.svg', width: '30px' %>
+            <%= image_tag 'svg/chat/redirection.svg', width: '30px' %>
           <% end %>
         </div>
       </div>
