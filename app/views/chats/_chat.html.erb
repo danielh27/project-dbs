@@ -4,19 +4,16 @@
      data-chat-subscription-current-user-id-value="<%= current_user.id %>"
      data-chat-subscription-provider-id-value="<%= chat.provider.id %>">
 
-  <div class="d-flex justify-content-between align-items-center py-3 px-4">
-    <div class="d-flex justify-space-between">
-      <div class="d-flex align-items-center">
-        <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
-        <div class="ms-2">
-          <%= chat.provider.business_name %>
-          <div>
-            <i class="fa-solid fa-circle circle-availability me-2"></i>
-            <span data-chat-subscription-target="providerStatus">Desconectado</span>
-          </div>
+  <div class="d-flex justify-content-between align-items-center py-3 px-4 mx-2 mt-2">
+    <div class="d-flex justify-space-between gap-2">
+      <%= cl_image_tag chat.provider.avatar.key, class: "avatar-chat", alt: "avatar" %>
+      <div class="ms-2">
+        <%= chat.provider.business_name %>
+        <div>
+          <i class="fa-solid fa-circle circle-availability me-2"></i>
+          <span data-chat-subscription-target="providerStatus">Desconectado</span>
         </div>
       </div>
-      <span class="ms-4">Responde en 1 hora <%= current_user.class %></span>
     </div>
 
     <div>
