@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
 .home-banner {
   height: 45vh auto;
   width: 100%;
@@ -10,46 +8,19 @@
 }
 
 .home-banner p {
-width: 30vw;
-height: auto;
-font-family: 'Montserrat', sans-serif;
-font-size: 30px;
-line-height: 37px;
+  width: 30vw;
+  height: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  line-height: 37px;
 }
+
+
 .home-banner .btn{
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
   line-height: 36.57px;
 }
 
-@media (max-width: 768px){
-  .home-banner p{
-    width: 50vw;
-  }
 
-  .home-banner{
-    text-align: left;
-    padding: 120px;
-  }
-}
-
-@media (max-width: 425px){
-  .home-banner p{
-    width: 80vw;
-    font-size: 25px;
-  }
-
-  .home-banner p{
-    font-size: 25px;
-
-  }
-
-  .home-banner{
-    padding: 120px 45px;
-  }
-
-  .home-banner .btn{
-    font-size: 25px;
-  }
-}
 

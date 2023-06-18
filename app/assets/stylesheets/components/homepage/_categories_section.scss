@@ -1,41 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
-
 .home-categories h1{
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 30px;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 30px;
 }
 
 .home-categories .card-text{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    opacity: 1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  opacity: 1;
 }
 
 .home-categories{
-    padding: 80px 170px;
+  padding: 80px 170px;
 }
 
 .home-categories .card{
-    width: 110%;
-    height: 100%;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    overflow: hidden;
+  width: 110%;
+  height: 100%;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  overflow: hidden;
 }
 
 .home-categories .card img{
-    width: 112%;
-    height: 100%;
-    filter: brightness(0.7);
+  width: 112%;
+  height: 100%;
+  filter: brightness(0.7);
 }
 
 .home-categories .row{
-    column-gap: 16px;
-    margin: 15px;
-    row-gap: 15px;
-    justify-content: space-between;
+  column-gap: 16px;
+  margin: 15px;
+  row-gap: 15px;
+  justify-content: space-between;
 }
 
 .home-categories .carousel-control-next-icon,
@@ -43,56 +40,8 @@
   filter: invert(1);
 }
 
-@media (max-width: 1024px){
-    .col-2{
-        width: 48.5%;
-    }
-
-    .home-categories .row{
-        justify-content: space-evenly;
-        margin-top: 20px;
-    }
-
-    .home-categories .card{
-        width: 100%;
-        height: 100%;
-    }
-
-    .home-categories{
-        padding: 45px;
-    }
-
-}
-
-@media (max-width: 768px){
-    .home-categories .card{
-        width: 100%;
-        height: 100%;
-    }
-
-    .home-categories .row{
-        column-gap: 18px;
-    }
 
 
-}
-
-@media (max-width:425px){
-    .home-categories .card{
-        width: 100%;
-        height: 100%;
-        font-size: 13px;
-    }
-
-    .home-categories{
-        padding: 20px;
-    }
-
-    .row{
-        margin: 20p 0px;
-    }
-
-}
 
 
 
