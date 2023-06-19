@@ -1,22 +1,24 @@
-@media (max-width: 1024px){
-  .col-2{
-      width: 48.5%;
+@media (max-width: 425px){
+
+  .home-banner p{
+    font-size: 25px;
   }
 
-  .home-categories .row{
-      justify-content: space-evenly;
-      margin-top: 20px;
+  .home-banner .btn{
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px){
+  
+  .home-banner{
+    text-align: left;
+    padding: 120px 45px;
   }
 
-  .home-categories .card{
-      width: 100%;
-      height: 100%;
+  .home-banner p{
+    width: 75vw;
   }
-
-  .home-categories{
-      padding: 45px;
-  }
-
 }
 
 @media (max-width: 768px){
@@ -32,33 +34,17 @@
 
 
 
-@media (max-width: 768px){
-  .home-banner p{
-    width: 50vw;
+@media (max-width: 1024px){
+  .home-categories .row{
+      justify-content: space-evenly;
+      margin-top: 20px;
   }
 
-  .home-banner{
-    text-align: left;
-    padding: 120px;
+
+  .home-categories{
+      padding: 20px 10px;
   }
+
 }
+
   
-@media (max-width: 425px){
-  .home-banner p{
-      width: 80vw;
-      font-size: 25px;
-  }
-
-  .home-banner p{
-      font-size: 25px;
-
-  }
-
-  .home-banner{
-      padding: 120px 45px;
-  }
-
-  .home-banner .btn{
-      font-size: 25px;
-  }
-}
