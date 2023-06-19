@@ -1,0 +1,48 @@
+.home-categories h1{
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 30px;
+}
+
+.home-categories .card-text{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  opacity: 1;
+}
+
+.home-categories{
+  padding: 80px 170px;
+}
+
+.home-categories .card{
+  width: 110%;
+  height: 100%;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  overflow: hidden;
+}
+
+.home-categories .card img{
+  width: 112%;
+  height: 100%;
+  filter: brightness(0.7);
+}
+
+.home-categories .row{
+  column-gap: 16px;
+  margin: 15px;
+  row-gap: 15px;
+  justify-content: space-between;
+}
+
+.home-categories .carousel-control-next-icon,
+.home-categories .carousel-control-prev-icon {
+  filter: invert(1);
+}
+
+
+
+
+
+
+
