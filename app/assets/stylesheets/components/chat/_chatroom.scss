@@ -74,17 +74,18 @@
     }
 
     .new-quotation-button {
-      color: var(--theme-primary-color);
+      color: #F6F6FE;
       border: 1px solid var(--theme-primary-color);
-      border-radius: 8px;
+      border-radius: 31px;
       padding: 12px 20px;
+      background-color: var(--theme-primary-color);
     }
 
     > div {
       height: 50px;
       width: 71%;
       border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
+      border-radius: 10px;
     }
   }
 
