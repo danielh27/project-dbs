@@ -1,0 +1,29 @@
+#section-chat-list {
+  .container-messages-column {
+    input {
+      width: 83%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .chat-list-item {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--theme-secondary-background-color);
+      }
+    }
+
+    .bg-theme {
+      background: var(--theme-primary-background-color);
+    }
+
+    .amount-messages {
+      padding-top: 1.5px;
+      padding-bottom: 1.5px;
+      background-color: #E4E4FC;
+    }
+  }
+}
