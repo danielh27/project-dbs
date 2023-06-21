@@ -49,7 +49,7 @@
   <div class="form-new-message">
     <%= simple_form_for [service, chat, message],
         html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
-        class: "d-flex align-items-center justify-content-between",
+        class: "d-flex align-items-center justify-content-center gap-3",
         id: "new-chat-message"} do |f| %>
 
       <div class="d-flex align-items-center bg-white">
