@@ -1,4 +1,15 @@
 #section-quotations {
   background-color: #E6EC89;
   border-radius: 10px 0px 0px 10px;
+
+  .container-my-quotations {
+
+    h4{
+      color: var(--theme-primary-color);
+    }
+
+    i {
+      color: #615DEF !important;
+    }
+  }
 }
