@@ -50,6 +50,8 @@ es:
               invalid: "Formato de celular incorrecto"
               not_a_number: "Debe contener solo números"
               wrong_length: "Debe tener exactamente %{count} dígitos"
+            password:
+              blank: "La contraseña no puede estar en blanco"
         service:
           attributes:
             name:
