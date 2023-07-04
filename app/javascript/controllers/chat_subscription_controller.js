@@ -12,6 +12,10 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     );
 
+    console.log(this.messagesTarget.lastElementChild)
+    console.log(this.messagesTarget.lastElementChild.classList.contains("justify-content-end"))
+    console.log(this.messagesTarget.lastElementChild.classList.contains("justify-content-start"))
+
     // this.channelUser = createConsumer().subscriptions.create(
     //   { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
     //   { received: (data) => this.#setUserStatus(data) }
@@ -54,6 +58,7 @@ export default class extends Controller {
   }
 
   #buildMessageElement(currentUserIsSender, message, avatar) {
+    const showAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-end") ? "d-none" : "avatar"
     return `
       <div class="message-row d-flex ${this.#setClassByUser(currentUserIsSender, "justify-content-end", "justify-content-start")}">
         <div class="${this.#setClassByUser(currentUserIsSender, "d-none", "avatar")} me-3">
@@ -62,8 +67,10 @@ export default class extends Controller {
         <div class="${this.#setClassByUser(currentUserIsSender, "sender-style", "receiver-style")}">
           ${message}
         </div>
-        <div class="${this.#setClassByUser(currentUserIsSender, "avatar", "d-none")} ms-3">
-          ${avatar}
+        <div class="avatar ms-3">
+          <div class="${this.#setClassByUser(currentUserIsSender, showAvatar, "d-none")} ms-3">
+            ${avatar}
+          </div>
         </div>
       </div>
     `;
