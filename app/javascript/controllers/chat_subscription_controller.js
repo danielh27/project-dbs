@@ -58,17 +58,20 @@ export default class extends Controller {
   }
 
   #buildMessageElement(currentUserIsSender, message, avatar) {
-    const showAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-end") ? "d-none" : "avatar"
+    const showUserAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-end") ? "d-none" : "avatar"
+    const showProviderAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-start") ? "d-none" : "avatar"
     return `
       <div class="message-row d-flex ${this.#setClassByUser(currentUserIsSender, "justify-content-end", "justify-content-start")}">
-        <div class="${this.#setClassByUser(currentUserIsSender, "d-none", "avatar")} me-3">
-          ${avatar}
+        <div class="avatar me-3">
+          <div class="${this.#setClassByUser(currentUserIsSender, "d-none", showProviderAvatar)} me-3">
+            ${avatar}
+          </div>
         </div>
         <div class="${this.#setClassByUser(currentUserIsSender, "sender-style", "receiver-style")}">
           ${message}
         </div>
         <div class="avatar ms-3">
-          <div class="${this.#setClassByUser(currentUserIsSender, showAvatar, "d-none")} ms-3">
+          <div class="${this.#setClassByUser(currentUserIsSender, showUserAvatar, "d-none")}">
             ${avatar}
           </div>
         </div>
