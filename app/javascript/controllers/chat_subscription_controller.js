@@ -12,10 +12,6 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     );
 
-    console.log(this.messagesTarget.lastElementChild)
-    console.log(this.messagesTarget.lastElementChild.classList.contains("justify-content-end"))
-    console.log(this.messagesTarget.lastElementChild.classList.contains("justify-content-start"))
-
     // this.channelUser = createConsumer().subscriptions.create(
     //   { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
     //   { received: (data) => this.#setUserStatus(data) }
@@ -32,8 +28,8 @@ export default class extends Controller {
     const chats = document.querySelector('#section-chats');
 
     quotations.classList.toggle('d-none');
-    chats.classList.toggle('col-6');
-    chats.classList.toggle('col-9');
+    chats.classList.toggle('col-sm-6');
+    chats.classList.toggle('col-sm-9');
   }
 
   disconnect() {
