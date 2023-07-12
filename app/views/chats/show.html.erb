@@ -1,14 +1,14 @@
 <main>
-  <main class="row">
-    <section class="d-none col-sm-3 d-sm-block" id="section-chat-list">
+  <div class="row">
+    <section class="d-none col-md-3 d-md-block" id="section-chat-list">
       <%= render 'chats/chats_list', chats: @chats %>
     </section>
 
-    <section class="col-12 col-sm-9" id="section-chats">
+    <section class="col-12 col-md-9" id="section-chats">
       <%= render 'chats/chat', chat: @chat, service: @service, message: @message %>
     </section>
 
-    <section class="col-sm-3 d-none" id="section-quotations">
+    <section class="col-md-3 d-none" id="section-quotations">
       <%= render 'chats/quotations' %>
     </section>
   </div>
