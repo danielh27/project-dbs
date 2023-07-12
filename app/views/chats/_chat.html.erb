@@ -4,11 +4,11 @@
      data-chat-subscription-current-user-id-value="<%= current_user.id %>"
      data-chat-subscription-provider-id-value="<%= chat.provider.id %>">
 
-  <div class="d-flex justify-content-between align-items-center py-3 px-4 mx-2 mt-2">
+  <div class="d-flex justify-content-between align-items-center py-3 px-4 mx-2 mt-2 container-title-chat">
     <div class="d-flex justify-space-between align-items-center gap-2">
       <%= cl_image_tag chat.provider.avatar.key, class: "avatar-chat", alt: "avatar" %>
       <div class="ms-2 lh-sm">
-        <span class="fw-bold h5"><%= chat.provider.business_name %></span>
+        <span class="fw-bold h5 receiver-name"><%= chat.provider.business_name %></span>
         <div>
           <i class="fa-solid fa-circle circle-availability"></i>
           <small data-chat-subscription-target="providerStatus" class="text-secondary">
@@ -32,7 +32,6 @@
         <%= image_tag 'svg/chat/vertically_points', width: '24px' %>
       </div>
     </div>
-
   </div>
 
   <div class="messages text-break" data-chat-subscription-target="messages">

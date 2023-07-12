@@ -107,5 +107,28 @@
 }
 
 @media screen and (max-width: 767px) {
+  #section-chats {
+    .chatroom {
+      .container-title-chat {
+        padding: 0.5rem !important;
+        margin: 0 !important;
 
+          .receiver-name{
+            font-size: 0.9rem;
+          }
+
+          small {
+            font-size: 0.75rem;
+          }
+      }
+
+      #new_message {
+        padding: 0;
+      }
+
+      .btn-quote {
+        padding: 8px 10px;
+      }
+    }
+  }
 }
