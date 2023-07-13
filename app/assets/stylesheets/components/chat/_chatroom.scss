@@ -109,6 +109,8 @@
 @media screen and (max-width: 767px) {
   #section-chats {
     .chatroom {
+      background-color: #F6F6FE;
+
       .container-title-chat {
         padding: 0.5rem !important;
         margin: 0 !important;
@@ -138,13 +140,17 @@
       #new_message {
         padding: 0;
       }
-    }
 
-    .messages {
-      .message-row {
-        .avatar-message {
-          width: 30px;
-          height: 30px;
+      .messages {
+        .message-row {
+          .sender-style, .receiver-style {
+            font-size: 0.9rem;
+          }
+
+          .avatar-message {
+            width: 30px;
+            height: 30px;
+          }
         }
       }
     }

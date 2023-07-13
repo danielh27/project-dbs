@@ -58,7 +58,7 @@ export default class extends Controller {
     const showProviderAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-start") ? "d-none" : "avatar"
     return `
       <div class="message-row d-flex ${this.#setClassByUser(currentUserIsSender, "justify-content-end", "justify-content-start")}">
-        <div class="avatar me-3">
+        <div class="avatar">
           <div class="${this.#setClassByUser(currentUserIsSender, "d-none", showProviderAvatar)} me-3">
             ${avatar}
           </div>
@@ -66,7 +66,7 @@ export default class extends Controller {
         <div class="${this.#setClassByUser(currentUserIsSender, "sender-style", "receiver-style")}">
           ${message}
         </div>
-        <div class="avatar ms-3">
+        <div class="avatar ms-2">
           <div class="${this.#setClassByUser(currentUserIsSender, showUserAvatar, "d-none")}">
             ${avatar}
           </div>
