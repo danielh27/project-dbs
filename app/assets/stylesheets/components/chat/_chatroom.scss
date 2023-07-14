@@ -153,6 +153,17 @@
           }
         }
       }
+
+      .form-new-message {
+        #new-chat-message {
+          .new-quotation-button {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            padding: 12px 12px;
+          }
+        }
+      }
     }
   }
 }
