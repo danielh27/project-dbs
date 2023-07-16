@@ -1,10 +1,11 @@
 <main>
   <div class="row">
-    <section class="d-none col-md-3 d-md-block" id="section-chat-list">
+  <%# deberia ponerle d-none solo quite para hacer front %>
+    <section class="col-md-3 d-md-block" id="section-chat-list">
       <%= render 'chats/chats_list', chats: @chats %>
     </section>
-
-    <section class="col-12 col-md-9" id="section-chats">
+    <%# no deberia estar d none solo es par asterminar el fornt %>
+    <section class="d-none col-12 col-md-9" id="section-chats">
       <%= render 'chats/chat', chat: @chat, service: @service, message: @message %>
     </section>
 

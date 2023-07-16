@@ -66,7 +66,7 @@ export default class extends Controller {
         <div class="${this.#setClassByUser(currentUserIsSender, "sender-style", "receiver-style")}">
           ${message}
         </div>
-        <div class="avatar ms-2">
+        <div class="avatar">
           <div class="${this.#setClassByUser(currentUserIsSender, showUserAvatar, "d-none")}">
             ${avatar}
           </div>

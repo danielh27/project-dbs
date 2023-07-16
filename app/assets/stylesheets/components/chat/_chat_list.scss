@@ -25,5 +25,23 @@
       padding-bottom: 1.5px;
       background-color: #E4E4FC;
     }
+
+    .container-search {
+      border: 1px solid rgba(0, 0, 0, 0.10);
+
+      i {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #section-chat-list {
+    .container-messages-column {
+      h3 {
+        font-size: 0.9rem;
+      }
+    }
   }
 }
