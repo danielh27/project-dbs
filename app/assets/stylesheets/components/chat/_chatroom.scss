@@ -142,9 +142,18 @@
       }
 
       .messages {
+        padding: 0.6rem;
+
         .message-row {
           .sender-style, .receiver-style {
             font-size: 0.9rem;
+            max-width: 200px;
+          }
+
+          .sender-style + div {
+            img {
+              margin-left: 10px;
+            }
           }
 
           .avatar-message {
@@ -155,12 +164,18 @@
       }
 
       .form-new-message {
+        padding: 20px 17px 25px;
+
         #new-chat-message {
           .new-quotation-button {
             border-radius: 50%;
             width: 40px;
             height: 40px;
             padding: 12px 12px;
+
+            i {
+              font-size: 1.1rem;
+            }
           }
         }
       }

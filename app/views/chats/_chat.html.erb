@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center gap-3">
       <div>
         <%= link_to '#', class: "btn-quote text-decoration-none d-flex align-items-center gap-2",
             data: { action: "turbo:click->chat-subscription#toggleQuotations" } do |l| %>
@@ -52,7 +52,7 @@
           <%= render 'messages/message', message: message %>
         </div>
 
-        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "avatar", "d-none") %> ms-2">
+        <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "avatar", "d-none") %>">
           <% if show_user_avatar %>
             <%= render User::AvatarComponent.new(current_user, classes: 'avatar-message') %>
           <% end %>
