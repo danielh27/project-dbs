@@ -39,8 +39,41 @@
 @media screen and (max-width: 767px) {
   #section-chat-list {
     .container-messages-column {
+      margin-right: 0 !important;
+
       h3 {
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+
+      .amount-messages {
         font-size: 0.9rem;
+      }
+
+      .bg-theme {
+        background-color: rgba(97, 94, 240, 0.10);
+      }
+
+      .chat-detail {
+        div:nth-child(2) {
+          line-height: normal;
+          margin-top: -0.9rem;
+
+          >div {
+            font-size: 0.9rem;
+          }
+
+          small {
+            display: block;
+            font-size: 0.75rem;
+          }
+        }
+      }
+
+      .container-search {
+        input::placeholder {
+          font-size: 0.875rem;
+        }
       }
     }
   }

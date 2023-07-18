@@ -13,9 +13,9 @@
           <%= fullname(chat.provider) %>
         </div>
 
-        <div class="text-secondary fw-light">
+        <small class="text-secondary fw-light">
           <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
-        </div>
+        </small>
       </div>
     <% end %>
   <% end %>
