@@ -1,12 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-  price: 1
-  active: false
-  slug: MyString
-  user: one
+Bodas:
+  name: Servicio de Bodas 
+  description: Servicios bodas
+  price: 100
+  active: true
+  slug: example
+  user: Deivid
+  category: Party
 
 two:
   name: MyString

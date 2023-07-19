@@ -23,9 +23,10 @@ es:
         new:
           name: Escribe el nombre de tu servicio
           description: Escribe la descripcion
-          images: Agrega imegenes a tu servicio
+          images: Agrega imagenes a tu servicio
           price: Coloca el precio
           active: Publico
+          categories: Categorias
           submit: Crear servicio
     placeholders:
       defaults:

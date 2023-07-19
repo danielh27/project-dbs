@@ -75,3 +75,5 @@ es:
               blank: "El slug no puede estar en blanco"
               invalid: "El formato de slug es incorrecto"
               too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            categories:
+              blank: "Debe seleccionar una categoría"
