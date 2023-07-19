@@ -7,6 +7,7 @@
       <%= f.input :active %>
       <%= f.input :slug %>
       <%= f.input :images %>
+      <%= f.association :categories, prompt: 'Elige una categoría'%>
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
   </div>

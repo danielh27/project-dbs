@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
     @service = current_provider.services.build(service_params)
 
     if @service.save
-      redirect_to providers_authenticated_root_path, notice: "Service created"
+      redirect_to providers_authenticated_root_path, notice: "Servicio creado satisfactoriamente"
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
-      redirect_to providers_authenticated_root_path, notice: "Service updated"
+      redirect_to providers_authenticated_root_path, notice: "Servicio actualizado satisfactoriamente"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
-    redirect_to providers_authenticated_root_path, notice: "Service was deleted"
+    redirect_to providers_authenticated_root_path, notice: "Servicio eliminado satisfactoriamente"
   end
 
   private
@@ -48,6 +48,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:name, :description, :price, :active, :slug)
+    params.require(:service).permit(:name, :description, :price, :active, :slug, { :category_ids => [] },:images)
   end
 end
