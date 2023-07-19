@@ -1,4 +1,4 @@
-<div class="mt-5" data-search-message-target="chats">
+<div data-search-message-target="chats">
   <% chats.each do |chat| %>
     <%# Now, requests are remote way, if you want to change it, set turbo: false %>
     <%= link_to service_chat_path(@service, chat),
