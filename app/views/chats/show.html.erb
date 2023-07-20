@@ -1,7 +1,7 @@
 <main>
   <div class="row">
   <%# deberia ponerle d-none solo quite para hacer front %>
-    <section class="col-12 col-md-3 d-md-block" id="section-chat-list">
+    <section class="d-none col-12 col-md-3 d-md-block" id="section-chat-list">
       <%= render 'chats/chats_list', chats: @chats %>
     </section>
     <%# no deberia estar d none solo es par asterminar el fornt %>
@@ -9,7 +9,7 @@
       <%= render 'chats/chat', chat: @chat, service: @service, message: @message %>
     </section>
 
-    <section class="col-md-3 d-none" id="section-quotations">
+    <section class="col-12 col-md-3" id="section-quotations">
       <%= render 'chats/quotations' %>
     </section>
   </div>

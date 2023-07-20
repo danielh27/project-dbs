@@ -40,6 +40,7 @@
   #section-chat-list {
     .container-messages-column {
       margin-right: 0 !important;
+      padding: 0 .5rem;
 
       h3 {
         font-size: 1rem;
@@ -76,8 +77,12 @@
         }
       }
 
-      > div {
-        margin-top: 1rem;
+      >div:nth-child(1) {
+        margin-top: .8rem;
+      }
+
+      > div:nth-child(2) {
+        margin-top: .5rem;
       }
     }
   }
