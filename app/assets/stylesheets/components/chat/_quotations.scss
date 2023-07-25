@@ -24,5 +24,13 @@
     background-color: #F6F6FE;
     padding: 0 1.8rem;
     height: 100vh;
+
+    .container-quotation-info {
+      background-color: transparent !important;
+
+      .quotation-status {
+        background-color: white;
+      }
+    }
   }
 }

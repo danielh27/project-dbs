@@ -19,14 +19,14 @@
     <% current_user.quotations.each do |quotation| %>
       <div>
         <small class="text-secondary"><%= quotation.created_at.strftime("%Y-%m-%d") %></small>
-        <div class="d-flex align-items-center mb-1 p-2 border-bottom border-2">
+        <div class="d-flex align-items-center mb-1 p-2 border-bottom border-2 bg-white container-quotation-info">
           <div class="px-2">
             <%= image_tag 'svg/chat/document-bullet.svg', width: '24px' %>
           </div>
 
           <div class="d-flex justify-content-between align-items-center flex-fill">
             <div>
-              <small class="bg-white"><%= quotation.status %></small>
+              <small class="quotation-status"><%= quotation.status %></small>
               <p class="mb-0"><%= "Cotización de #{quotation.service.name}" %></p>
             </div>
 
