@@ -2,7 +2,7 @@
   <div class="container-my-quotations d-flex align-items-center justify-content-between mb-3">
     <div>
       <h4 class="fw-bold mb-0">Mis Cotizaciones</h4>
-      <div class="px-1 py-2 border border-1 rounded container-search">
+      <div class="px-1 py-2 border border-1 rounded container-search mt-1">
         <%= form_with url: '#',
                       method: :get do |form| %>
           <i class="fa-solid fa-magnifying-glass text-secondary fw-bold px-2"></i>
@@ -19,14 +19,14 @@
     <% current_user.quotations.each do |quotation| %>
       <div>
         <small class="text-secondary"><%= quotation.created_at.strftime("%Y-%m-%d") %></small>
-        <div class="d-flex align-items-center mb-1 bg-white p-2">
+        <div class="d-flex align-items-center mb-1 p-2 border-bottom border-2">
           <div class="px-2">
             <%= image_tag 'svg/chat/document-bullet.svg', width: '24px' %>
           </div>
 
           <div class="d-flex justify-content-between align-items-center flex-fill">
             <div>
-              <small><%= quotation.status %></small>
+              <small class="bg-white"><%= quotation.status %></small>
               <p class="mb-0"><%= "Cotización de #{quotation.service.name}" %></p>
             </div>
 
