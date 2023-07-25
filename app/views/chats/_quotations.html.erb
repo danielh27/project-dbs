@@ -1,17 +1,17 @@
 <div>
-  <div class="container-my-quotations d-flex align-items-center justify-content-between mb-3">
-    <div>
-      <h4 class="fw-bold mb-0">Mis Cotizaciones</h4>
-      <div class="px-1 py-2 border border-1 rounded container-search mt-1">
-        <%= form_with url: '#',
-                      method: :get do |form| %>
-          <i class="fa-solid fa-magnifying-glass text-secondary fw-bold px-2"></i>
-          <%= form.text_field :query_quotation,
-                              value: '',
-                              placeholder: 'Buscar cotizaciones',
-                              class: "border border-0 bg-transparent" %>
-        <% end %>
-      </div>
+  <%= render 'shared/user_info_chat', chat: chat %>
+
+  <div class="container-my-quotations mb-3">
+    <h4 class="fw-bold mb-0">Mis Cotizaciones</h4>
+    <div class="px-1 py-2 border border-1 rounded container-search mt-1">
+      <%= form_with url: '#',
+                    method: :get do |form| %>
+        <i class="fa-solid fa-magnifying-glass text-secondary fw-bold px-2"></i>
+        <%= form.text_field :query_quotation,
+                            value: '',
+                            placeholder: 'Buscar cotizaciones',
+                            class: "border border-0 bg-transparent" %>
+      <% end %>
     </div>
   </div>
 
