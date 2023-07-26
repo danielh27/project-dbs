@@ -1,5 +1,7 @@
 <div class="d-flex justify-content-between align-items-center gap-2">
-  <%= cl_image_tag chat.provider.avatar.key, class: "avatar-title-chat", alt: "avatar" %>
+  <%= image_tag 'svg/chat/arrow_left', width: '24px' %>
+
+  <%= render User::AvatarComponent.new(chat.provider, classes: 'avatar-title-chat') %>
   <div class="ms-2 lh-sm">
     <span class="fw-bold h5 receiver-name"><%= chat.provider.business_name %></span>
     <div>
@@ -25,3 +27,10 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<%# uso form with e hizo un boton dentro con un bloque y dentro puso dos textos con clase whenb ebaled y when disabled luego
+en css puiso dispolya initial y none en enabled y luego &[disabled] none e initial en disabled y el hotwire solo te cambia los boto0nes %>
