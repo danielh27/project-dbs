@@ -1,2 +1,6 @@
 <h1>Service show</h1>
-<%= link_to 'Chat', service_chats_path(@service), data: { turbo_method: :post } %>
+
+<%= button_to service_chats_path(@service) do %>
+  <span class="show-when-enabled">Conversar con proveedor</span>
+  <span class="show-when-disabled">Cargando...</span>
+<% end %>

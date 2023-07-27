@@ -16,3 +16,13 @@
 @import "layouts/container";
 @import "layouts/header";
 @import "config/media";
+
+button {
+  .show-when-enabled { display: initial; }
+  .show-when-disabled { display: none; }
+
+  &[disabled] {
+    .show-when-enabled { display: none; }
+    .show-when-disabled { display: initial; }
+  }
+}
