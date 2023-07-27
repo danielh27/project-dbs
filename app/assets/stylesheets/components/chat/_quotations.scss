@@ -25,6 +25,15 @@
     padding: 0 1.8rem;
     height: 100vh;
 
+    .container-title-chat {
+      padding: 0.5rem 0 !important;
+
+      .circle-availability {
+        font-size: 0.6rem;
+        vertical-align: middle;
+      }
+    }
+
     .container-quotation-info {
       background-color: transparent !important;
 

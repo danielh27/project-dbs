@@ -107,35 +107,9 @@
 }
 
 @media screen and (max-width: 767px) {
-  #section-chats {
+  #section-chats, #section-quotations {
     .chatroom {
       background-color: #F6F6FE;
-
-      .container-title-chat {
-        padding: 0.5rem !important;
-        margin: 0 !important;
-
-        .receiver-name{
-          font-size: 0.9rem;
-        }
-
-        small {
-          font-size: 0.75rem;
-        }
-
-        .avatar-title-chat {
-          width: 35px;
-          height: 35px;
-          border-radius: 10px;
-        }
-
-        .btn-quote {
-          padding: 8px;
-          background-color: #F0EFFD;
-          border: none;
-          filter: none;
-        }
-      }
 
       #new_message {
         padding: 0;
@@ -178,6 +152,32 @@
             }
           }
         }
+      }
+    }
+
+    .container-title-chat {
+      padding: 0.5rem !important;
+      margin: 0 !important;
+
+      .receiver-name {
+        font-size: 0.9rem;
+      }
+
+      small {
+        font-size: 0.75rem;
+      }
+
+      .avatar-title-chat {
+        width: 35px;
+        height: 35px;
+        border-radius: 10px;
+      }
+
+      .btn-quote {
+        padding: 8px;
+        background-color: #F0EFFD;
+        border: none;
+        filter: none;
       }
     }
   }
