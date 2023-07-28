@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
     @service = current_provider.services.build(service_params)
 
     if @service.save
-      redirect_to providers_authenticated_root_path, notice: "Servicio creado satisfactoriamente"
+      redirect_to providers_authenticated_root_path, notice: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
-      redirect_to providers_authenticated_root_path, notice: "Servicio actualizado satisfactoriamente"
+      redirect_to providers_authenticated_root_path, notice: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
-    redirect_to providers_authenticated_root_path, notice: "Servicio eliminado satisfactoriamente"
+    redirect_to providers_authenticated_root_path, notice: t('.success')
   end
 
   private

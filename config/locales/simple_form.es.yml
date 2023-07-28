@@ -26,8 +26,14 @@ es:
           images: Agrega imagenes a tu servicio
           price: Coloca el precio
           active: Publico
-          categories: Categorias
-          submit: Crear servicio
+          categories: Seleccione una categoría
+        edit:
+          name: Escribe el nombre de tu servicio
+          description: Escribe la descripcion
+          images: Agrega imagenes a tu servicio
+          price: Coloca el precio
+          active: Publico
+          categories: Seleccione una categoría
     placeholders:
       defaults:
         email: johndoe@example.com
