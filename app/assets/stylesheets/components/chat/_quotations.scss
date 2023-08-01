@@ -22,23 +22,31 @@
 @media screen and (max-width: 767px) {
   #section-quotations {
     background-color: #F6F6FE;
-    padding: 0 1.8rem;
+    padding: 0 !important;
     height: 100vh;
 
     .container-title-chat {
-      padding: 0.5rem 0 !important;
+      padding: 0.5rem 1.8rem !important;
 
       .circle-availability {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
         vertical-align: middle;
       }
     }
 
-    .container-quotation-info {
-      background-color: transparent !important;
+    .container-my-quotations {
+      padding: 0 1.8rem;
+    }
 
-      .quotation-status {
-        background-color: white;
+    .list-quotations {
+      padding: 0 1.8rem;
+
+      .container-quotation-info {
+        background-color: transparent !important;
+
+        .quotation-status {
+          background-color: white;
+        }
       }
     }
   }

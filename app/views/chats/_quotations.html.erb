@@ -1,10 +1,10 @@
 <div>
-  <div class="container-title-chat">
+  <div class="container-title-chat bg-white">
     <%= render 'shared/user_info_chat', chat: chat, quotation: 'd-none' %>
   </div>
 
   <div class="container-my-quotations mb-3">
-    <h4 class="fw-bold mb-0 h6">Mis Cotizaciones</h4>
+    <h4 class="fw-bold mb-0 h6 mt-3">Mis Cotizaciones</h4>
     <div class="px-1 py-2 border border-1 rounded container-search mt-1">
       <%= form_with url: '#',
                     method: :get do |form| %>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="list-quotations">
     <% current_user.quotations.each do |quotation| %>
       <div>
         <small class="text-secondary"><%= quotation.created_at.strftime("%Y-%m-%d") %></small>
