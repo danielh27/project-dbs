@@ -108,8 +108,11 @@
 
 @media screen and (max-width: 767px) {
   #section-chats, #section-quotations {
+    height: 100vh;
+
     .chatroom {
       background-color: #F6F6FE;
+      height: calc(100% - 78px);
 
       #new_message {
         padding: 0;
