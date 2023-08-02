@@ -1,10 +1,10 @@
 <div class="d-flex justify-content-between align-items-center gap-2">
-  <%= image_tag 'svg/chat/arrow_left', width: '22px' %>
+  <%= image_tag 'svg/chat/arrow_left', width: '20px' %>
 
   <%= render User::AvatarComponent.new(chat.provider, classes: 'avatar-title-chat') %>
   <div class="ms-2 lh-sm flex-grow-1">
     <span class="fw-bold h5 receiver-name"><%= chat.provider.business_name %></span>
-    <div>
+    <div class="container-user-status">
       <i class="fa-solid fa-circle circle-availability"></i>
       <small data-chat-subscription-target="providerStatus" class="text-secondary">
         Desconectado
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="d-flex align-items-center gap-3">
+  <div class="d-flex align-items-center gap-3 d-none">
     <div>
       <%= link_to '#', class: "btn-quote text-decoration-none d-flex align-items-center gap-2 #{defined?(quotation) ? quotation : ''}",
           data: { action: "turbo:click->chat-subscription#toggleQuotations" } do |l| %>

@@ -10,6 +10,13 @@
 
   <div class="messages text-break" data-chat-subscription-target="messages">
     <% previous_sender = nil %>
+    <p class="rounded-pill fw-semibold text-center">Tu pedido está en proceso, coordine con su proveedor para la aceptación</p>
+    <%# logica sderia meterlo dentro de each y decir si fecha es igual a la primera no poner %>
+    <div>
+      <hr>
+      <span></span>
+    </div>
+
     <% chat.messages.each do |message| %>
 
       <% show_user_avatar = message.sender_id == previous_sender ? false : true %>
@@ -48,7 +55,7 @@
                     wrapper_html: { class: "d-flex align-items-center h-100 flex-grow-1" },
                     class: "mb-0" %>
         <%= f.button :button, id: "button-send-message", class: "h-100"  do %>
-          <%= image_tag 'png/send_button.png', width: '24px' %>
+          <%= image_tag 'svg/chat/send_message_icon.svg', width: '24px' %>
         <% end %>
       </div>
 

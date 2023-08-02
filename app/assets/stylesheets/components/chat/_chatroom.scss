@@ -121,6 +121,13 @@
       .messages {
         padding: 0.6rem;
 
+        >p {
+          color: var(--theme-primary-color);
+          font-size: 0.9rem;
+          background-color: #E1E0FC;
+          padding: 8px 15px;
+        }
+
         .message-row {
           .sender-style, .receiver-style {
             font-size: 0.9rem;
@@ -181,6 +188,10 @@
         background-color: #F0EFFD;
         border: none;
         filter: none;
+      }
+
+      .container-user-status {
+        margin-top: -5px;
       }
     }
   }
