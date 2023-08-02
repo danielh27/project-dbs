@@ -23,10 +23,17 @@ es:
         new:
           name: Escribe el nombre de tu servicio
           description: Escribe la descripcion
-          images: Agrega imegenes a tu servicio
+          images: Agrega imagenes a tu servicio
           price: Coloca el precio
           active: Publico
-          submit: Crear servicio
+          categories: Seleccione una categoría
+        edit:
+          name: Escribe el nombre de tu servicio
+          description: Escribe la descripcion
+          images: Agrega imagenes a tu servicio
+          price: Coloca el precio
+          active: Publico
+          categories: Seleccione una categoría
     placeholders:
       defaults:
         email: johndoe@example.com

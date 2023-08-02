@@ -5,6 +5,12 @@ es:
     title: Servicios
     new: Crea un nuevo servicio
     edit: Editar servicio
+    create:
+      success: Servicio creado exitosamente
+    update:
+      success: Servicio actualizado exitosamente
+    destroy:
+      success: Servicio eliminado exitosamente
   dashboard:
     services: Servicios
     quotes: Cotizaciones
@@ -19,6 +25,8 @@ es:
   provider_login: Soy proveedor
   sign_up: Registrarse
   my_account: Mi cuenta
+  prompt:
+    categories: Seleccione una categoría
   activerecord:
     models:
       user: usuario
@@ -75,3 +83,5 @@ es:
               blank: "El slug no puede estar en blanco"
               invalid: "El formato de slug es incorrecto"
               too_short: "Es demasiado corto (mínimo %{count} caracteres)"
+            categories:
+              blank: "Debe seleccionar una categoría"
