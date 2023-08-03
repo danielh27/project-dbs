@@ -14,4 +14,8 @@ module ChatHelper
   def set_class_name_by_message_sender(sender, current_user, first_class, second_class)
     sender?(sender, current_user) ? first_class : second_class
   end
+
+  def show_date?(message, all_messages, index)
+    message.created_at.to_date != all_messages[index - 1].created_at.to_date
+  end
 end
