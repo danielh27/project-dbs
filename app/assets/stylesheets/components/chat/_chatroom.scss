@@ -119,7 +119,7 @@
       }
 
       .messages {
-        padding: 0.6rem;
+        padding: 1rem;
 
         >p {
           color: var(--theme-primary-color);
@@ -145,6 +145,25 @@
             height: 30px;
           }
         }
+
+        hr {
+          color: var(--theme-primary-color);
+        }
+
+        .message-date-today::before,
+        .message-date-today::after {
+          border-top: 1px solid var(--theme-primary-color);
+          height: 1px;
+          content: '';
+          display: inline-block;
+          flex-grow: 1;
+        }
+
+        .message-date-today {
+          color: var(--theme-primary-color);
+          font-size: 0.8rem;
+          max-width: 100%;
+        }
       }
 
       .form-new-message {
@@ -166,8 +185,9 @@
     }
 
     .container-title-chat {
-      padding: 0.5rem !important;
+      padding: 0.5rem 1rem !important;
       margin: 0 !important;
+      box-shadow: 0px 0px 20px 0px rgba(97, 93, 239, 0.20);
 
       .receiver-name {
         font-size: 0.9rem;
