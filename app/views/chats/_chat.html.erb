@@ -17,7 +17,7 @@
       <% previous_sender = message.sender_id %>
 
       <% if show_date?(message, chat.messages, index) %>
-        <div class="message-date-today d-flex align-items-center justify-content-center gap-4">
+        <div class="message-date-today d-flex align-items-center justify-content-center gap-3">
           <%= message.created_at.strftime('%A %e %B %Y') %>
         </div>
       <% end %>
