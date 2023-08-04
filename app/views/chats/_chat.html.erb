@@ -31,6 +31,8 @@
 
         <div class="<%= set_class_name_by_message_sender(message.sender, current_user, 'sender-style', 'receiver-style') %>">
           <%= render 'messages/message', message: message %>
+          <p class="text-end"><%= message.created_at.strftime("%H:%M") %></p>
+
         </div>
 
         <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "avatar", "d-none") %>">
@@ -63,7 +65,7 @@
         <% end %>
       </div>
 
-      <%= link_to root_path, class: "d-flex align-items-center text-decoration-none new-quotation-button" do %>
+      <%= link_to root_path, class: "d-none d-flex align-items-center text-decoration-none new-quotation-button" do %>
         <i class="fa-solid fa-plus me-2 fw-bold fs-6"></i>
         <span class="fw-bold d-none d-md-block">Cotización</span>
       <% end %>
