@@ -17,7 +17,7 @@
       <% previous_sender = message.sender_id %>
 
       <% if show_date?(message, chat.messages, index) %>
-        <div class="message-date-today d-flex align-items-center justify-content-center gap-3">
+        <div class="my-2 message-date-today d-flex align-items-center justify-content-center gap-3">
           <%= message.created_at.strftime('%A %e %B %Y') %>
         </div>
       <% end %>
@@ -41,7 +41,12 @@
       </div>
 
       <div class="d-flex align-items-center <%= set_class_name_by_message_sender(message.sender, current_user, 'justify-content-end right-hour', 'justify-content-start left-hour') %>">
-        <%= message.created_at.strftime("%H:%M") %>
+        <% if message.created_at.strftime("%-d/%m/%Y %H:%M") != chat.messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M") &&
+              message.created_at.strftime("%-d/%m/%Y %H:%M") != chat.messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") ||
+              message.created_at.strftime("%-d/%m/%Y %H:%M") == chat.messages[index - 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") &&
+              message.created_at.strftime("%-d/%m/%Y %H:%M") != chat.messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") %>
+          <%= message.created_at.strftime("%H:%M") %>
+        <% end %>
       </div>
     <% end %>
   </div>
