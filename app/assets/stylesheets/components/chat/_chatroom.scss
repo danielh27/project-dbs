@@ -164,10 +164,23 @@
           font-size: 0.8rem;
           max-width: 100%;
         }
+
+        .right-hour, .left-hour {
+          color: var(--theme-primary-color);
+          font-size: 0.75rem;
+        }
+
+        .right-hour {
+          padding-right: 2.5rem;
+        }
+
+        .left-hour {
+          padding-left: 2.5rem;
+        }
       }
 
       .form-new-message {
-        padding: 20px 17px 25px;
+        padding: 10px 17px 25px;
 
         #new-chat-message {
           .new-quotation-button {

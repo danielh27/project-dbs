@@ -31,8 +31,6 @@
 
         <div class="<%= set_class_name_by_message_sender(message.sender, current_user, 'sender-style', 'receiver-style') %>">
           <%= render 'messages/message', message: message %>
-          <p class="text-end"><%= message.created_at.strftime("%H:%M") %></p>
-
         </div>
 
         <div class="<%= set_class_name_by_message_sender(message.sender, current_user, "avatar", "d-none") %>">
@@ -42,7 +40,7 @@
         </div>
       </div>
 
-      <div class="d-flex align-items-center <%= set_class_name_by_message_sender(message.sender, current_user, 'justify-content-end', 'justify-content-start') %>">
+      <div class="d-flex align-items-center <%= set_class_name_by_message_sender(message.sender, current_user, 'justify-content-end right-hour', 'justify-content-start left-hour') %>">
         <%= message.created_at.strftime("%H:%M") %>
       </div>
     <% end %>
