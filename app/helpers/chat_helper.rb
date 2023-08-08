@@ -15,7 +15,16 @@ module ChatHelper
     sender?(sender, current_user) ? first_class : second_class
   end
 
-  def show_date?(message, all_messages, index)
-    message.created_at.to_date != all_messages[index - 1].created_at.to_date
+  def show_date?(message, messages, index)
+    message.created_at.to_date != messages[index - 1].created_at.to_date
+  end
+
+  def show_hour?(message, messages, index)
+    (message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M") &&
+    message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") &&
+    sender?(message.sender, current_user)) ||
+      (message.created_at.strftime("%-d/%m/%Y %H:%M") == messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M") &&
+      message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") &&
+      sender?(message.sender, current_user))
   end
 end
