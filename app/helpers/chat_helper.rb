@@ -20,11 +20,22 @@ module ChatHelper
   end
 
   def show_hour?(message, messages, index)
-    (message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M") &&
-    message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") &&
-    sender?(message.sender, current_user)) ||
-      (message.created_at.strftime("%-d/%m/%Y %H:%M") == messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M") &&
-      message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M") &&
-      sender?(message.sender, current_user))
+    (message_date_different_to_previous_message?(message, messages, index) &&
+     message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
+      (message_date_equal_to_previous_message?(message, messages, index) &&
+      message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
+      !sender?(message.sender, current_user)
+  end
+
+  def message_date_different_to_previous_message?(message, messages, index)
+    message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
+  end
+
+  def message_date_different_to_next_message?(message, messages, index)
+    message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M")
+  end
+
+  def message_date_equal_to_previous_message?(message, messages, index)
+    message.created_at.strftime("%-d/%m/%Y %H:%M") == messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
   end
 end
