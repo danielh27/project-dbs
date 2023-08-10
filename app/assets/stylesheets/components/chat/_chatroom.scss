@@ -101,7 +101,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   #section-chats, #section-quotations {
     height: 100vh;
 
@@ -227,4 +227,7 @@
       }
     }
   }
+}
+
+@media screen and (min-width: 992px) {
 }
