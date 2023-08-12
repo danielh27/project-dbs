@@ -16,6 +16,15 @@
         height: 100%;
         overflow-y: scroll;
         padding: 1rem;
+
+        >div {
+          >p {
+            color: var(--theme-primary-color);
+            font-size: 0.9rem;
+            background-color: #E1E0FC;
+            padding: 8px 15px;
+          }
+        }
       }
 
       #new_message {
@@ -120,11 +129,13 @@
         .messages {
           padding: 1rem 1rem 0;
 
-          >p {
-            color: var(--theme-primary-color);
-            font-size: 0.9rem;
-            background-color: #E1E0FC;
-            padding: 8px 15px;
+          >div {
+            >p {
+              color: var(--theme-primary-color);
+              font-size: 0.9rem;
+              background-color: #E1E0FC;
+              padding: 8px 15px;
+            }
           }
 
           .message-row {
@@ -241,6 +252,10 @@
       .chatroom {
         .container-title-chat {
           margin: 0 0.1rem !important;
+          padding-top: 0.8rem;
+          padding-bottom: 0.8rem;
+          position: relative;
+          top: 0.2rem;
         }
 
         .messages {

@@ -9,7 +9,9 @@
   </div>
 
   <div class="messages text-break" data-chat-subscription-target="messages">
-    <p class="rounded-pill fw-semibold text-center">Tu pedido está en proceso, coordine con su proveedor para la aceptación</p>
+    <div class="d-flex justify-content-center">
+      <p class="rounded-pill fw-semibold text-center">Tu pedido está en proceso, coordine con su proveedor para la aceptación</p>
+    </div>
     <% previous_sender = nil %>
 
     <% chat.messages.each_with_index do |message, index| %>
