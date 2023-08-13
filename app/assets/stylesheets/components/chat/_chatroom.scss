@@ -2,7 +2,7 @@
   margin-top: 2.1rem;
   #section-chats {
     .chatroom {
-      background: rgba(97, 93, 239, .2);
+      background: #EFEFFD;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
 
@@ -10,6 +10,16 @@
         border-bottom: 1px solid #0E0000;
         margin-bottom: 0;
         padding: 1rem;
+      }
+
+      .container-title-chat {
+        margin: 0 0.2rem !important;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        position: relative;
+        top: 0.2rem;
+        border-radius: 10px 10px 0px 0px;
+        background-color: white;
       }
 
       .messages {
@@ -24,6 +34,35 @@
             background-color: #E1E0FC;
             padding: 8px 15px;
           }
+        }
+
+        .message-date-today::before,
+        .message-date-today::after {
+          border-top: 1px solid var(--theme-primary-color);
+          height: 1px;
+          content: '';
+          display: inline-block;
+          flex-grow: 1;
+        }
+
+        .message-date-today {
+          color: var(--theme-primary-color);
+          font-size: 0.8rem;
+          max-width: 100%;
+        }
+
+        .right-hour,
+        .left-hour {
+          color: var(--theme-primary-color);
+          font-size: 0.75rem;
+        }
+
+        .right-hour {
+          padding-right: 2.5rem;
+        }
+
+        .left-hour {
+          padding-left: 2.5rem;
         }
       }
 
@@ -104,11 +143,6 @@
         display: flex;
         align-items: center;
       }
-
-      > div:nth-child(1) {
-        border-radius: 8px;
-        background-color: white;
-      }
     }
   }
 }
@@ -128,15 +162,6 @@
 
         .messages {
           padding: 1rem 1rem 0;
-
-          >div {
-            >p {
-              color: var(--theme-primary-color);
-              font-size: 0.9rem;
-              background-color: #E1E0FC;
-              padding: 8px 15px;
-            }
-          }
 
           .message-row {
             .sender-style, .receiver-style {
@@ -159,34 +184,6 @@
           hr {
             color: var(--theme-primary-color);
           }
-
-          .message-date-today::before,
-          .message-date-today::after {
-            border-top: 1px solid var(--theme-primary-color);
-            height: 1px;
-            content: '';
-            display: inline-block;
-            flex-grow: 1;
-          }
-
-          .message-date-today {
-            color: var(--theme-primary-color);
-            font-size: 0.8rem;
-            max-width: 100%;
-          }
-
-          .right-hour, .left-hour {
-            color: var(--theme-primary-color);
-            font-size: 0.75rem;
-          }
-
-          .right-hour {
-            padding-right: 2.5rem;
-          }
-
-          .left-hour {
-            padding-left: 2.5rem;
-          }
         }
 
         .form-new-message {
@@ -208,38 +205,39 @@
             }
           }
         }
-      }
 
-      .container-title-chat {
-        padding: 0.5rem 1rem !important;
-        margin: 0 !important;
-        box-shadow: 0px 0px 20px 0px rgba(97, 93, 239, 0.20);
-        position: sticky;
-        top: 78px;
+        .container-title-chat {
+          padding: 0.5rem 1rem !important;
+          margin: 0 !important;
+          box-shadow: 0px 0px 20px 0px rgba(97, 93, 239, 0.20);
+          position: sticky;
+          top: 78px;
+          border-radius: 0 !important;
 
-        .receiver-name {
-          font-size: 0.9rem;
-        }
+          .receiver-name {
+            font-size: 0.9rem;
+          }
 
-        small {
-          font-size: 0.75rem;
-        }
+          small {
+            font-size: 0.75rem;
+          }
 
-        .avatar-title-chat {
-          width: 35px;
-          height: 35px;
-          border-radius: 10px;
-        }
+          .avatar-title-chat {
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+          }
 
-        .btn-quote {
-          padding: 8px;
-          background-color: #F0EFFD;
-          border: none;
-          filter: none;
-        }
+          .btn-quote {
+            padding: 8px;
+            background-color: #F0EFFD;
+            border: none;
+            filter: none;
+          }
 
-        .container-user-status {
-          margin-top: -5px;
+          .container-user-status {
+            margin-top: -5px;
+          }
         }
       }
     }
@@ -250,14 +248,6 @@
   #wrapper-chat {
     #section-chats {
       .chatroom {
-        .container-title-chat {
-          margin: 0 0.1rem !important;
-          padding-top: 0.8rem;
-          padding-bottom: 0.8rem;
-          position: relative;
-          top: 0.2rem;
-        }
-
         .messages {
           height: calc(100vh - 21rem);
         }
