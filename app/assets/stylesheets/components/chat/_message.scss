@@ -1,13 +1,10 @@
-// To style the wrapping div
 .message-row {
   padding: 0.2rem 0 0.1rem;
 }
 
-// To style the message itself
 .sender-style,
 .receiver-style {
   max-width: 400px;
-  border-radius: 5px;
   padding: 8px 16px;
 
   p {
@@ -18,9 +15,19 @@
 .sender-style {
   background-color: #DDDCFF;
   color: #000000;
+  margin-right: 1rem;
+  border-radius: 10px 0px 10px 10px;
 }
 
 .receiver-style {
   background-color: #FFFFFF;
   color: #000000;
+  margin-left: 1rem;
+  border-radius: 0px 10px 10px 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .sender-style, .receiver-style {
+    margin-right: 0;
+  }
 }

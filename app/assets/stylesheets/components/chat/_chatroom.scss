@@ -58,11 +58,11 @@
         }
 
         .right-hour {
-          padding-right: 2.5rem;
+          padding-right: 3.5rem;
         }
 
         .left-hour {
-          padding-left: 2.5rem;
+          padding-left: 3.5rem;
         }
       }
 
@@ -184,6 +184,14 @@
           hr {
             color: var(--theme-primary-color);
           }
+
+            .right-hour {
+              padding-right: 2.5rem;
+            }
+
+            .left-hour {
+              padding-left: 2.5rem;
+            }
         }
 
         .form-new-message {
