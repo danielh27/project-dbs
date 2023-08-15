@@ -2,7 +2,7 @@
   <% chats.each do |chat| %>
     <%# Now, requests are remote way, if you want to change it, set turbo: false %>
     <%= link_to service_chat_path(@service, chat),
-                class: "rounded chat-detail #{background_chat_list_item(@chat.id, chat.id)} text-decoration-none d-flex my-2 px-2 py-2 align-items-center chat-list-item" do %>
+                class: "chat-detail #{background_chat_list_item(@chat.id, chat.id)} text-decoration-none d-flex my-2 px-2 py-2 align-items-center chat-list-item" do %>
 
       <div class="me-3">
         <%= cl_image_tag chat.provider.avatar.key, class: "avatar-title-chat", alt: "avatar" %>
@@ -13,9 +13,13 @@
           <%= fullname(chat.provider) %>
         </div>
 
-        <small class="text-secondary fw-light">
+        <small class="text-secondary fw-semibold">
           <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
         </small>
+      </div>
+
+      <div>
+        <span class="text-secondary fw-semibold">3m</span>
       </div>
     <% end %>
   <% end %>
