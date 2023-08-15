@@ -36,6 +36,26 @@
 
     .chat-detail {
       border-radius: 0.75rem;
+
+      div:nth-child(2) {
+        small {
+          opacity: 0.4;
+          color: black;
+        }
+      }
+
+      div:nth-child(3) {
+        font-size: 0.875rem;
+
+        span {
+          opacity: 0.3;
+          color: black;
+        }
+      }
+    }
+
+    .chat-detail:first-child {
+      margin-top: 10px !important;
     }
   }
 }
@@ -62,7 +82,6 @@
       .chat-detail {
         div:nth-child(2) {
           line-height: normal;
-          margin-top: -0.9rem;
 
           >div {
             font-size: 0.9rem;
@@ -71,6 +90,7 @@
           small {
             display: block;
             font-size: 0.75rem;
+            margin-top: 3px;
           }
         }
       }
@@ -85,6 +105,11 @@
 
       >div:nth-child(1) {
         margin: 0.8rem 0.7rem 0;
+      }
+
+      >div:last-child {
+        overflow-y: scroll;
+        height: calc(100vh - 172px);
       }
     }
   }

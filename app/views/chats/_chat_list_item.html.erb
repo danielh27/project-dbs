@@ -8,18 +8,18 @@
         <%= cl_image_tag chat.provider.avatar.key, class: "avatar-title-chat", alt: "avatar" %>
       </div>
 
-      <div>
+      <div class="align-self-start flex-grow-1">
         <div class="text-dark fw-bold">
           <%= fullname(chat.provider) %>
         </div>
 
-        <small class="text-secondary fw-semibold">
+        <small class="fw-semibold">
           <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
         </small>
       </div>
 
-      <div>
-        <span class="text-secondary fw-semibold">3m</span>
+      <div class="align-self-start lh-1">
+        <span class="fw-semibold">3m</span>
       </div>
     <% end %>
   <% end %>
