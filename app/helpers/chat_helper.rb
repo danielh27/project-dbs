@@ -1,6 +1,6 @@
 module ChatHelper
   def fullname(user)
-    user.business_name.to_s
+    user.respond_to?(:business_name) ? user.business_name.to_s : "#{user.first_name} #{user.last_name}"
   end
 
   def background_chat_list_item(chat_id, chat_list_item_id)

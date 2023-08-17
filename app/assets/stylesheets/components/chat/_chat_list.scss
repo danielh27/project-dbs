@@ -1,7 +1,7 @@
 #section-chat-list {
   .container-messages-column {
-    >div:nth-child(3) {
-      height: calc(100vh - 254px);
+    >div:last-child {
+      height: calc(100vh - 251px);
       overflow: scroll;
     }
 
@@ -64,7 +64,7 @@
     }
 
     .chat-detail:first-child {
-      margin-top: 10px !important;
+      margin-top: 25px !important;
     }
   }
 }
@@ -108,13 +108,17 @@
         margin: 0.5rem 0.7rem 0;
       }
 
-      >div:nth-child(1) {
+      >div:nth-child(2) {
         margin: 0.8rem 0.7rem 0;
       }
 
       >div:last-child {
         overflow-y: scroll;
         height: calc(100vh - 172px);
+      }
+
+      .chat-detail:first-child {
+        margin-top: 10px !important;
       }
     }
   }
