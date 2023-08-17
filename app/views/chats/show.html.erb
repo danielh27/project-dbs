@@ -1,11 +1,11 @@
 <main>
   <div class="row justify-content-center" id="wrapper-chat">
   <%# deberia ponerle d-none solo quite para hacer front %>
-    <section class="col-12 col-sm-10 col-md-9 col-lg-3 d-lg-block" id="section-chat-list">
+    <section class="col-12 col-sm-10 col-md-9 col-lg-3" id="section-chat-list">
       <%= render 'chats/chats_list', chats: @chats %>
     </section>
     <%# no deberia estar d none solo es par asterminar el fornt %>
-    <section class="d-none col-12 col-md-9 col-lg-8" id="section-chats">
+    <section class="col-12 col-md-9 col-lg-8" id="section-chats">
       <%= render 'chats/chat', chat: @chat, service: @service, message: @message %>
     </section>
 

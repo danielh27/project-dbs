@@ -1,7 +1,12 @@
 #section-chat-list {
   .container-messages-column {
+    >div:nth-child(3) {
+      height: calc(100vh - 254px);
+      overflow: scroll;
+    }
+
     input {
-      width: 83%;
+      width: 81%;
 
       &:focus {
         outline: none;
@@ -31,6 +36,10 @@
 
       i {
         font-size: 1.1rem;
+      }
+
+      input::placeholder {
+        font-size: 0.875rem;
       }
     }
 
@@ -97,10 +106,6 @@
 
       .container-search {
         margin: 0.5rem 0.7rem 0;
-
-        input::placeholder {
-          font-size: 0.875rem;
-        }
       }
 
       >div:nth-child(1) {
