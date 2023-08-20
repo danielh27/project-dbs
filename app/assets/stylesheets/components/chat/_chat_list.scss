@@ -1,8 +1,9 @@
 #section-chat-list {
   .container-messages-column {
     >div:last-child {
-      height: calc(100vh - 251px);
+      height: calc(100vh - 348px);
       overflow: scroll;
+      margin-top: 0.9rem;
     }
 
     input {
@@ -63,8 +64,21 @@
       }
     }
 
-    .chat-detail:first-child {
-      margin-top: 25px !important;
+    .border-avatar {
+      border: 3px solid var(--theme-primary-color);
+    }
+
+    div:first-child {
+      >span {
+        font-size: 1.25rem;
+        color: var(--theme-primary-color);
+        font-weight: 700;
+      }
+
+      >img {
+        width: 50px !important;
+        height: 50px !important;
+      }
     }
   }
 }
