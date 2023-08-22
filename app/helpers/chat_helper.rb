@@ -16,7 +16,7 @@ module ChatHelper
   end
 
   def show_date?(message, messages, index)
-    message.created_at.to_date != messages[index - 1].created_at.to_date
+    message.created_at.to_date != messages[index - 1].created_at.to_date || messages.one?
   end
 
   def show_hour?(message, messages, index)

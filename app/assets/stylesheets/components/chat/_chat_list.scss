@@ -2,7 +2,7 @@
   .container-messages-column {
     >div:last-child {
       height: calc(100vh - 348px);
-      overflow: scroll;
+      overflow-y: scroll;
       margin-top: 0.9rem;
     }
 

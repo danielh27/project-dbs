@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
 
   def show
     @message = Message.new
-    @chats = current_user.client_chats
+    @chats = current_user.client_chats.includes(:messages).order("messages.created_at ASC")
 
     if params[:query].present?
       sql_query = " \
