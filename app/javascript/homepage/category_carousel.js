@@ -1,4 +1,6 @@
-var swiper = new Swiper(".mySwiper", {
+import Swiper from 'swiper/bundle';
+
+const swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 10,
   pagination: {

@@ -2,5 +2,4 @@
 import "./controllers"
 import "bootstrap"
 import "./channels"
-import "swiper"
-import "homepage"
+import "./homepage"
