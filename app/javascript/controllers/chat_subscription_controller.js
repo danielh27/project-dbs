@@ -22,16 +22,6 @@ export default class extends Controller {
     event.target.reset();
   }
 
-  toggleQuotations(event) {
-    event.preventDefault();
-    const quotations = document.querySelector('#section-quotations');
-    const chats = document.querySelector('#section-chats');
-
-    quotations.classList.toggle('d-none');
-    chats.classList.toggle('col-sm-6');
-    chats.classList.toggle('col-sm-9');
-  }
-
   disconnect() {
     this.channel.unsubscribe();
   }
@@ -72,6 +62,12 @@ export default class extends Controller {
           </div>
         </div>
       </div>
+
+      <div class="d-flex align-items-center ${this.#setClassByUser(currentUserIsSender, 'justify-content-end right-hour', 'justify-content-start left-hour')}">
+        <% if show_hour?(message, chat.messages, index) %>
+          <%= message.created_at.strftime("%H:%M") %>
+        <% end %>
+      </div>
     `;
   }
 
@@ -79,3 +75,9 @@ export default class extends Controller {
     return currentUserIsSender ? first_class : second_class;
   }
 }
+// ver lo de la lista no esta primero el mensae mas actual, quiza neecsito mas js y mejorar query
+// anadir la logica de l ahora alli arriba cuando se anade el mensaje, faslta la loica del helper
+// anadir la fecha con la linea en el mismo metodo de arriuiba
+// actualizar la rama con lo que pusheo maricus y que funcione el chgat
+
+// revisar el funconamineto del websocket por que se activa en todas las paginas
