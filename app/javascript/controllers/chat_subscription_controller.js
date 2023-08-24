@@ -74,6 +74,36 @@ export default class extends Controller {
   #setClassByUser(currentUserIsSender, first_class, second_class) {
     return currentUserIsSender ? first_class : second_class;
   }
+
+  #formatDate(date) {
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // months in js is from 0 to 11
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+  }
+
+  #showHour(message, messages, index) {
+    return (message_date_different_to_previous_message?(message, messages, index) &&
+     message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
+      (message_date_equal_to_previous_message?(message, messages, index) &&
+      message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
+      !sender?(message.sender, current_user)
+  }
+
+  #messageDateDifferentToPreviousMessage(message, messages, index) {
+    return message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
+  }
+
+  #messageDateDifferentToNextMessage(message, messages, index) {
+    return message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M")
+  }
+
+  #messageDateEqualToPreviousMessage(message, messages, index) {
+    return message.created_at.strftime("%-d/%m/%Y %H:%M") == messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
+  }
 }
 // ver lo de la lista no esta primero el mensae mas actual, quiza neecsito mas js y mejorar query
 // anadir la logica de l ahora alli arriba cuando se anade el mensaje, faslta la loica del helper
@@ -81,3 +111,6 @@ export default class extends Controller {
 // actualizar la rama con lo que pusheo maricus y que funcione el chgat
 
 // revisar el funconamineto del websocket por que se activa en todas las paginas
+
+// messages[index - 1] para conseguir este y el +1 hay que pasarlo literal cada uno por el controller en el broadcast
+// del websocket
