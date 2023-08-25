@@ -94,7 +94,7 @@ export default class extends Controller {
   }
 
   #messageDateDifferentToPreviousMessage(message, messages, index) {
-    return message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
+    return formatDate()message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
   }
 
   #messageDateDifferentToNextMessage(message, messages, index) {
@@ -114,3 +114,4 @@ export default class extends Controller {
 
 // messages[index - 1] para conseguir este y el +1 hay que pasarlo literal cada uno por el controller en el broadcast
 // del websocket
+// creo que mejor me paso las horas desde le wbsocket, incluyendo el index -1 y +1

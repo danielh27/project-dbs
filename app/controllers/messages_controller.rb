@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
         @chat,
         message: render_to_string(partial: "message", locals: { message: @message }),
         sender_id: @message.sender.id,
+        created_at: @message.created_at.strftime("%H:%M"),
         message_hour: render_to_string(partial: "message_hour", locals: { message: @message, chat: @chat,
                                                                           index: @index }),
         avatar: render_to_string(User::AvatarComponent.new(current_user), locals: { user: current_user }),
