@@ -8,16 +8,19 @@ class MessagesController < ApplicationController
     @message.sender = current_user
 
     if @message.save
-      @index = @chat.messages.count - 1
+      messages = @chat.messages
+      @index = messages.count - 1
       ChatChannel.broadcast_to(
         @chat,
         message: render_to_string(partial: "message", locals: { message: @message }),
         sender_id: @message.sender.id,
         actual_message_hour: @message.created_at.strftime("%H:%M"),
         next_message_hour: messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M"),
-        previous_message_hour: messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M"),
+        previous_message_hour: messages.one? ? "No exist" : messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M"),
         message_hour_partial: render_to_string(partial: "message_hour", locals: { message: @message, chat: @chat,
                                                                           index: @index }),
+        show_hour?: helpers.show_hour?(@message, messages, @index),
+        show_date?: helpers.show_date?(@message, messages, @index),
         avatar: render_to_string(User::AvatarComponent.new(current_user), locals: { user: current_user }),
       )
       head :ok
