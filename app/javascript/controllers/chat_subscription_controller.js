@@ -46,7 +46,16 @@ export default class extends Controller {
   #buildMessageElement(currentUserIsSender, data) {
     const showUserAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-end") ? "d-none" : "avatar"
     const showProviderAvatar = this.messagesTarget.lastElementChild.classList.contains("justify-content-start") ? "d-none" : "avatar"
+    const dateElement = `<div class="my-2 message-date-today d-flex align-items-center justify-content-center gap-3">
+                          ${data.actual_message_date}
+                        </div>`
+    const hourElement = `<div class="d-flex align-items-center ${this.#setClassByUser(currentUserIsSender, 'justify-content-end right-hour', 'justify-content-start left-hour')}">
+                          ${data.actual_message_hour}
+                        </div>`
+
     return `
+      ${data.can_show_date ? dateElement : ''}
+
       <div class="message-row d-flex ${this.#setClassByUser(currentUserIsSender, "justify-content-end", "justify-content-start")}">
         <div class="avatar">
           <div class="${this.#setClassByUser(currentUserIsSender, "d-none", showProviderAvatar)} me-3">
@@ -63,56 +72,17 @@ export default class extends Controller {
         </div>
       </div>
 
-      <div class="d-flex align-items-center ${this.#setClassByUser(currentUserIsSender, 'justify-content-end right-hour', 'justify-content-start left-hour')}">
-        ${data.show_hour? ?  data.actual_message_hour : ''}
-      <% if show_hour?(message, chat.messages, index) %>
-          <%= message.created_at.strftime("%H:%M") %>
-        <% end %>
-      </div>
+      ${data.can_show_hour ? hourElement : ''}
     `;
   }
 
   #setClassByUser(currentUserIsSender, first_class, second_class) {
     return currentUserIsSender ? first_class : second_class;
   }
-
-  // #formatDate(date) {
-  //   const day = date.getDate();
-  //   const month = date.getMonth() + 1; // months in js is from 0 to 11
-  //   const year = date.getFullYear();
-  //   const hours = date.getHours();
-  //   const minutes = date.getMinutes();
-
-  //   return `${day}/${month}/${year} ${hours}:${minutes}`;
-  // }
-
-  // #showHour(message, messages, index) {
-  //   return (message_date_different_to_previous_message?(message, messages, index) &&
-  //    message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
-  //     (message_date_equal_to_previous_message?(message, messages, index) &&
-  //     message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
-  //     !sender?(message.sender, current_user)
-  // }
-
-  // #messageDateDifferentToPreviousMessage(message, messages, index) {
-  //   return formatDate()message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
-  // }
-
-  // #messageDateDifferentToNextMessage(message, messages, index) {
-  //   return message.created_at.strftime("%-d/%m/%Y %H:%M") != messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M")
-  // }
-
-  // #messageDateEqualToPreviousMessage(message, messages, index) {
-  //   return message.created_at.strftime("%-d/%m/%Y %H:%M") == messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M")
-  // }
 }
 // ver lo de la lista no esta primero el mensae mas actual, quiza neecsito mas js y mejorar query
-// anadir la logica de l ahora alli arriba cuando se anade el mensaje, faslta la loica del helper
-// anadir la fecha con la linea en el mismo metodo de arriuiba
 // actualizar la rama con lo que pusheo maricus y que funcione el chgat
 
 // revisar el funconamineto del websocket por que se activa en todas las paginas
 
-// messages[index - 1] para conseguir este y el +1 hay que pasarlo literal cada uno por el controller en el broadcast
-// del websocket
-// creo que mejor me paso las horas desde le wbsocket, incluyendo el index -1 y +1
+// falta agregar logica de borrar hora de mensaje anterior cuando se ingresa otro mensaje
