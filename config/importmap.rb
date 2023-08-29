@@ -10,4 +10,3 @@ pin "bootstrap", to: 'bootstrap.min.js', preload: true
 pin "@rails/actioncable", to: "actioncable.esm.js"
 # pin "@rails/activestorage", to: "activestorage.esm.js"
 pin_all_from "app/javascript/channels", under: "channels"
-pin "swiper", to: "https://ga.jspm.io/npm:swiper@10.1.0/swiper.mjs", preload: true
