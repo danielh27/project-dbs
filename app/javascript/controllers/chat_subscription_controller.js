@@ -4,12 +4,19 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chat-subscription"
 export default class extends Controller {
   static values = { chatId: Number, currentUserId: Number, providerId: Number }
-  static targets = ["messages", "providerStatus"]
+  static targets = ["messages", "providerStatus", "messageHour"]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatChannel", chat_id: this.chatIdValue },
-      { received: data => this.#insertMessageAndScrollDown(data) }
+      { received: data => {
+
+        this.#insertMessageAndScrollDown(data)
+        console.log(data)
+        console.log(this.messageHourTargets)
+
+      console.log(this.messageHourTargets.at(-1)) }
+      }
     );
 
     // this.channelUser = createConsumer().subscriptions.create(
@@ -41,6 +48,7 @@ export default class extends Controller {
 
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement);
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+    this.#deleteMessageHour(currentUserIsSender, data);
   }
 
   #buildMessageElement(currentUserIsSender, data) {
@@ -50,7 +58,7 @@ export default class extends Controller {
                           ${data.actual_message_date}
                         </div>`
     const hourElement = `<div class="d-flex align-items-center ${this.#setClassByUser(currentUserIsSender, 'justify-content-end right-hour', 'justify-content-start left-hour')}">
-                          ${data.actual_message_hour}
+                          ${data.actual_message_hour.split(' ').at(-1)}
                         </div>`
 
     return `
@@ -76,6 +84,12 @@ export default class extends Controller {
     `;
   }
 
+  #deleteMessageHour(data) {
+    if(data.actual_message_hour == data.previous_message_hour && !data.can_show_date && data.is_same_sender) {
+      return this.messageHourTargets.at(-1).remove();
+    }
+  }
+
   #setClassByUser(currentUserIsSender, first_class, second_class) {
     return currentUserIsSender ? first_class : second_class;
   }
@@ -85,4 +99,4 @@ export default class extends Controller {
 
 // revisar el funconamineto del websocket por que se activa en todas las paginas
 
-// falta agregar logica de borrar hora de mensaje anterior cuando se ingresa otro mensaje
+// fdalta ver porque remove no borra, veo que siempre se agrra el mismo elemento, no los que se van agregando
