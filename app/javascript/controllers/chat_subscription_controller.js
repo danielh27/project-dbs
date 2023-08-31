@@ -10,12 +10,8 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatChannel", chat_id: this.chatIdValue },
       { received: data => {
-
         this.#insertMessageAndScrollDown(data)
-        console.log(data)
-        console.log(this.messageHourTargets)
-
-      console.log(this.messageHourTargets.at(-1)) }
+        this.#deleteMessageHour(data) }
       }
     );
 
@@ -48,7 +44,6 @@ export default class extends Controller {
 
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement);
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
-    this.#deleteMessageHour(currentUserIsSender, data);
   }
 
   #buildMessageElement(currentUserIsSender, data) {
@@ -57,7 +52,7 @@ export default class extends Controller {
     const dateElement = `<div class="my-2 message-date-today d-flex align-items-center justify-content-center gap-3">
                           ${data.actual_message_date}
                         </div>`
-    const hourElement = `<div class="d-flex align-items-center ${this.#setClassByUser(currentUserIsSender, 'justify-content-end right-hour', 'justify-content-start left-hour')}">
+    const hourElement = `<div data-chat-subscription-target="messageHour" class="d-flex align-items-center ${this.#setClassByUser(currentUserIsSender, 'justify-content-end right-hour', 'justify-content-start left-hour')}">
                           ${data.actual_message_hour.split(' ').at(-1)}
                         </div>`
 
@@ -86,7 +81,7 @@ export default class extends Controller {
 
   #deleteMessageHour(data) {
     if(data.actual_message_hour == data.previous_message_hour && !data.can_show_date && data.is_same_sender) {
-      return this.messageHourTargets.at(-1).remove();
+      return this.messageHourTargets.at(-2).remove();
     }
   }
 
@@ -99,4 +94,4 @@ export default class extends Controller {
 
 // revisar el funconamineto del websocket por que se activa en todas las paginas
 
-// fdalta ver porque remove no borra, veo que siempre se agrra el mismo elemento, no los que se van agregando
+// las horas transcurridas en el mesaje del chat
