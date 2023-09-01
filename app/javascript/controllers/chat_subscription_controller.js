@@ -89,9 +89,9 @@ export default class extends Controller {
     return currentUserIsSender ? first_class : second_class;
   }
 }
-// ver lo de la lista no esta primero el mensae mas actual, quiza neecsito mas js y mejorar query
-// actualizar la rama con lo que pusheo maricus y que funcione el chgat
-
-// revisar el funconamineto del websocket por que se activa en todas las paginas
-
+// en el chat helkpoer falta logica de hora con user distinto
 // las horas transcurridas en el mesaje del chat
+// en vistas mobile y tablet hacer lo de los clicks que uno se vea y el otro despaarezca
+
+// actualizar la rama con lo que pusheo maricus y que funcione el chgat
+// revisar el funconamineto del websocket por que se activa en todas las paginas

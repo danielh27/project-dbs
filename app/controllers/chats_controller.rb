@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
 
   def show
     @message = Message.new
-    @chats = current_user.client_chats.includes(:messages).order("messages.created_at ASC")
+    @chats = current_user.client_chats.left_joins(:messages).order("messages.created_at DESC NULLS LAST").uniq
 
     if params[:query].present?
       sql_query = " \

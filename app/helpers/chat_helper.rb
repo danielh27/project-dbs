@@ -4,7 +4,7 @@ module ChatHelper
   end
 
   def background_chat_list_item(chat_id, chat_list_item_id)
-    chat_id.eql? chat_list_item_id ? "bg-theme" : nil
+    chat_id.eql?(chat_list_item_id) ? "bg-theme" : nil
   end
 
   def sender?(sender, current_user)
@@ -16,7 +16,8 @@ module ChatHelper
   end
 
   def show_date?(message, messages, index)
-    message.created_at.to_date != messages[index - 1].created_at.to_date || messages.one?
+    (message.created_at.to_date != messages[index - 1].created_at.to_date && messages.many?) || messages.one? ||
+      message.eql?(messages.first)
   end
 
   def show_hour?(message, messages, index)
