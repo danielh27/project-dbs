@@ -89,8 +89,8 @@ export default class extends Controller {
     return currentUserIsSender ? first_class : second_class;
   }
 }
-// en el chat helkpoer falta logica de hora con user distinto
 // las horas transcurridas en el mesaje del chat
+// cuando se cambie de chat solo reemplazar el chat, actualmete se carga toda la ppag en remoto
 // en vistas mobile y tablet hacer lo de los clicks que uno se vea y el otro despaarezca
 
 // actualizar la rama con lo que pusheo maricus y que funcione el chgat

@@ -21,17 +21,20 @@ module ChatHelper
   end
 
   def show_hour?(message, messages, index)
-    (message_date_different_to_previous_message?(message, messages, index) &&
-     message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
-      (message_date_equal_to_previous_message?(message, messages, index) &&
-      message_date_different_to_next_message?(message, messages, index) && sender?(message.sender, current_user)) ||
+    first_case_show_hour?(message, messages, index) || second_case_show_hour?(message, messages, index) ||
       !sender?(message.sender, current_user)
-      # esto ultimo linea 27 deberia esyar metodo de abajo
   end
 
-  def show_hour_other_user?
-    # aqui es lo mismo de arriba menos la 27, hay que hacer las mismas comparaciones perocon el !sender?
-    # pensar si quiza puedo ponerlo arriba nomas donde esta el sender quiza hacer un (sender? || !sender?)
+  def first_case_show_hour?(message, messages, index)
+    (message_date_different_to_previous_message?(message, messages, index) &&
+     message_date_different_to_next_message?(message, messages, index) && (sender?(message.sender, current_user) ||
+      !sender?(message.sender, current_user)))
+  end
+
+  def second_case_show_hour?(message, messages, index)
+    (message_date_equal_to_previous_message?(message, messages, index) &&
+      message_date_different_to_next_message?(message, messages, index) && (sender?(message.sender, current_user) ||
+        !sender?(message.sender, current_user)))
   end
 
   def message_date_different_to_previous_message?(message, messages, index)
