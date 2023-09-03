@@ -48,6 +48,8 @@
       border-radius: 0.75rem;
 
       div:nth-child(2) {
+        max-width: 155px;
+
         small {
           opacity: 0.4;
           color: black;
@@ -57,9 +59,10 @@
       div:nth-child(3) {
         font-size: 0.875rem;
 
-        span {
+        p {
           opacity: 0.3;
           color: black;
+          margin-bottom: 0;
         }
       }
     }
