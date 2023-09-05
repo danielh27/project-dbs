@@ -1,3 +1,20 @@
 <% title "Home" %>
 <%= render Homepage::BannerComponent.new %>
-<%= render Homepage::CategoriesComponent.new %>
+
+<div class="home-categories">
+  <h1>Categorías Populares</h1>
+  <div class="d-none d-xl-block">
+    <div class="row">
+      <%= render Homepage::CategoryComponent.with_collection(@categories, quantity: @categories_quantity) %>
+    </div>
+  </div>
+
+  <div class="swiper mySwiper d-xl-none">
+    <div class="swiper-wrapper">
+      <%= render Homepage::CategoryCarouselComponent.with_collection(@categories , quantity: @categories_quantity) %>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+</div>
+
+

@@ -36,5 +36,7 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+yarn-error.log
+install.sh
 
 /node_modules
