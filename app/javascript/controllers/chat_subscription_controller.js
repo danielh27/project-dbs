@@ -36,10 +36,7 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    // Logic to know if the sender is the current_user
     const currentUserIsSender = this.currentUserIdValue === data.sender_id;
-
-    // Creating the whole message from the `data.message` String
     const messageElement = this.#buildMessageElement(currentUserIsSender, data);
 
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement);
@@ -89,9 +86,11 @@ export default class extends Controller {
     return currentUserIsSender ? first_class : second_class;
   }
 }
-// las horas transcurridas en el mesaje del chat
-// cuando se cambie de chat solo reemplazar el chat, actualmete se carga toda la ppag en remoto
-// en vistas mobile y tablet hacer lo de los clicks que uno se vea y el otro despaarezca
 
-// actualizar la rama con lo que pusheo maricus y que funcione el chgat
+// 1.cuando se cambie de chat solo reemplazar el chat, actualmete se carga toda la ppag en remoto
+// me parece que para eso de arriba tendre que cambiar la url a index y no show, el show se muestra al costado
+// de la lista
+// 2.en vistas mobile y tablet hacer lo de los clicks que uno se vea y el otro despaarezca
+// 3.actualizar la rama con lo que pusheo maricus y que funcione el chgat
+
 // revisar el funconamineto del websocket por que se activa en todas las paginas

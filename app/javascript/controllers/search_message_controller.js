@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="search-message"
 export default class extends Controller {
   static values = { chatId: Number }
-  static targets = ['form', 'chats', 'input', 'counter']
+  static targets = ['form', 'chats', 'input', 'counter', 'anchor']
   connect() {
   }
 
@@ -15,5 +15,11 @@ export default class extends Controller {
         this.chatsTarget.outerHTML = data;
         this.counterTarget.innerText = document.querySelectorAll('.chat-detail').length
       })
+  }
+
+  openChat(event) {
+    event.preventDefault();
+    const anchor = event.currentTarget.href
+    console.log(anchor)
   }
 }

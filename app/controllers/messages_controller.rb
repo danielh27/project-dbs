@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
         next_message_hour: messages[index + 1]&.created_at&.strftime("%-d/%m/%Y %H:%M"),
         previous_message_hour: messages.one? ? "No exist" : messages[index - 1].created_at.strftime("%-d/%m/%Y %H:%M"),
         message_hour_partial: render_to_string(partial: "message_hour", locals: { message: @message, chat: @chat,
-                                                                          index: index }),
+                                                                                  index: }),
         can_show_hour: helpers.show_hour?(@message, messages, index),
         can_show_date: helpers.show_date?(@message, messages, index),
         avatar: render_to_string(User::AvatarComponent.new(current_user), locals: { user: current_user }),
