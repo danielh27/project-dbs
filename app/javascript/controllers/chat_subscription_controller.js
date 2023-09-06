@@ -3,8 +3,8 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="chat-subscription"
 export default class extends Controller {
-  static values = { chatId: Number, currentUserId: Number, providerId: Number }
-  static targets = ["messages", "providerStatus", "messageHour"]
+  static values = { chatId: Number, currentUserId: Number }
+  static targets = ["messages", "messageHour"]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
@@ -14,11 +14,6 @@ export default class extends Controller {
         this.#deleteMessageHour(data) }
       }
     );
-
-    // this.channelUser = createConsumer().subscriptions.create(
-    //   { channel: "AppearanceChannel", provider_id: this.providerIdValue, current_user: this.currentUserIdValue },
-    //   { received: (data) => this.#setUserStatus(data) }
-    // );
   }
 
   resetForm(event) {
@@ -27,12 +22,6 @@ export default class extends Controller {
 
   disconnect() {
     this.channel.unsubscribe();
-  }
-
-  #setUserStatus(data) {
-    // console.log(data)
-    // console.log(data.active)
-    // this.providerStatusTarget.innerHTML = data.active ? 'Conectado' : 'Desconectado';
   }
 
   #insertMessageAndScrollDown(data) {
