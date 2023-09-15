@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="search-message"
 export default class extends Controller {
   static values = { chatId: Number, serviceId: Number }
-  static targets = ['form', 'chats', 'input', 'counter', 'anchor', 'hello']
+  static targets = ['form', 'chats', 'input', 'counter', 'anchor']
   connect() {
   }
 
@@ -19,16 +19,21 @@ export default class extends Controller {
 
   openChat(event) {
     event.preventDefault();
-    const anchor = event.currentTarget.href
-    // console.log(anchor)
-    const url = `services/${this.serviceIdValue}/my_chats`
-    // console.log(url)
-
-    fetch(url, { headers: { Accept: 'text/plain' }})
+    const anchor = event.currentTarget
+    console.log(anchor.parentElement.action.split('/').at(-1))
+    const url = `/services/${this.serviceIdValue}/chats/my_chats`
+    let form = new FormData()
+    form.append('hola', anchor.parentElement.action.split('/').at(-1))
+    fetch(url, {
+      method: 'post',
+      headers: { Accept: 'text/plain', "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content},
+      body: form
+    })
       .then(response => response.text())
       .then(data => {
-        console.log(this.helloTarget)
-
+        // console.log(data)
+        // document.querySelector('.chatroom').innerText = data;
+        // document.querySelector('.chatroom').outerHTML = data;
       })
   }
 }
