@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   resources :services do
     resources :chats, only: %i[show create index] do
       resources :messages, only: :create
+      collection do
+        get :my_chats, controller: :chats
+      end
     end
   end
 
