@@ -1,7 +1,7 @@
 <div data-search-message-target="chats">
   <% chats.each do |chat| %>
     <%# Now, requests are remote way, if you want to change it, set turbo: false %>
-    <%= link_to service_chat_path(@service, chat),
+    <%= button_to service_chat_path(@service, chat), method: :get,
                 class: "chat-detail #{background_chat_list_item(@chat.id, chat.id)} text-decoration-none d-flex my-2 px-2 py-2 align-items-center chat-list-item",
                 data: { action: "click->search-message#openChat", search_message_target: 'anchor' } do %>
 
