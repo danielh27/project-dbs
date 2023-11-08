@@ -27,12 +27,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :services do
-    resources :chats, only: %i[show create index] do
+  resources :services, shallow: true do
+    resources :chats, param: :token do
       resources :messages, only: :create
-      collection do
-        get :my_chats, controller: :chats
-      end
+      get :my_chats, controller: :chats, on: :member
     end
   end
 

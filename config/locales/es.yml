@@ -85,3 +85,7 @@ es:
               too_short: "Es demasiado corto (mínimo %{count} caracteres)"
             categories:
               blank: "Debe seleccionar una categoría"
+  chats:
+    create:
+      success: 'Chat iniciado'
+      failure: 'No se pudo crear el chat'
