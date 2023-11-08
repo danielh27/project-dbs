@@ -4,7 +4,7 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chat-subscription"
 export default class extends Controller {
   static values = { chatId: Number, currentUserId: Number }
-  static targets = ["messages", "messageHour"]
+  static targets = ["messages", "messageHour", "test"]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
@@ -22,6 +22,13 @@ export default class extends Controller {
 
   disconnect() {
     this.channel.unsubscribe();
+  }
+
+  showChatList() {
+    this.element.classList.toggle("d-none");
+    this.element.classList.toggle("d-lg-block");
+    document.querySelector("#section-chat-list").classList.toggle("d-block");
+    document.querySelector("#section-chat-list").classList.toggle("d-none");
   }
 
   #insertMessageAndScrollDown(data) {
@@ -76,10 +83,6 @@ export default class extends Controller {
   }
 }
 
-// 1.cuando se cambie de chat solo reemplazar el chat, actualmete se carga toda la ppag en remoto
-// me parece que para eso de arriba tendre que cambiar la url a index y no show, el show se muestra al costado
-// de la lista
-// 2.en vistas mobile y tablet hacer lo de los clicks que uno se vea y el otro despaarezca
 // 3.actualizar la rama con lo que pusheo maricus y que funcione el chgat
 
 // revisar el funconamineto del websocket por que se activa en todas las paginas
