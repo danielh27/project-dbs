@@ -1,7 +1,4 @@
-<div class="container-messages-column me-3"
-     data-controller="search-message"
-     data-search-message-chat-id-value="<%= @chat.id %>">
-
+<div class="container-messages-column me-3">
   <div class="d-none d-flex align-items-center gap-3 mb-4 mt-1 d-lg-inline-flex">
     <%= render User::AvatarComponent.new(current_user, classes: 'avatar-message border-avatar') %>
     <span><%= fullname(@chat.client) %></span>
@@ -13,7 +10,7 @@
   </div>
 
   <div class="px-1 py-2 border border-1 rounded container-search">
-    <%= form_with url: service_chat_path(@service, @chat),
+    <%= form_with url: chat_path(@chat.token),
                   method: :get,
                   data: { search_message_target: 'form' } do |form| %>
       <i class="fa-solid fa-magnifying-glass text-secondary fw-bold px-2"></i>

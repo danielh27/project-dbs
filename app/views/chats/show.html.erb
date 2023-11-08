@@ -1,11 +1,18 @@
 <main>
-  <div class="row justify-content-center" id="wrapper-chat">
-  <%# deberia ponerle d-none solo quite para hacer front %>
-    <section class="col-12 col-sm-10 col-md-9 col-lg-3" id="section-chat-list">
+  <div class="row justify-content-center mt-md-3" id="wrapper-chat">
+
+    <section class="d-none col-12 col-sm-10 col-md-9 col-lg-3" id="section-chat-list"
+             data-controller="search-message"
+             data-search-message-chat-id-value="<%= @chat.id %>"
+             data-search-message-chat-token-value="<%= @chat.token %>">
       <%= render 'chats/chats_list', chats: @chats %>
     </section>
-    <%# no deberia estar d none solo es par asterminar el fornt %>
-    <section class="col-12 col-md-9 col-lg-8" id="section-chats">
+
+    <section class="col-12 col-md-9 col-lg-8" id="section-chats"
+             data-controller="chat-subscription"
+             data-chat-subscription-chat-id-value="<%= @chat.id %>"
+             data-chat-subscription-current-user-id-value="<%= current_user.id %>"
+             data-chat-subscription-provider-id-value="<%= @chat.provider.id %>">
       <%= render 'chats/chat', chat: @chat, message: @message %>
     </section>
 

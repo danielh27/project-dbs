@@ -1,9 +1,4 @@
-<div class="chatroom"
-     data-controller="chat-subscription"
-     data-chat-subscription-chat-id-value="<%= chat.id %>"
-     data-chat-subscription-current-user-id-value="<%= current_user.id %>"
-     data-chat-subscription-provider-id-value="<%= chat.provider.id %>">
-
+<div class="chatroom">
   <div class="d-flex justify-content-between align-items-center py-3 px-4 mx-2 mt-2 container-title-chat">
     <%= render 'shared/user_info_chat', chat: chat %>
   </div>
@@ -49,7 +44,8 @@
   </div>
 
   <div class="form-new-message">
-    <%= simple_form_for [service, chat, message],
+    <%= simple_form_for [chat, message],
+        url: chat_messages_path(chat.token),
         html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" },
         class: "d-flex align-items-center justify-content-center gap-3",
         id: "new-chat-message"} do |f| %>
