@@ -16,7 +16,7 @@ class ChatsController < ApplicationController
 
   def my_chats
     @message = Message.new
-    chat = Chat.find(params[:chat])
+    chat = Chat.find_by(token: params[:chat])
 
     respond_to do |format|
       format.text do
@@ -27,21 +27,20 @@ class ChatsController < ApplicationController
 
   def create
     @chat = Chat.new
-    @chat.name = "Hola"
     @chat.service = @service
     @chat.provider = @service.provider
     @chat.client = current_user
     if @chat.save
-      redirect_to chat_path(@chat), notice: "Chat iniciado"
+      redirect_to chat_path(@chat), notice: t(".success")
     else
-      render "services/show", status: :unprocessable_entity, alert: flash.now[:alert] = "No se pudo crear el chat"
+      render "services/show", status: :unprocessable_entity, alert: flash.now[:alert] = t(".success")
     end
   end
 
   private
 
   def set_chat
-    @chat = Chat.find(params[:id])
+    @chat = Chat.find_by(token: params[:token])
   end
 
   def chat_params
