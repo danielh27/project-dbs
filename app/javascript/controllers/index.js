@@ -5,5 +5,5 @@ import { application } from "./application"
 import ChatSubscriptionController from "./chat_subscription_controller"
 application.register("chat_subscription", ChatSubscriptionController)
 
-import SearchMessagenController from "./search_message_controller"
-application.register("search_message", SearchMessagenController)
+import SearchMessageController from "./search_message_controller"
+application.register("search_message", SearchMessageController)
