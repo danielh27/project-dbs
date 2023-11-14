@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stimulus/hhh'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   devise_for :users, path: '', path_names: { sign_in: 'login' }, controllers: {

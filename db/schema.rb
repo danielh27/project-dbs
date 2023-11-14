@@ -107,7 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_052640) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-\    t.string "business_name", null: false
+    t.string "business_name", null: false
     t.string "ruc", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
