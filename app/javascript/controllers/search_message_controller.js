@@ -38,35 +38,13 @@ export default class extends Controller {
       this.#showChat();
       const newUrl = `${chatToken}`;
       window.history.pushState({}, '', newUrl);
-    } catch (error) { console.log(error) }
+    } catch (error) { }
   }
 
   #showChat() {
     this.element.classList.toggle("d-none");
     this.element.classList.toggle("d-lg-block");
-    document.querySelector("#section-chats").classList.toggle("d-block");
+    document.querySelector("#section-chats").classList.toggle("d-lg-block");
     document.querySelector("#section-chats").classList.toggle("d-none");
   }
-
-  // openChat(event) {
-  //   event.preventDefault();
-  //   const anchor = event.currentTarget;
-  //   const chatId = anchor.href.split('=').at(-1);
-  //   // const url = `/chats/${this.chatIdValue}/my_chats?chat=${chatId}`
-  //   // const url = `/chats/${this.chatIdValue}/my_chats?chat=${chatId}`
-  //   const url = anchor.href
-
-  //   const form = new FormData()
-  //   form.append('chat', chatId)
-  //   fetch(url, {
-  //     method: 'post',
-  //     headers: { Accept: 'text/plain', 'X-CSRF-Token': document.querySelector("meta[name='csrf-token']").content},
-  //     body: form
-  //   }).then(response => response.text())
-  //     .then(data => {
-  //       document.querySelector('.chatroom').outerHTML = data;
-  //       // const newUrl = `?chat=${chatId}`;
-  //       // window.history.pushState({}, '', newUrl);
-  //     })
-  // }
 }
