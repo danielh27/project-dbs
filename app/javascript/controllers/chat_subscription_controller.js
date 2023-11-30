@@ -82,7 +82,3 @@ export default class extends Controller {
     return currentUserIsSender ? first_class : second_class;
   }
 }
-
-// 3.actualizar la rama con lo que pusheo maricus y que funcione el chgat
-
-// revisar el funconamineto del websocket por que se activa en todas las paginas
