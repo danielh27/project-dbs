@@ -35,10 +35,12 @@ export default class extends Controller {
       const response = await fetch(url, { method: 'get', headers: { Accept: 'text/plain'} });
       const data = await response.text();
       document.querySelector('.chatroom').outerHTML = data;
+      document.querySelector('.bg-theme').classList.toggle('bg-theme');
+      event.target.closest(".chat-detail").classList.add('bg-theme');
       this.#showChat();
       const newUrl = `${chatToken}`;
       window.history.pushState({}, '', newUrl);
-    } catch (error) { }
+    } catch (error) { console.log(error) }
   }
 
   #showChat() {
