@@ -3,7 +3,7 @@
     >div:last-child {
       height: calc(100vh - 348px);
       overflow-y: scroll;
-      margin-top: 0.9rem;
+      margin-top: 1rem;
     }
 
     input {
@@ -81,61 +81,6 @@
       >img {
         width: 50px !important;
         height: 50px !important;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 991px) {
-  #section-chat-list {
-    .container-messages-column {
-      margin-right: 0 !important;
-      padding: 0 .5rem;
-
-      h3 {
-        font-size: 1rem;
-        margin-bottom: 0;
-      }
-
-      .amount-messages {
-        font-size: 0.9rem;
-      }
-
-      .bg-theme {
-        background-color: rgba(97, 94, 240, 0.10);
-      }
-
-      .chat-detail {
-        div:nth-child(2) {
-          line-height: normal;
-
-          >div {
-            font-size: 0.9rem;
-          }
-
-          small {
-            display: block;
-            font-size: 0.75rem;
-            margin-top: 3px;
-          }
-        }
-      }
-
-      .container-search {
-        margin: 0.5rem 0.7rem 0;
-      }
-
-      >div:nth-child(2) {
-        margin: 0.8rem 0.7rem 0;
-      }
-
-      >div:last-child {
-        overflow-y: scroll;
-        height: calc(100vh - 172px);
-      }
-
-      .chat-detail:first-child {
-        margin-top: 10px !important;
       }
     }
   }
