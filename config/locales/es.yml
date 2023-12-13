@@ -1,6 +1,9 @@
 es:
   errors:
     format: "%{message}"
+  users:
+    online: Conectado
+    offline: Desconectado
   services:
     title: Servicios
     new: Crea un nuevo servicio
@@ -11,9 +14,20 @@ es:
       success: Servicio actualizado exitosamente
     destroy:
       success: Servicio eliminado exitosamente
+  chats:
+    create:
+      success: 'Chat iniciado'
+      failure: 'No se pudo crear el chat'
+  messages:
+    title: Mensajes
   dashboard:
     services: Servicios
     quotes: Cotizaciones
+  quotations:
+    title_of_quotation: Cotización de %{service_name}
+    my_quotations: Mis cotizaciones
+    search_quotations: Buscar cotizaciones
+    order_in_process: Tu pedido está en proceso, coordine con su proveedor para la aceptación
   helpers:
     submit:
       create: Crear %{model}
@@ -31,6 +45,7 @@ es:
     models:
       user: usuario
       service: servicio
+      quotation: Cotización
     errors:
       models:
         user:
@@ -85,7 +100,3 @@ es:
               too_short: "Es demasiado corto (mínimo %{count} caracteres)"
             categories:
               blank: "Debe seleccionar una categoría"
-  chats:
-    create:
-      success: 'Chat iniciado'
-      failure: 'No se pudo crear el chat'
