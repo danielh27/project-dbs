@@ -5,7 +5,7 @@
 
   <div class="messages text-break" data-chat-subscription-target="messages">
     <div class="d-flex justify-content-center">
-      <p class="rounded-pill fw-semibold text-center">Tu pedido está en proceso, coordine con su proveedor para la aceptación</p>
+      <p class="rounded-pill fw-semibold text-center"><%= t('quotations.order_in_process') %></p>
     </div>
     <% previous_sender = nil %>
 
@@ -63,7 +63,7 @@
 
       <%= link_to root_path, class: "d-none d-flex align-items-center text-decoration-none new-quotation-button" do %>
         <i class="fa-solid fa-plus me-2 fw-bold fs-6"></i>
-        <span class="fw-bold d-none d-md-block">Cotización</span>
+        <span class="fw-bold d-md-block"><%= t('activerecord.models.quotation') %></span>
       <% end %>
     <% end %>
   </div>

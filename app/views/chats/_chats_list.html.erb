@@ -1,12 +1,12 @@
 <div class="container-messages-column me-lg-3">
-  <div class="d-none d-flex align-items-center gap-3 mb-4 mt-1 d-lg-inline-flex">
+  <div class="d-none d-flex align-items-center gap-3 mb-4 mt-1 d-lg-inline-flex current-user-info">
     <%= render User::AvatarComponent.new(current_user, classes: 'avatar-message border-avatar') %>
     <span><%= fullname(@chat.client) %></span>
   </div>
 
   <div class="d-flex align-items-center gap-2 mb-1">
-    <h3 class="fw-bold">Mensajes</h3>
-    <span class="amount-messages fs-6 fw-light rounded px-2" data-search-message-target="counter"><%= @chats&.size %></span>
+    <h3 class="fw-bold"><%= t('messages.title') %></h3>
+    <span class="amount-messages fs-6 fw-light rounded px-2" data-search-message-target="counter"><%= @chats.length %></span>
   </div>
 
   <div class="px-1 py-2 border border-1 rounded container-search">
