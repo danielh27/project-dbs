@@ -1,13 +1,16 @@
-class ChatPresenter
+class Chat::MessageDateComponent < ApplicationComponent
   def initialize(chat)
+    super
     @chat = chat
   end
 
   def last_message_date
-    return "" if @chat.messages.empty?
+    return "" unless @chat.messages
 
     content_to_define
   end
+
+  private
 
   def content_to_define
     return format_date unless last_message_same_year_to_today

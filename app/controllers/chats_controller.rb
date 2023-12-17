@@ -1,12 +1,12 @@
 class ChatsController < ApplicationController
   before_action :set_service, only: %i[create]
   before_action :set_chat, only: %i[show]
+  include ChatConcern
 
   def show
     @message = Message.new
-    @order_chats = current_user.client_chats.left_joins(:messages).order("messages.created_at DESC NULLS LAST")
-    @chats = @order_chats.uniq
-    query_filter
+    @chats = chats_available.distinct
+    filter_name
 
     respond_to do |format|
       format.html
@@ -33,7 +33,7 @@ class ChatsController < ApplicationController
     if @chat.save
       redirect_to chat_path(@chat), notice: t(".success")
     else
-      render "services/show", status: :unprocessable_entity, alert: flash.now[:alert] = t(".success")
+      render "services/show", status: :unprocessable_entity, alert: flash.now[:alert] = t(".failure")
     end
   end
 
@@ -49,14 +49,5 @@ class ChatsController < ApplicationController
 
   def set_service
     @service = Service.find(params[:service_id].to_i)
-  end
-
-  def query_filter
-    return if params[:query].blank?
-
-    sql_query = " \
-      business_name iLIKE :query"
-
-    @chats = @order_chats.joins(:provider).where(sql_query, query: "%#{params[:query]}%").uniq
   end
 end
