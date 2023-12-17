@@ -4,7 +4,7 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chat-subscription"
 export default class extends Controller {
   static values = { chatId: Number, currentUserId: Number }
-  static targets = ["messages", "messageHour", "test"]
+  static targets = ["messages", "messageHour"]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
