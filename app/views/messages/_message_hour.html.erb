@@ -1,0 +1,3 @@
+<% if show_hour?(message, chat.messages, index) %>
+  <%= message.created_at.strftime("%H:%M") %>
+<% end %>

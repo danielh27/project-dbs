@@ -1,25 +1,45 @@
-<h2>Mis Cotizaciones</h2>
-<p>Cotizaciones formales</p>
-
 <div>
-  <% current_user.quotations.each do |quotation| %>
-    <div class="d-flex align-items-center mb-1 bg-white">
-      <div>
-        <%= image_tag 'svg/document-bullet.svg', width: '24px' %>
-      </div>
+  <div class="container-title-chat bg-white">
+    <%= render 'shared/user_info_chat', chat: chat, quotation: 'd-none' %>
+  </div>
 
-      <div class="d-flex justify-content-between align-items-center flex-fill">
-        <div>
-          <small><%= quotation.status %></small>
-          <p class="mb-0"><%= "Cotización de #{quotation.service.name}" %></p>
-        </div>
-
-        <div class="me-2">
-          <%= link_to root_path do %>
-            <%= image_tag 'svg/redirection.svg', width: '30px' %>
-          <% end %>
-        </div>
-      </div>
+  <div class="container-my-quotations mb-3">
+    <h4 class="fw-bold mb-0 h6 mt-3 mb-2"><%= t('quotations.my_quotations') %></h4>
+    <div class="px-1 py-2 border border-1 rounded container-search mt-1">
+      <%= form_with url: '#',
+                    method: :get do |form| %>
+        <i class="fa-solid fa-magnifying-glass text-secondary fw-bold px-2"></i>
+        <%= form.text_field :query_quotation,
+                            value: '',
+                            placeholder: t('quotations.search_quotations'),
+                            class: "border border-0 bg-transparent" %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="list-quotations">
+    <% current_user.quotations.each do |quotation| %>
+      <div>
+        <small class="text-secondary"><%= quotation.created_at.strftime("%Y-%m-%d") %></small>
+        <div class="d-flex align-items-center mb-1 p-2 border-bottom border-2 bg-white container-quotation-info">
+          <div class="px-2">
+            <%= image_tag 'svg/chat/document-bullet.svg', width: '24px' %>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center flex-fill">
+            <div>
+              <small class="quotation-status"><%= quotation.status %></small>
+              <p class="mb-0"><%= t('quotations.title_of_quotation', service_name: quotation.service.name) %></p>
+            </div>
+
+            <div class="me-2">
+              <%= link_to root_path do %>
+                <%= image_tag 'svg/chat/redirection.svg', width: '34px' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

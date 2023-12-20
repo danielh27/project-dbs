@@ -1,19 +1,16 @@
 class MessagesController < ApplicationController
-  before_action :set_service, only: :create
+  before_action :chat, only: %i[create]
+  include ChatConcern
 
   def create
-    @chat = Chat.find(params[:chat_id])
     @message = Message.new(message_params)
     @message.chat = @chat
     @message.sender = current_user
 
     if @message.save
-      ChatChannel.broadcast_to(
-        @chat,
-        message: render_to_string(partial: "message", locals: { message: @message }),
-        sender_id: @message.sender.id,
-        avatar: render_to_string(User::AvatarComponent.new(current_user), locals: { user: current_user }),
-      )
+      messages = @chat.messages
+      index = messages.count - 1
+      broadcast_to_chat_channel(messages, index)
       head :ok
     else
       render "chats/show", status: :unprocessable_entity
@@ -26,7 +23,7 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 
-  def set_service
-    @service = Service.find(params[:service_id])
+  def chat
+    @chat ||= Chat.find_by(token: params[:chat_token])
   end
 end

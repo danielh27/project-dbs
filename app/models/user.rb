@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-
   before_update :set_nickname_last_updated
   before_update :update_nickname_last_updated, if: :nickname_changed?
 

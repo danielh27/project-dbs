@@ -1,21 +1,26 @@
-<div class="mt-5" data-search-message-target="chats">
+<div data-search-message-target="chats" class="container-chat-list-item">
   <% chats.each do |chat| %>
     <%# Now, requests are remote way, if you want to change it, set turbo: false %>
-    <%= link_to service_chat_path(@service, chat),
-                class: "rounded chat-detail #{background_chat_list_item(@chat.id, chat.id)} text-decoration-none d-flex my-2 px-2 py-2 align-items-center chat-list-item" do %>
+    <%= link_to chat_path(chat.token), method: :get,
+                class: "chat-detail #{background_chat_list_item(@chat.token, chat.token)} text-decoration-none d-flex my-2 px-2 py-2 align-items-center chat-list-item",
+                data: { action: "click->search-message#openChat", search_message_target: 'anchor' } do %>
 
       <div class="me-3">
-        <%= cl_image_tag chat.provider.avatar.key, class: "avatar", alt: "avatar" %>
+        <%= cl_image_tag chat.provider.avatar.key, class: "avatar-title-chat", alt: "avatar" %>
       </div>
 
-      <div>
-        <div>
+      <div class="align-self-start flex-grow-1 overflow-hidden chat-info-interlocutor">
+        <div class="text-dark fw-bold">
           <%= fullname(chat.provider) %>
         </div>
 
-        <div>
-          <%= chat&.messages&.last&.content.to_s.truncate(20, separator: ' ') %>
-        </div>
+        <small class="fw-semibold">
+          <%= chat&.messages&.last&.content.to_s %>
+        </small>
+      </div>
+
+      <div class="align-self-start lh-1 flex-grow-1 chat-info-date">
+        <%= render Chat::MessageDateComponent.new(chat) %>
       </div>
     <% end %>
   <% end %>

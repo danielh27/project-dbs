@@ -1,17 +1,12 @@
 class ChatsController < ApplicationController
-  before_action :set_service, only: %i[show create]
+  before_action :set_service, only: %i[create]
   before_action :set_chat, only: %i[show]
+  include ChatConcern
 
   def show
     @message = Message.new
-    @chats = current_user.client_chats
-
-    if params[:query].present?
-      sql_query = " \
-        business_name iLIKE :query"
-
-      @chats = @chats.joins(:provider).where(sql_query, query: "%#{params[:query]}%")
-    end
+    @chats = chats_available.distinct
+    filter_name
 
     respond_to do |format|
       format.html
@@ -19,23 +14,33 @@ class ChatsController < ApplicationController
     end
   end
 
+  def my_chats
+    @message = Message.new
+    chat = Chat.find_by(token: params[:chat])
+
+    respond_to do |format|
+      format.text do
+        render partial: "chats/chat", locals: { chat:, message: @message }, formats: [:html]
+      end
+    end
+  end
+
   def create
     @chat = Chat.new
-    @chat.name = "Hola"
     @chat.service = @service
     @chat.provider = @service.provider
     @chat.client = current_user
     if @chat.save
-      redirect_to service_chat_path(@service, @chat), notice: "Chat iniciado"
+      redirect_to chat_path(@chat), notice: t(".success")
     else
-      render "services/show", status: :unprocessable_entity, alert: flash.now[:alert] = "No se pudo crear el chat"
+      render "services/show", status: :unprocessable_entity, alert: flash.now[:alert] = t(".failure")
     end
   end
 
   private
 
   def set_chat
-    @chat = Chat.find(params[:id])
+    @chat = Chat.find_by(token: params[:token])
   end
 
   def chat_params
