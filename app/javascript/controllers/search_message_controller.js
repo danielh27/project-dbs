@@ -19,9 +19,15 @@ export default class extends Controller {
 
   async restorationVisit() {
     const currentUrl = window.location.href;
+    console.log(currentUrl)
     const url = `/chats/${this.chatTokenValue}/my_chats?chat=${currentUrl.split('/').at(-1)}`;
     const data = await ApiService.get(url);
     document.querySelector('.chatroom').outerHTML = data;
+    document.querySelector('.bg-theme').classList.toggle('bg-theme');
+    const container = Array.from(document.querySelectorAll('.chat-detail')).find((element) => {
+      return element.href.split('/').at(-1) === currentUrl.split('/').at(-1)
+    });
+    container.classList.add('bg-theme');
   }
 
   async openChat(event) {
