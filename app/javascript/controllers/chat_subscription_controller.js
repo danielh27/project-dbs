@@ -27,7 +27,7 @@ export default class extends Controller {
   showChatList() {
     this.element.classList.toggle("d-none");
     this.element.classList.toggle("d-lg-block");
-    document.querySelector("#section-chat-list").classList.toggle("d-block");
+    document.querySelector("#section-chat-list").classList.toggle("d-lg-block");
     document.querySelector("#section-chat-list").classList.toggle("d-none");
   }
 

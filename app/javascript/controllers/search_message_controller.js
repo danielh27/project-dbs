@@ -19,19 +19,20 @@ export default class extends Controller {
 
   async restorationVisit() {
     const currentUrl = window.location.href;
-    const url = `/chats/${this.chatTokenValue}/my_chats?chat=${currentUrl.split('/').at(-1)}`;
+    const url = `/chats/${this.chatTokenValue}/my_chats?chat=${this.#getToken(currentUrl)}`;
     const data = await ApiService.get(url);
-    document.querySelector('.chatroom').outerHTML = data;
+    const chatElement = Array.from(document.querySelectorAll('.chat-detail')).find((chatContainer) => {
+      return this.#getToken(chatContainer.href) === this.#getToken(currentUrl);
+    });
+    this.#actionsAfterPositiveRequest(data, chatElement);
   }
 
   async openChat(event) {
     event.preventDefault();
-    const chatToken = event.currentTarget.href.split('/').at(-1);
+    const chatToken = this.#getToken(event.currentTarget.href);
     const url = `/chats/${this.chatTokenValue}/my_chats?chat=${chatToken}`;
     const data = await ApiService.get(url);
-    document.querySelector('.chatroom').outerHTML = data;
-    document.querySelector('.bg-theme').classList.toggle('bg-theme');
-    event.target.closest(".chat-detail").classList.add('bg-theme');
+    this.#actionsAfterPositiveRequest(data, event.target.closest(".chat-detail"));
     this.#showChat();
     const newUrl = `${chatToken}`;
     window.history.pushState({}, '', newUrl);
@@ -42,5 +43,15 @@ export default class extends Controller {
     this.element.classList.toggle("d-lg-block");
     document.querySelector("#section-chats").classList.toggle("d-lg-block");
     document.querySelector("#section-chats").classList.toggle("d-none");
+  }
+
+  #getToken(url) {
+    return url.split('/').at(-1);
+  }
+
+  #actionsAfterPositiveRequest(requestContent, actualChatElement) {
+    document.querySelector('.chatroom').outerHTML = requestContent;
+    document.querySelector('.bg-theme').classList.remove('bg-theme');
+    actualChatElement.classList.add('bg-theme');
   }
 }
