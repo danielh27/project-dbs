@@ -33,6 +33,6 @@ class Services::CardComponent < ApplicationComponent
   end
 
   def avatar_component
-    User::AvatarComponent.new(@service.provider, width: 26, height: 26)
+    User::AvatarComponent.new(@service.provider, show_name: true, width: 26, height: 26)
   end
 end

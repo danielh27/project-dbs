@@ -1,9 +1,15 @@
 <% if user.avatar.key %>
   <%= cl_image_tag user.avatar.key, class: "avatar #{classes}", alt: "avatar", data: %>
 <% else %>
-  <%= image_tag "https://source.unsplash.com/random/?avatar",
-    class: "avatar #{classes}",
-    alt: "avatar",
-    height: @height,
-    width: @width %>
+  <div class="d-flex align-items-center align-items-center gap-2">
+    <%= image_tag "https://source.unsplash.com/random/?avatar",
+      class: "avatar #{classes}",
+      alt: "avatar",
+      height: height,
+      width: width %>
+    
+    <% if show_name %>
+      <span><%= user_name%></span>
+    <% end %>
+  </div>
 <% end %>
