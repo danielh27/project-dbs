@@ -4,6 +4,6 @@
   </div>
 
     <div class="row mt-4">
-      <%= render @services %>
+      <%= render Services::CardComponent.with_collection(@services) %>
     </div>
 </main>
