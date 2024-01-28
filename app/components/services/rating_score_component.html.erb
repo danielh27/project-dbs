@@ -1,4 +1,12 @@
 <div class="rating-section d-flex align-items-center gap-1">
-  <%= image_tag start_icon_path %>
+    <%# Generate 5 stars and fill them base on the score_rounded %>
+  <% if use_multiple_stars %>
+    <% (1..5).each do |i| %>
+      <%= inline_svg_tag start_icon_path, class: i <= score_rounded ? "active" : nil %>
+    <% end %>
+  <% else %>
+    <%= inline_svg_tag start_icon_path, class: "active" %>
+  <% end %>
+
   <span class="rating-score fw-bold fs-6"><%= score %></span>
 </div>

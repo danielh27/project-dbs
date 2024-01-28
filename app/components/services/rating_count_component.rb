@@ -3,7 +3,7 @@
 class Services::RatingCountComponent < ApplicationComponent
   attr_reader :count
 
- def initialize(count: 0)
-   @count = count
- end
+  def initialize(count: 0)
+    @count = count
+  end
 end

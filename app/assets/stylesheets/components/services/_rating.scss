@@ -1,3 +1,11 @@
 .rating-section {
   color: #EEC946;
+
+  svg {
+    fill: #D9D9D9;
+  }
+
+  svg.active {
+    fill: #EEC946;
+  }
 }
