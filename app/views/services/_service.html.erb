@@ -1,17 +1,23 @@
-<div class="col">
-  <div class="card service-card">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+  <div class="card service-card rounded-3">
     <div class="card-image">
       <%= image_tag "https://source.unsplash.com/random/?avatar", class: "card-img-top" %>
     </div>
-    <div class="card-body">
-      <p class="card-text d-flex justify-content-between">
-        <span><%= service.provider.business_name %></span>
+    <div class="card-body d-flex flex-column gap-2">
+      <div class="card-text d-flex justify-content-between">
+        <div class="d-flex align-items-center align-items-center gap-2">
+          <%= render User::AvatarComponent.new(service.provider, width: 26, height: 26) %>
+          <span><%= service.provider.business_name %></span>
+        </div>
         <span>#Category</span>
-      </p>
+      </div>
       <p class="card-text card-description"><%= service.description %></p>
     </div>
     <div class="card-footer d-flex justify-content-between">
-      <span>#Review</span>
+      <div class="card-rating d-flex align-items-center gap-1">
+        <%= image_tag "svg/start_icon.svg" %>
+        <span class="card-rating-number fw-bold fs-6">4.5</span>
+      </div>
       <span class="card-price"><%= service.price %></span>
     </div>
   </div>
