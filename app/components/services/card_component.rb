@@ -24,12 +24,12 @@ class Services::CardComponent < ApplicationComponent
     service.description
   end
 
-  def start_icon_path
-    "svg/start_icon.svg"
-  end
-
   def price
     service.price
+  end
+
+  def rating_component
+    Services::RatingComponent.new(score: @service.rating)
   end
 
   def avatar_component

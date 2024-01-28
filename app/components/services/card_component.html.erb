@@ -18,10 +18,7 @@
 
       <%# Footer Section (Price and Review Rating) %>
       <div class="card-footer d-flex justify-content-between">
-        <div class="card-rating d-flex align-items-center gap-1">
-          <%= image_tag start_icon_path %>
-          <span class="card-rating-number fw-bold fs-6">4.5</span>
-        </div>
+        <%= render rating_component %>
         <span class="card-price"><%= price %></span>
       </div>
 
