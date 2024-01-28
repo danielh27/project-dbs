@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Services::RatingComponent < ApplicationComponent
+class Services::RatingScoreComponent < ApplicationComponent
   attr_reader :score
 
   def initialize(score: 0)

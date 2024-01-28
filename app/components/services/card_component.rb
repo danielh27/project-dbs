@@ -29,7 +29,7 @@ class Services::CardComponent < ApplicationComponent
   end
 
   def rating_component
-    Services::RatingComponent.new(score: @service.rating)
+    Services::RatingScoreComponent.new(score: @service.rating)
   end
 
   def avatar_component
