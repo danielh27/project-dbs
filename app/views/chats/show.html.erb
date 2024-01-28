@@ -1,23 +1,21 @@
-<main>
-  <div class="row justify-content-center mt-md-3" id="wrapper-chat">
+<div class="row justify-content-center mt-md-3" id="wrapper-chat">
 
-    <section class="d-none d-lg-block col-12 col-sm-10 col-md-9 col-lg-3" id="section-chat-list"
-             data-controller="search-message"
-             data-search-message-chat-id-value="<%= @chat.id %>"
-             data-search-message-chat-token-value="<%= @chat.token %>">
-      <%= render 'chats/chats_list', chats: @chats %>
-    </section>
+  <section class="d-none d-lg-block col-12 col-sm-10 col-md-9 col-lg-3" id="section-chat-list"
+            data-controller="search-message"
+            data-search-message-chat-id-value="<%= @chat.id %>"
+            data-search-message-chat-token-value="<%= @chat.token %>">
+    <%= render 'chats/chats_list', chats: @chats %>
+  </section>
 
-    <section class="col-12 col-md-9 col-lg-8" id="section-chats"
-             data-controller="chat-subscription"
-             data-chat-subscription-chat-id-value="<%= @chat.id %>"
-             data-chat-subscription-current-user-id-value="<%= current_user.id %>"
-             data-chat-subscription-provider-id-value="<%= @chat.provider.id %>">
-      <%= render 'chats/chat', chat: @chat, message: @message %>
-    </section>
+  <section class="col-12 col-md-9 col-lg-8" id="section-chats"
+            data-controller="chat-subscription"
+            data-chat-subscription-chat-id-value="<%= @chat.id %>"
+            data-chat-subscription-current-user-id-value="<%= current_user.id %>"
+            data-chat-subscription-provider-id-value="<%= @chat.provider.id %>">
+    <%= render 'chats/chat', chat: @chat, message: @message %>
+  </section>
 
-    <section class="d-none col-12 col-md-3" id="section-quotations">
-      <%= render 'chats/quotations', chat: @chat %>
-    </section>
-  </div>
-</main>
+  <section class="d-none col-12 col-md-3" id="section-quotations">
+    <%= render 'chats/quotations', chat: @chat %>
+  </section>
+</div>
